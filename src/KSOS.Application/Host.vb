@@ -1,4 +1,4 @@
-Public Class Host
+Public Module Host
     Const OkText = "Ok"
     Public Sub Run()
         Console.Title = "Key Seeker of SPLORR!!"
@@ -9,4 +9,4 @@ Public Class Host
         prompt.AddChoice(OkText)
         AnsiConsole.Prompt(prompt)
     End Sub
-End Class
+End Module

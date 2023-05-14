@@ -1,6 +1,5 @@
 Module Program
     Sub Main(args As String())
-        Dim host = New Host
-        host.Run()
+        Host.Run()
     End Sub
 End Module
