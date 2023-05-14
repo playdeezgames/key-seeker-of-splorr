@@ -16,6 +16,13 @@
             Return LocationData.Routes.Keys.Select(Function(x) New Route(WorldData, Id, x))
         End Get
     End Property
+
+    Public ReadOnly Property LocationType As LocationType Implements ILocation.LocationType
+        Get
+            Return LocationData.LocationType
+        End Get
+    End Property
+
     Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
         LocationData.CharacterIds.Add(character.Id)
     End Sub

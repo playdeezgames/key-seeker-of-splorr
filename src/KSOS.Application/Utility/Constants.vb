@@ -25,6 +25,10 @@ Friend Module Constants
             {Direction.Inside, "In"},
             {Direction.Outside, "Out"}
         }
+    <Extension>
+    Friend Function Name(direction As Direction) As String
+        Return directionNames(direction)
+    End Function
     Private ReadOnly routeTypeNames As IReadOnlyDictionary(Of RouteType, String) =
         New Dictionary(Of RouteType, String) From
         {
@@ -36,8 +40,17 @@ Friend Module Constants
     Friend Function Name(routeType As RouteType) As String
         Return routeTypeNames(routeType)
     End Function
+    Private ReadOnly locationTypeNames As IReadOnlyDictionary(Of LocationType, String) =
+        New Dictionary(Of LocationType, String) From
+        {
+            {LocationType.ForestCorner, "a forest"},
+            {LocationType.Forest, "a forest"},
+            {LocationType.ForestCenter, "a forest"},
+            {LocationType.Town, "town"},
+            {LocationType.TownEdge, "town"}
+        }
     <Extension>
-    Friend Function Name(direction As Direction) As String
-        Return directionNames(direction)
+    Friend Function Name(locationType As LocationType) As String
+        Return locationTypeNames(locationType)
     End Function
 End Module

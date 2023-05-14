@@ -18,6 +18,16 @@
             End If
         End Set
     End Property
+
+    Public Property Name As String Implements ICharacter.Name
+        Get
+            Return CharacterData.Name
+        End Get
+        Set(value As String)
+            CharacterData.Name = value
+        End Set
+    End Property
+
     Public Sub Move(direction As Direction) Implements ICharacter.Move
         Dim route As IRoute = Location.GetRoute(direction)
         If route Is Nothing Then
