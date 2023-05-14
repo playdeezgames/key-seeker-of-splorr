@@ -24,9 +24,11 @@ Friend Module TownInitializer
             For row = 0 To Rows - 1
                 Dim cell = maze.GetCell(column, row)
                 For Each direction In cell.Directions
-                    Dim nextColumn = CInt(mazeDirections(direction).DeltaX) + column
-                    Dim nextRow = CInt(mazeDirections(direction).DeltaY) + row
-                    mazeLocations(column, row).CreateRoute(direction, mazeLocations(nextColumn, nextRow))
+                    If cell.GetDoor(direction).Open Then
+                        Dim nextColumn = CInt(mazeDirections(direction).DeltaX) + column
+                        Dim nextRow = CInt(mazeDirections(direction).DeltaY) + row
+                        mazeLocations(column, row).CreateRoute(direction, mazeLocations(nextColumn, nextRow))
+                    End If
                 Next
             Next
         Next
