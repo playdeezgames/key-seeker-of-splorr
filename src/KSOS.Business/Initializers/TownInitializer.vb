@@ -7,7 +7,11 @@
         Dim mazeLocations(Columns - 1, Rows - 1) As ILocation
         For column = 0 To Columns - 1
             For row = 0 To Rows - 1
-                mazeLocations(column, row) = world.CreateLocation()
+                Dim lt = If(
+                    column = 0 OrElse column = Columns - 1 OrElse row = 0 OrElse row = Rows - 1,
+                    LocationType.TownEdge,
+                    LocationType.Town)
+                mazeLocations(column, row) = world.CreateLocation(lt)
             Next
         Next
         For column = 0 To Columns - 1
