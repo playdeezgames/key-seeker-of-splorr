@@ -18,4 +18,11 @@
             End If
         End Set
     End Property
+    Public Sub Move(direction As Direction) Implements ICharacter.Move
+        Dim route As IRoute = Location.GetRoute(direction)
+        If route Is Nothing Then
+            Return
+        End If
+        Location = route.Destination
+    End Sub
 End Class
