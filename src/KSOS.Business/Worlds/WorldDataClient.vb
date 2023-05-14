@@ -5,7 +5,7 @@
             Return _data
         End Get
     End Property
-    Sub New(data As WorldData)
+    Protected Sub New(data As WorldData)
         _data = data
     End Sub
 End Class
