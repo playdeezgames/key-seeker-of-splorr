@@ -867,10 +867,24 @@
       "System.Memory/4.5.5": {},
       "KSOS.Application/1.0.0": {
         "dependencies": {
+          "KSOS.Business": "1.0.0",
           "Spectre.Console": "0.46.0"
         },
         "runtime": {
           "KSOS.Application.dll": {}
+        }
+      },
+      "KSOS.Business/1.0.0": {
+        "dependencies": {
+          "KSOS.Data": "1.0.0"
+        },
+        "runtime": {
+          "KSOS.Business.dll": {}
+        }
+      },
+      "KSOS.Data/1.0.0": {
+        "runtime": {
+          "KSOS.Data.dll": {}
         }
       }
     }
@@ -901,6 +915,16 @@
       "hashPath": "system.memory.4.5.5.nupkg.sha512"
     },
     "KSOS.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "KSOS.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "KSOS.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
