@@ -550,14 +550,6 @@
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.1623.17311"
           },
-          "System.Text.Encodings.Web.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.1623.17311"
-          },
-          "System.Text.Json.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.1623.17311"
-          },
           "System.Text.RegularExpressions.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.1623.17311"
@@ -865,6 +857,30 @@
         }
       },
       "System.Memory/4.5.5": {},
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "System.Text.Encodings.Web/7.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "System.Text.Json/7.0.2": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Text.Json.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.323.6910"
+          }
+        }
+      },
       "KSOS.Application/1.0.0": {
         "dependencies": {
           "KSOS.Business": "1.0.0",
@@ -877,7 +893,8 @@
       "KSOS.Business/1.0.0": {
         "dependencies": {
           "KSOS.Data": "1.0.0",
-          "SPLORR.Game": "1.0.0"
+          "SPLORR.Game": "1.0.0",
+          "System.Text.Json": "7.0.2"
         },
         "runtime": {
           "KSOS.Business.dll": {}
@@ -919,6 +936,27 @@
       "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
       "path": "system.memory/4.5.5",
       "hashPath": "system.memory.4.5.5.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "System.Text.Encodings.Web/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OP6umVGxc0Z0MvZQBVigj4/U31Pw72ITihDWP9WiWDm+q5aoe0GaJivsfYGq53o6dxH7DcXWiCTl7+0o2CGdmg==",
+      "path": "system.text.encodings.web/7.0.0",
+      "hashPath": "system.text.encodings.web.7.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/LZf/JrGyilojqwpaywb+sSz8Tew7ij4K/Sk+UW8AKfAK7KRhR6mKpKtTm06cYA7bCpGTWfYksIW+mVsdxPegQ==",
+      "path": "system.text.json/7.0.2",
+      "hashPath": "system.text.json.7.0.2.nupkg.sha512"
     },
     "KSOS.Application/1.0.0": {
       "type": "project",
