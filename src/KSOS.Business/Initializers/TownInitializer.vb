@@ -1,17 +1,7 @@
-﻿Imports System.Security.Cryptography.X509Certificates
-
-Friend Module TownInitializer
+﻿Friend Module TownInitializer
     Const Columns = 5
     Const Rows = 5
-    ReadOnly mazeDirections As IReadOnlyDictionary(Of Direction, MazeDirection(Of Direction)) =
-        New Dictionary(Of Direction, MazeDirection(Of Direction)) From
-        {
-            {Direction.North, New MazeDirection(Of Direction)(Direction.South, 0, -1)},
-            {Direction.East, New MazeDirection(Of Direction)(Direction.West, 1, 0)},
-            {Direction.South, New MazeDirection(Of Direction)(Direction.North, 0, 1)},
-            {Direction.West, New MazeDirection(Of Direction)(Direction.East, -1, 0)}
-        }
-    Friend Sub Initialize(world As IWorld)
+    Friend Sub Initialize(world As IWorld, forestCenter As ILocation)
         Dim maze As New Maze(Of Direction)(Columns, Rows, mazeDirections)
         maze.Generate()
         Dim mazeLocations(Columns - 1, Rows - 1) As ILocation
@@ -32,6 +22,11 @@ Friend Module TownInitializer
                 Next
             Next
         Next
+        mazeLocations(Columns \ 2, 0).CreateRoute(Direction.Outside, forestCenter)
+        mazeLocations(Columns \ 2, Rows - 1).CreateRoute(Direction.Outside, forestCenter)
+        mazeLocations(0, Rows \ 2).CreateRoute(Direction.Outside, forestCenter)
+        mazeLocations(Columns - 1, Rows \ 2).CreateRoute(Direction.Outside, forestCenter)
+        forestCenter.CreateRoute(Direction.Inside, mazeLocations(Columns \ 2, Rows - 1))
         Dim character As ICharacter = world.CreateCharacter(mazeLocations(RNG.FromRange(0, Columns - 1), RNG.FromRange(0, Rows - 1)))
         world.SetAvatar(character)
     End Sub

@@ -19,7 +19,9 @@ Friend Module Constants
             {Direction.North, "North"},
             {Direction.East, "East"},
             {Direction.South, "South"},
-            {Direction.West, "West"}
+            {Direction.West, "West"},
+            {Direction.Inside, "In"},
+            {Direction.Outside, "Out"}
         }
     <Extension>
     Friend Function Name(direction As Direction) As String

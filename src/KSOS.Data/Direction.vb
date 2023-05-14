@@ -3,4 +3,6 @@
     East
     South
     West
+    Outside
+    Inside
 End Enum
