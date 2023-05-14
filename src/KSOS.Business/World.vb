@@ -1,11 +1,20 @@
 Public Class World
     Inherits WorldDataClient
     Implements IWorld
+    Public ReadOnly Property Avatar As ICharacter Implements IWorld.Avatar
+        Get
+            If WorldData.CharacterIndex.HasValue Then
+                Return New Character(WorldData, WorldData.CharacterIndex.Value)
+            End If
+            Return Nothing
+        End Get
+    End Property
     Public Sub New(data As WorldData)
         MyBase.New(data)
     End Sub
     Public Sub New()
         MyBase.New(New WorldData)
+        WorldInitializer.Initialize(Me)
     End Sub
     Public Sub SetAvatar(character As ICharacter) Implements IWorld.SetAvatar
         WorldData.CharacterIndex = character?.Id
