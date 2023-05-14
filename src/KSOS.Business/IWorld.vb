@@ -1,2 +1,2 @@
-﻿Friend Interface IWorld
+﻿Public Interface IWorld
 End Interface
