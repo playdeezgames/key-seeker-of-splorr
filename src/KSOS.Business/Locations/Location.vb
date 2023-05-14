@@ -22,8 +22,12 @@
     Public Sub RemoveCharacter(character As ICharacter) Implements ILocation.RemoveCharacter
         LocationData.CharacterIds.Remove(character.Id)
     End Sub
-    Public Function CreateRoute(direction As Direction, destination As ILocation) As IRoute Implements ILocation.CreateRoute
-        LocationData.Routes(direction) = New RouteData With {.ToLocationId = destination.Id}
+    Public Function CreateRoute(direction As Direction, routeType As RouteType, destination As ILocation) As IRoute Implements ILocation.CreateRoute
+        LocationData.Routes(direction) = New RouteData With
+            {
+                .ToLocationId = destination.Id,
+                .RouteType = routeType
+            }
         Return New Route(WorldData, Id, direction)
     End Function
 

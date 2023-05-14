@@ -12,4 +12,9 @@
             Return New Location(WorldData, RouteData.ToLocationId)
         End Get
     End Property
+    Public ReadOnly Property RouteType As RouteType Implements IRoute.RouteType
+        Get
+            Return RouteData.RouteType
+        End Get
+    End Property
 End Class

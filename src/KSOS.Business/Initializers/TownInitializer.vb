@@ -17,16 +17,16 @@
                     If cell.GetDoor(direction).Open Then
                         Dim nextColumn = CInt(mazeDirections(direction).DeltaX) + column
                         Dim nextRow = CInt(mazeDirections(direction).DeltaY) + row
-                        mazeLocations(column, row).CreateRoute(direction, mazeLocations(nextColumn, nextRow))
+                        mazeLocations(column, row).CreateRoute(direction, RouteType.DirtRoad, mazeLocations(nextColumn, nextRow))
                     End If
                 Next
             Next
         Next
-        mazeLocations(Columns \ 2, 0).CreateRoute(Direction.North, forestCenter)
-        mazeLocations(Columns \ 2, Rows - 1).CreateRoute(Direction.South, forestCenter)
-        mazeLocations(0, Rows \ 2).CreateRoute(Direction.West, forestCenter)
-        mazeLocations(Columns - 1, Rows \ 2).CreateRoute(Direction.East, forestCenter)
-        forestCenter.CreateRoute(Direction.Inside, mazeLocations(Columns \ 2, Rows - 1))
+        mazeLocations(Columns \ 2, 0).CreateRoute(Direction.North, RouteType.TownGate, forestCenter)
+        mazeLocations(Columns \ 2, Rows - 1).CreateRoute(Direction.South, RouteType.TownGate, forestCenter)
+        mazeLocations(0, Rows \ 2).CreateRoute(Direction.West, RouteType.TownGate, forestCenter)
+        mazeLocations(Columns - 1, Rows \ 2).CreateRoute(Direction.East, RouteType.TownGate, forestCenter)
+        forestCenter.CreateRoute(Direction.Inside, RouteType.TownGate, mazeLocations(Columns \ 2, Rows - 1))
         Dim character As ICharacter = world.CreateCharacter(mazeLocations(RNG.FromRange(0, Columns - 1), RNG.FromRange(0, Rows - 1)))
         world.SetAvatar(character)
     End Sub

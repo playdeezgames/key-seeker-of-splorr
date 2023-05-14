@@ -4,7 +4,7 @@
         Dim avatar = World.Avatar
         AnsiConsole.MarkupLine($"Character Id: {avatar.Id}")
         Dim location = avatar.Location
-        AnsiConsole.MarkupLine($"Exits: {String.Join(", ", location.Routes.Select(Function(x) x.Direction.Name))}")
+        AnsiConsole.MarkupLine($"Exits: {String.Join(", ", location.Routes.Select(Function(x) $"{x.RouteType.Name} going {x.Direction.Name}"))}")
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Now What?[/]"}
         If location.HasRoutes Then
             prompt.AddChoice(MoveText)

@@ -23,6 +23,17 @@ Friend Module Constants
             {Direction.Inside, "In"},
             {Direction.Outside, "Out"}
         }
+    Private ReadOnly routeTypeNames As IReadOnlyDictionary(Of RouteType, String) =
+        New Dictionary(Of RouteType, String) From
+        {
+            {RouteType.ForestPath, "Forest Path"},
+            {RouteType.DirtRoad, "Dirt Road"},
+            {RouteType.TownGate, "Town Gate"}
+        }
+    <Extension>
+    Friend Function Name(routeType As RouteType) As String
+        Return routeTypeNames(routeType)
+    End Function
     <Extension>
     Friend Function Name(direction As Direction) As String
         Return directionNames(direction)
