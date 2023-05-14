@@ -22,10 +22,10 @@
                 Next
             Next
         Next
-        mazeLocations(Columns \ 2, 0).CreateRoute(Direction.Outside, forestCenter)
-        mazeLocations(Columns \ 2, Rows - 1).CreateRoute(Direction.Outside, forestCenter)
-        mazeLocations(0, Rows \ 2).CreateRoute(Direction.Outside, forestCenter)
-        mazeLocations(Columns - 1, Rows \ 2).CreateRoute(Direction.Outside, forestCenter)
+        mazeLocations(Columns \ 2, 0).CreateRoute(Direction.North, forestCenter)
+        mazeLocations(Columns \ 2, Rows - 1).CreateRoute(Direction.South, forestCenter)
+        mazeLocations(0, Rows \ 2).CreateRoute(Direction.West, forestCenter)
+        mazeLocations(Columns - 1, Rows \ 2).CreateRoute(Direction.East, forestCenter)
         forestCenter.CreateRoute(Direction.Inside, mazeLocations(Columns \ 2, Rows - 1))
         Dim character As ICharacter = world.CreateCharacter(mazeLocations(RNG.FromRange(0, Columns - 1), RNG.FromRange(0, Rows - 1)))
         world.SetAvatar(character)
