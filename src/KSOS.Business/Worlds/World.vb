@@ -34,4 +34,21 @@ Public Class World
         location.AddCharacter(character)
         Return character
     End Function
+
+    Public Function Save(fileName As String) As Boolean Implements IWorld.Save
+        Try
+            File.WriteAllText(fileName, JsonSerializer.Serialize(WorldData))
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    Public Shared Function Load(fileName As String) As IWorld
+        Try
+            Return New World(JsonSerializer.Deserialize(Of WorldData)(File.ReadAllText(fileName)))
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
 End Class

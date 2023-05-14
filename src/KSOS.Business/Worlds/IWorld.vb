@@ -2,5 +2,6 @@
     Sub SetAvatar(character As ICharacter)
     Function CreateLocation(locationType As LocationType) As ILocation
     Function CreateCharacter(location As ILocation) As ICharacter
+    Function Save(fileName As String) As Boolean
     ReadOnly Property Avatar As ICharacter
 End Interface
