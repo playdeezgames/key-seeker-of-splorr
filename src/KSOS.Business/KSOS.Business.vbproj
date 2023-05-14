@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <RootNamespace>KSOS.Business</RootNamespace>
     <TargetFramework>netstandard2.1</TargetFramework>
     <OptionStrict>On</OptionStrict>
-    <ImportedNamespaces>KSOS.Data=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,KSOS.Business=True</ImportedNamespaces>
+    <ImportedNamespaces>KSOS.Data=False,SPLORR.Game=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,KSOS.Business=True</ImportedNamespaces>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -16,11 +16,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\abettor-of-splorr\src\SPLORR.Game\SPLORR.Game.vbproj" />
     <ProjectReference Include="..\KSOS.Data\KSOS.Data.vbproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Import Include="KSOS.Data" />
+    <Import Include="SPLORR.Game" />
   </ItemGroup>
 
 </Project>
