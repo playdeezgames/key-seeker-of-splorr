@@ -876,7 +876,8 @@
       },
       "KSOS.Business/1.0.0": {
         "dependencies": {
-          "KSOS.Data": "1.0.0"
+          "KSOS.Data": "1.0.0",
+          "SPLORR.Game": "1.0.0"
         },
         "runtime": {
           "KSOS.Business.dll": {}
@@ -885,6 +886,11 @@
       "KSOS.Data/1.0.0": {
         "runtime": {
           "KSOS.Data.dll": {}
+        }
+      },
+      "SPLORR.Game/1.0.0": {
+        "runtime": {
+          "SPLORR.Game.dll": {}
         }
       }
     }
@@ -925,6 +931,11 @@
       "sha512": ""
     },
     "KSOS.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SPLORR.Game/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
