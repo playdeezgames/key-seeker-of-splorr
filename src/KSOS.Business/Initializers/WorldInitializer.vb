@@ -11,10 +11,6 @@
         Dim forestCenter = ForestInitializer.Initialize(world)
         TownInitializer.Initialize(world, forestCenter)
         GraveyardInitializer.Initialize(world)
-
-        'Dim spawnLocation = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.ForestCorner AndAlso x.Routes.Any(Function(y) y.RouteType = RouteType.GraveyardGate)))
-        Dim spawnLocation = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.Town))
-        Dim character As ICharacter = world.CreateCharacter(spawnLocation)
-        world.SetAvatar(character)
+        AvatarInitializer.Initialize(world)
     End Sub
 End Module
