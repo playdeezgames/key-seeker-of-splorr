@@ -21,7 +21,7 @@
 
     Public Property Name As String Implements ICharacter.Name
         Get
-            Return CharacterData.Name
+            Return If(String.IsNullOrEmpty(CharacterData.Name), CharacterType.Descriptor.Name, CharacterData.Name)
         End Get
         Set(value As String)
             CharacterData.Name = value

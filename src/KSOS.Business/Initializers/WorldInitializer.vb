@@ -11,6 +11,7 @@
         Dim forestCenter = ForestInitializer.Initialize(world)
         TownInitializer.Initialize(world, forestCenter)
         GraveyardInitializer.Initialize(world)
+        CharacterInitializer.Initialize(world)
         AvatarInitializer.Initialize(world)
     End Sub
 End Module
