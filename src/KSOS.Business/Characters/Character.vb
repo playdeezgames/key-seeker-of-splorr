@@ -77,4 +77,19 @@
         End If
         Location = route.Destination
     End Sub
+
+    Public Function Run() As Boolean Implements ICharacter.Run
+        Dim exits = New HashSet(Of Direction)(Location.Routes.Select(Function(x) x.Direction)) From {
+            Direction.North,
+            Direction.South,
+            Direction.East,
+            Direction.West
+        }
+        Dim chosen = RNG.FromEnumerable(exits)
+        If Location.HasRoute(chosen) Then
+            Move(chosen)
+            Return True
+        End If
+        Return False
+    End Function
 End Class
