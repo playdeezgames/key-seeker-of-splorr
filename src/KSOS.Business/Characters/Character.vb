@@ -27,6 +27,36 @@
             CharacterData.Name = value
         End Set
     End Property
+    Private ReadOnly Property Wounds As Integer
+        Get
+            Return GetStatistic(StatisticType.Wounds)
+        End Get
+    End Property
+
+    Private Function GetStatistic(statisticType As StatisticType) As Integer
+        If CharacterData.Statistics.ContainsKey(statisticType) Then
+            Return CharacterData.Statistics(statisticType)
+        End If
+        Return CharacterType.Descriptor.Statistics(statisticType)
+    End Function
+
+    Public ReadOnly Property Health As Integer Implements ICharacter.Health
+        Get
+            Return Math.Max(MaximumHealth - Wounds, 0)
+        End Get
+    End Property
+
+    Public ReadOnly Property MaximumHealth As Integer Implements ICharacter.MaximumHealth
+        Get
+            Return GetStatistic(StatisticType.MaximumHealth)
+        End Get
+    End Property
+
+    Public ReadOnly Property CharacterType As CharacterType Implements ICharacter.CharacterType
+        Get
+            Return CharacterData.CharacterType
+        End Get
+    End Property
 
     Public Sub Move(direction As Direction) Implements ICharacter.Move
         Dim route As IRoute = Location.GetRoute(direction)

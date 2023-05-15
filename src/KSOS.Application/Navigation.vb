@@ -9,8 +9,11 @@
         If location.HasRoutes Then
             prompt.AddChoice(MoveText)
         End If
+        prompt.AddChoice(StatusText)
         prompt.AddChoice(GameMenuText)
         Select Case AnsiConsole.Prompt(prompt)
+            Case StatusText
+                Return Status.Run()
             Case GameMenuText
                 Return False
             Case MoveText

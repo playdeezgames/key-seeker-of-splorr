@@ -14,6 +14,7 @@ Friend Module Constants
     Friend Const QuitText = "Quit"
     Friend Const SaveGameText = "Save Game..."
     Friend Const StartText = "Start"
+    Friend Const StatusText = "Status"
     Friend Const YesText = "Yes"
     Private ReadOnly directionNames As IReadOnlyDictionary(Of Direction, String) =
         New Dictionary(Of Direction, String) From
