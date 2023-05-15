@@ -12,6 +12,7 @@ Friend Module Constants
     Friend Const NoText = "No"
     Friend Const OkText = "Ok"
     Friend Const QuitText = "Quit"
+    Friend Const RunText = "Run"
     Friend Const SaveGameText = "Save Game..."
     Friend Const StartText = "Start"
     Friend Const StatusText = "Status"

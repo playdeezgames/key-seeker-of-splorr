@@ -13,6 +13,9 @@
         If avatar.CanMove Then
             prompt.AddChoice(MoveText)
         End If
+        If avatar.CanRun Then
+            prompt.AddChoice(RunText)
+        End If
         prompt.AddChoice(StatusText)
         prompt.AddChoice(GameMenuText)
         Select Case AnsiConsole.Prompt(prompt)
@@ -22,6 +25,8 @@
                 Return False
             Case MoveText
                 Return Movement.Run()
+            Case RunText
+                Return CombatRun.Run()
             Case Else
                 Throw New NotImplementedException
         End Select

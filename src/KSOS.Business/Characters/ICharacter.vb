@@ -7,4 +7,5 @@
     ReadOnly Property MaximumHealth As Integer
     ReadOnly Property CharacterType As CharacterType
     ReadOnly Property CanMove As Boolean
+    ReadOnly Property CanRun As Boolean
 End Interface
