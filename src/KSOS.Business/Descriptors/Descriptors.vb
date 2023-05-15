@@ -36,4 +36,47 @@ Friend Module Descriptors
     Friend Function Descriptor(characterType As CharacterType) As CharacterTypeDescriptor
         Return characterTypeDescriptors(characterType)
     End Function
+    Private ReadOnly itemTypeDescriptors As IReadOnlyDictionary(Of ItemType, ItemTypeDescriptor) =
+        New Dictionary(Of ItemType, ItemTypeDescriptor) From
+        {
+            {
+                ItemType.GraveyardKey,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Graveyard Key"
+                }
+            },
+            {
+                ItemType.MachineKey,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Machine Key"
+                }
+            },
+            {
+                ItemType.SewerKey,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Sewer Key"
+                }
+            },
+            {
+                ItemType.TowerKey,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Tower Key"
+                }
+            },
+            {
+                ItemType.UfoKey,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "UFO Key"
+                }
+            }
+        }
+    <Extension>
+    Friend Function Descriptor(ItemType As ItemType) As ItemTypeDescriptor
+        Return itemTypeDescriptors(ItemType)
+    End Function
 End Module
