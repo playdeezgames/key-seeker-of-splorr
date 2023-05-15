@@ -50,4 +50,8 @@
         End If
         Return Nothing
     End Function
+
+    Public Function Enemies(character As ICharacter) As IEnumerable(Of ICharacter) Implements ILocation.Enemies
+        Return LocationData.CharacterIds.Where(Function(x) x <> character.Id).Select(Function(x) New Character(WorldData, x))
+    End Function
 End Class

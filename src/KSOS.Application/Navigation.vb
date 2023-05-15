@@ -4,6 +4,10 @@
         Dim avatar = World.Avatar
         Dim location = avatar.Location
         AnsiConsole.MarkupLine($"{avatar.Name} is in {location.LocationType.Name}")
+        Dim enemies = location.Enemies(avatar)
+        If enemies.Any Then
+            AnsiConsole.MarkupLine($"Enemies: {String.Join(", ", enemies.Select(Function(x) x.Name))}")
+        End If
         AnsiConsole.MarkupLine($"Exits: {String.Join(", ", location.Routes.Select(Function(x) $"{x.RouteType.Name} going {x.Direction.Name}"))}")
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Now What?[/]"}
         If location.HasRoutes Then
