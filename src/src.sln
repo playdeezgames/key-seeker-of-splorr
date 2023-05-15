@@ -9,6 +9,7 @@ Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "KSOS.Application", "KSOS.Ap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_STUFF", "_STUFF", "{FB5BFF90-D042-4CE3-B163-E73A5E87119F}"
 	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
 		..\shippit.sh = ..\shippit.sh
 	EndProjectSection
 EndProject
@@ -16,9 +17,9 @@ Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "SPLORR.Game", "..\abettor-o
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodules", "Submodules", "{4243C528-9BF3-4D76-A352-8F76683F0B4D}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "KSOS.Business", "KSOS.Business\KSOS.Business.vbproj", "{15CD056B-C39B-46B4-ADCB-36B0225D46DD}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "KSOS.Business", "KSOS.Business\KSOS.Business.vbproj", "{15CD056B-C39B-46B4-ADCB-36B0225D46DD}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "KSOS.Data", "KSOS.Data\KSOS.Data.vbproj", "{8EB1DB45-36FD-4AC3-93E8-08A7C471C586}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "KSOS.Data", "KSOS.Data\KSOS.Data.vbproj", "{8EB1DB45-36FD-4AC3-93E8-08A7C471C586}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
