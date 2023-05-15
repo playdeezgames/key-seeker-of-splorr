@@ -31,7 +31,5 @@
         mazeLocations(0, Rows \ 2).CreateRoute(Direction.West, RouteType.TownGate, forestCenter)
         mazeLocations(Columns - 1, Rows \ 2).CreateRoute(Direction.East, RouteType.TownGate, forestCenter)
         forestCenter.CreateRoute(Direction.Inside, RouteType.TownGate, mazeLocations(Columns \ 2, Rows - 1))
-        Dim character As ICharacter = world.CreateCharacter(mazeLocations(RNG.FromRange(0, Columns - 1), RNG.FromRange(0, Rows - 1)))
-        world.SetAvatar(character)
     End Sub
 End Module

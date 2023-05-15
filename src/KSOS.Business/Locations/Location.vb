@@ -23,6 +23,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property HasRoute(direction As Direction) As Boolean Implements ILocation.HasRoute
+        Get
+            Return LocationData.Routes.ContainsKey(direction)
+        End Get
+    End Property
+
     Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
         LocationData.CharacterIds.Add(character.Id)
     End Sub

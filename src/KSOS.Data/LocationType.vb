@@ -4,4 +4,5 @@
     ForestCenter
     Forest
     ForestCorner
+    Graveyard
 End Enum

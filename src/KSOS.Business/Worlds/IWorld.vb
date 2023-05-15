@@ -4,4 +4,5 @@
     Function CreateCharacter(location As ILocation) As ICharacter
     Function Save(fileName As String) As Boolean
     ReadOnly Property Avatar As ICharacter
+    ReadOnly Property Locations As IEnumerable(Of ILocation)
 End Interface

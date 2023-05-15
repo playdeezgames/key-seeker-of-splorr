@@ -2,4 +2,6 @@
     DirtRoad
     TownGate
     ForestPath
+    GraveyardPath
+    GraveyardGate
 End Enum

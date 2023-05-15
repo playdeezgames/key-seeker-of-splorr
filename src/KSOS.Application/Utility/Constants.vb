@@ -23,7 +23,9 @@ Friend Module Constants
             {Direction.South, "South"},
             {Direction.West, "West"},
             {Direction.Inside, "In"},
-            {Direction.Outside, "Out"}
+            {Direction.Outside, "Out"},
+            {Direction.Up, "Up"},
+            {Direction.Down, "Down"}
         }
     <Extension>
     Friend Function Name(direction As Direction) As String
@@ -34,7 +36,9 @@ Friend Module Constants
         {
             {RouteType.ForestPath, "Forest Path"},
             {RouteType.DirtRoad, "Dirt Road"},
-            {RouteType.TownGate, "Town Gate"}
+            {RouteType.TownGate, "Town Gate"},
+            {RouteType.GraveyardPath, "Graveyard Path"},
+            {RouteType.GraveyardGate, "Graveyard Gate"}
         }
     <Extension>
     Friend Function Name(routeType As RouteType) As String
@@ -47,7 +51,8 @@ Friend Module Constants
             {LocationType.Forest, "a forest"},
             {LocationType.ForestCenter, "a forest"},
             {LocationType.Town, "town"},
-            {LocationType.TownEdge, "town"}
+            {LocationType.TownEdge, "town"},
+            {LocationType.Graveyard, "a graveyard"}
         }
     <Extension>
     Friend Function Name(locationType As LocationType) As String

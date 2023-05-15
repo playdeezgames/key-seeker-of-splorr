@@ -9,6 +9,21 @@ Public Class World
             Return Nothing
         End Get
     End Property
+
+    Public ReadOnly Property Locations As IEnumerable(Of ILocation) Implements IWorld.Locations
+        Get
+            Dim result As New List(Of ILocation)
+            Dim index = 0
+            For Each location In WorldData.Locations
+                If location IsNot Nothing Then
+                    result.Add(New Location(WorldData, index))
+                End If
+                index += 1
+            Next
+            Return result
+        End Get
+    End Property
+
     Public Sub New(data As WorldData)
         MyBase.New(data)
     End Sub

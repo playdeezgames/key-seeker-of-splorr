@@ -2,6 +2,7 @@
     Inherits IThingie
     ReadOnly Property LocationType As LocationType
     ReadOnly Property HasRoutes As Boolean
+    ReadOnly Property HasRoute(direction As Direction) As Boolean
     ReadOnly Property Routes As IEnumerable(Of IRoute)
     Function GetRoute(direction As Direction) As IRoute
     Sub AddCharacter(character As ICharacter)

@@ -5,4 +5,6 @@
     West
     Outside
     Inside
+    Up
+    Down
 End Enum
