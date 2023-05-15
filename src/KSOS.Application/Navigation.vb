@@ -10,7 +10,7 @@
         End If
         AnsiConsole.MarkupLine($"Exits: {String.Join(", ", location.Routes.Select(Function(x) $"{x.RouteType.Name} going {x.Direction.Name}"))}")
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Now What?[/]"}
-        If location.HasRoutes Then
+        If avatar.CanMove Then
             prompt.AddChoice(MoveText)
         End If
         prompt.AddChoice(StatusText)

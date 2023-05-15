@@ -58,6 +58,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanMove As Boolean Implements ICharacter.CanMove
+        Get
+            Return Location.HasRoutes AndAlso Not Location.Enemies(Me).Any
+        End Get
+    End Property
+
     Public Sub Move(direction As Direction) Implements ICharacter.Move
         Dim route As IRoute = Location.GetRoute(direction)
         If route Is Nothing Then
