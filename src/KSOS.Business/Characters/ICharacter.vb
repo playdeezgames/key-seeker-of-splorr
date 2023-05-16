@@ -10,6 +10,7 @@
     Sub TakeDamage(damage As Integer)
     Sub Kill()
     Sub AddItem(item As IItem)
+    Sub RemoveItem(item As IItem)
     ReadOnly Property Health As Integer
     ReadOnly Property MaximumHealth As Integer
     ReadOnly Property CharacterType As CharacterType

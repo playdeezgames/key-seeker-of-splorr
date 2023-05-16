@@ -170,7 +170,10 @@
         If IsAvatar Then
             Return
         End If
-        'TODO: loot drops
+        For Each item In Items
+            RemoveItem(item)
+            Location.AddItem(item)
+        Next
         Location.RemoveCharacter(Me)
         WorldData.Characters(Id) = Nothing
     End Sub
@@ -192,6 +195,10 @@
         Else
             CharacterData.ItemIds.Add(item.Id)
         End If
+    End Sub
+
+    Public Sub RemoveItem(item As IItem) Implements ICharacter.RemoveItem
+        CharacterData.ItemIds.Remove(item.Id)
     End Sub
 
     Private ReadOnly Property IsAvatar As Boolean

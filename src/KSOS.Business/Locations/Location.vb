@@ -35,6 +35,30 @@
     Public Sub RemoveCharacter(character As ICharacter) Implements ILocation.RemoveCharacter
         LocationData.CharacterIds.Remove(character.Id)
     End Sub
+    Private ReadOnly Property Items As IEnumerable(Of IItem)
+        Get
+            Return LocationData.ItemIds.Select(Function(x) New Item(WorldData, x))
+        End Get
+    End Property
+
+    Public Sub AddItem(item As IItem) Implements ILocation.AddItem
+        If item.Stacks Then
+            Dim existingItem = Items.FirstOrDefault(Function(x) x.ItemType = item.ItemType)
+            If existingItem IsNot Nothing Then
+                existingItem.Quantity += item.Quantity
+                item.Quantity = 0
+            Else
+                LocationData.ItemIds.Add(item.Id)
+            End If
+        Else
+            LocationData.ItemIds.Add(item.Id)
+        End If
+    End Sub
+
+    Public Sub RemoveItem(item As IItem) Implements ILocation.RemoveItem
+        LocationData.ItemIds.Remove(item.Id)
+    End Sub
+
     Public Function CreateRoute(direction As Direction, routeType As RouteType, destination As ILocation) As IRoute Implements ILocation.CreateRoute
         LocationData.Routes(direction) = New RouteData With
             {

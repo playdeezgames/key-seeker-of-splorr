@@ -9,4 +9,6 @@
     Sub RemoveCharacter(character As ICharacter)
     Function CreateRoute(direction As Direction, routeType As RouteType, destination As ILocation) As IRoute
     Function Enemies(character As ICharacter) As IEnumerable(Of ICharacter)
+    Sub AddItem(item As IItem)
+    Sub RemoveItem(item As IItem)
 End Interface
