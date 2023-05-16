@@ -10,6 +10,7 @@ Friend Module Descriptors
                 {
                     .Name = "N00b",
                     .SpawnCount = 0,
+                    .KillVerb = "kills",
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
                         {StatisticType.MaximumHealth, 3},
@@ -28,6 +29,7 @@ Friend Module Descriptors
                 {
                     .Name = "Blob",
                     .SpawnCount = 100,
+                    .KillVerb = "slimes",
                     .SpawnLocations = New List(Of LocationType) From {LocationType.Forest},
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {

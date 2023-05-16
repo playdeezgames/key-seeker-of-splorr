@@ -125,7 +125,7 @@
             lines.Add($"{Name} hits {defender.Name} for {damage} damage.")
             defender.TakeDamage(damage)
             If defender.IsDead Then
-                lines.Add($"{Name} kills {defender.Name}!")
+                lines.Add($"{Name} {KillVerb} {defender.Name}!")
                 Dim xp As Integer = defender.XP
                 If xp > 0 Then
                     Me.XP += xp
@@ -187,5 +187,11 @@
         Set(value As Integer)
             SetStatistic(StatisticType.XP, value)
         End Set
+    End Property
+
+    Public ReadOnly Property KillVerb As String Implements ICharacter.KillVerb
+        Get
+            Return CharacterType.Descriptor.KillVerb
+        End Get
     End Property
 End Class

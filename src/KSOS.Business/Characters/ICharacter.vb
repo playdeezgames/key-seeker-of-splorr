@@ -17,4 +17,5 @@
     ReadOnly Property CanFight As Boolean
     ReadOnly Property IsDead As Boolean
     Property XP As Integer
+    ReadOnly Property KillVerb As String
 End Interface

@@ -3,4 +3,5 @@
     Public Property Statistics As IReadOnlyDictionary(Of StatisticType, Integer)
     Public Property SpawnCount As Integer
     Public Property SpawnLocations As IReadOnlyList(Of LocationType)
+    Public Property KillVerb As String
 End Class
