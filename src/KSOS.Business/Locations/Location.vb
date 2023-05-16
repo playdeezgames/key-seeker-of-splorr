@@ -28,7 +28,6 @@
             Return LocationData.Routes.ContainsKey(direction)
         End Get
     End Property
-
     Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
         LocationData.CharacterIds.Add(character.Id)
     End Sub
@@ -40,13 +39,16 @@
             Return LocationData.ItemIds.Select(Function(x) New Item(WorldData, x))
         End Get
     End Property
-
     Public ReadOnly Property HasItems As Boolean Implements ILocation.HasItems
         Get
             Return LocationData.ItemIds.Any
         End Get
     End Property
-
+    Public ReadOnly Property Features As IEnumerable(Of IFeature) Implements ILocation.Features
+        Get
+            Return LocationData.FeatureIds.Select(Function(x) New Feature(WorldData, x))
+        End Get
+    End Property
     Public Sub AddItem(item As IItem) Implements ILocation.AddItem
         If item.Stacks Then
             Dim existingItem = Items.FirstOrDefault(Function(x) x.ItemType = item.ItemType)
@@ -60,11 +62,9 @@
             LocationData.ItemIds.Add(item.Id)
         End If
     End Sub
-
     Public Sub RemoveItem(item As IItem) Implements ILocation.RemoveItem
         LocationData.ItemIds.Remove(item.Id)
     End Sub
-
     Public Function CreateRoute(direction As Direction, routeType As RouteType, destination As ILocation) As IRoute Implements ILocation.CreateRoute
         LocationData.Routes(direction) = New RouteData With
             {
@@ -73,15 +73,16 @@
             }
         Return New Route(WorldData, Id, direction)
     End Function
-
     Public Function GetRoute(direction As Direction) As IRoute Implements ILocation.GetRoute
         If LocationData.Routes.ContainsKey(direction) Then
             Return New Route(WorldData, Id, direction)
         End If
         Return Nothing
     End Function
-
     Public Function Enemies(character As ICharacter) As IEnumerable(Of ICharacter) Implements ILocation.Enemies
         Return LocationData.CharacterIds.Where(Function(x) x <> character.Id).Select(Function(x) New Character(WorldData, x))
     End Function
+    Public Sub AddFeature(feature As IFeature) Implements ILocation.AddFeature
+        LocationData.FeatureIds.Add(feature.Id)
+    End Sub
 End Class

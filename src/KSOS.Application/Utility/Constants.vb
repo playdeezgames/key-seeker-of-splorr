@@ -44,7 +44,9 @@ Friend Module Constants
             {RouteType.GraveyardPath, "Graveyard Path"},
             {RouteType.GraveyardGate, "Graveyard Gate"},
             {RouteType.RuinsEntrance, "Ruins Entrance"},
-            {RouteType.RuinsPath, "Ruins Path"}
+            {RouteType.RuinsPath, "Ruins Path"},
+            {RouteType.Door, "Door"},
+            {RouteType.Stairs, "Stairs"}
         }
     <Extension>
     Friend Function Name(routeType As RouteType) As String
@@ -59,7 +61,9 @@ Friend Module Constants
             {LocationType.Town, "town"},
             {LocationType.TownEdge, "town"},
             {LocationType.Graveyard, "a graveyard"},
-            {LocationType.Ruins, "a ruins"}
+            {LocationType.Ruins, "a ruins"},
+            {LocationType.Inn, "an inn"},
+            {LocationType.Cellar, "a cellar"}
         }
     <Extension>
     Friend Function Name(locationType As LocationType) As String

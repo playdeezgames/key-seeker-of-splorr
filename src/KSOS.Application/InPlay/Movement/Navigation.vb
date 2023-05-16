@@ -8,6 +8,10 @@
         If enemies.Any Then
             AnsiConsole.MarkupLine($"Enemies: {String.Join(", ", enemies.Select(Function(x) $"{x.Name}({x.Health}/{x.MaximumHealth})"))}")
         End If
+        Dim features = location.Features
+        If features.Any Then
+            AnsiConsole.MarkupLine($"Features: {String.Join(", ", features.Select(Function(x) $"{x.Name}"))}")
+        End If
         AnsiConsole.MarkupLine($"Exits: {String.Join(", ", location.Routes.Select(Function(x) $"{x.RouteType.Name} going {x.Direction.Name}"))}")
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Now What?[/]"}
         If avatar.CanMove Then

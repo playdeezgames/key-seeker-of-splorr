@@ -32,5 +32,18 @@
         mazeLocations(0, Rows \ 2).CreateRoute(Direction.West, RouteType.TownGate, forestCenter)
         mazeLocations(Columns - 1, Rows \ 2).CreateRoute(Direction.East, RouteType.TownGate, forestCenter)
         forestCenter.CreateRoute(Direction.Inside, RouteType.TownGate, mazeLocations(Columns \ 2, Rows - 1))
+        InitializeInn(world)
+    End Sub
+
+    Private Sub InitializeInn(world As IWorld)
+        Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
+        Dim inn = world.CreateLocation(LocationType.Inn)
+        entrance.CreateRoute(Direction.Inside, RouteType.Door, inn)
+        inn.CreateRoute(Direction.Outside, RouteType.Door, entrance)
+        Dim cellar = world.CreateLocation(LocationType.Cellar)
+        inn.CreateRoute(Direction.Down, RouteType.Stairs, cellar)
+        cellar.CreateRoute(Direction.Up, RouteType.Stairs, inn)
+        Dim gurachan = world.CreateFeature("Gurachan")
+        inn.AddFeature(gurachan)
     End Sub
 End Module

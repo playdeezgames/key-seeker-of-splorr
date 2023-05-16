@@ -54,7 +54,6 @@ Public Class World
         characterType.Descriptor.Provision.Invoke(character)
         Return character
     End Function
-
     Public Function Save(fileName As String) As Boolean Implements IWorld.Save
         Try
             File.WriteAllText(fileName, JsonSerializer.Serialize(WorldData))
@@ -71,7 +70,6 @@ Public Class World
             Return Nothing
         End Try
     End Function
-
     Public Function CreateItem(itemType As ItemType, quantity As Integer) As IItem Implements IWorld.CreateItem
         Dim itemId = WorldData.Items.Count
         WorldData.Items.Add(New ItemData With
@@ -81,5 +79,14 @@ Public Class World
                                  })
         Dim item As IItem = New Item(WorldData, itemId)
         Return item
+    End Function
+    Public Function CreateFeature(name As String) As IFeature Implements IWorld.CreateFeature
+        Dim featureId = WorldData.Features.Count
+        WorldData.Features.Add(New FeatureData With
+                               {
+                               .Name = name
+                               })
+        Dim feature As IFeature = New Feature(WorldData, featureId)
+        Return feature
     End Function
 End Class

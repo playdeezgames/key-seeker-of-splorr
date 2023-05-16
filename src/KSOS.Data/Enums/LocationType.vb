@@ -6,4 +6,6 @@
     ForestCorner
     Graveyard
     Ruins
+    Inn
+    Cellar
 End Enum

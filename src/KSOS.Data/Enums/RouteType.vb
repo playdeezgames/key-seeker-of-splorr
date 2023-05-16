@@ -6,4 +6,6 @@
     GraveyardGate
     RuinsEntrance
     RuinsPath
+    Door
+    Stairs
 End Enum
