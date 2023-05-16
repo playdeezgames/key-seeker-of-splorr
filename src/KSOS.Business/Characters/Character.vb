@@ -27,11 +27,18 @@
             CharacterData.Name = value
         End Set
     End Property
-    Private ReadOnly Property Wounds As Integer
+    Private Property Wounds As Integer
         Get
             Return GetStatistic(StatisticType.Wounds)
         End Get
+        Set(value As Integer)
+            SetStatistic(StatisticType.Wounds, Math.Clamp(value, 0, MaximumHealth))
+        End Set
     End Property
+
+    Private Sub SetStatistic(statisticType As StatisticType, value As Integer)
+        CharacterData.Statistics(statisticType) = value
+    End Sub
 
     Private Function GetStatistic(statisticType As StatisticType) As Integer
         If CharacterData.Statistics.ContainsKey(statisticType) Then
@@ -42,7 +49,7 @@
 
     Public ReadOnly Property Health As Integer Implements ICharacter.Health
         Get
-            Return Math.Max(MaximumHealth - Wounds, 0)
+            Return Math.Clamp(MaximumHealth - Wounds, 0, MaximumHealth)
         End Get
     End Property
 
@@ -66,7 +73,19 @@
 
     Public ReadOnly Property CanRun As Boolean Implements ICharacter.CanRun
         Get
-            Return Location.HasRoutes AndAlso Location.Enemies(Me).Any
+            Return Location.HasRoutes AndAlso CanFight
+        End Get
+    End Property
+
+    Public ReadOnly Property CanFight As Boolean Implements ICharacter.CanFight
+        Get
+            Return Location.Enemies(Me).Any
+        End Get
+    End Property
+
+    Public ReadOnly Property IsDead As Boolean Implements ICharacter.IsDead
+        Get
+            Return Health = 0
         End Get
     End Property
 
@@ -92,4 +111,68 @@
         End If
         Return False
     End Function
+
+    Public Function MakeAttack(defender As ICharacter) As IEnumerable(Of String) Implements ICharacter.MakeAttack
+        Dim attackRoll As Integer = RollAttack()
+        Dim defendRoll As Integer = defender.RollDefend()
+        Dim lines As New List(Of String) From {
+            $"{Name} attacks {defender.Name}!",
+            $"{Name} rolls an attack of {attackRoll}.",
+            $"{defender.Name} rolls a defend of {defendRoll}."
+        }
+        If attackRoll > defendRoll Then
+            Dim damage = attackRoll - defendRoll
+            lines.Add($"{Name} hits {defender.Name} for {damage} damage.")
+            defender.TakeDamage(damage)
+            If defender.IsDead Then
+                lines.Add($"{Name} kills {defender.Name}!")
+                defender.Kill()
+            Else
+                lines.Add($"{defender.Name} has {defender.Health} health left.")
+            End If
+        Else
+            lines.Add($"{Name} misses.")
+        End If
+        Return lines
+    End Function
+
+    Public Function RollDefend() As Integer Implements ICharacter.RollDefend
+        Dim dice = GetStatistic(StatisticType.Defend)
+        Dim maximumRoll = GetStatistic(StatisticType.MaximumDefend)
+        Return DoDiceRoll(dice, maximumRoll)
+    End Function
+
+    Private Shared Function DoDiceRoll(dice As Integer, maximumRoll As Integer) As Integer
+        Dim roll = 0
+        While dice > 0
+            dice -= 1
+            roll += RNG.RollDice("1d6/6")
+        End While
+        Return Math.Clamp(roll, 0, maximumRoll)
+    End Function
+
+    Public Function RollAttack() As Integer Implements ICharacter.RollAttack
+        Dim dice = GetStatistic(StatisticType.Attack)
+        Dim maximumRoll = GetStatistic(StatisticType.MaximumAttack)
+        Return DoDiceRoll(dice, maximumRoll)
+    End Function
+
+    Public Sub TakeDamage(damage As Integer) Implements ICharacter.TakeDamage
+        Wounds += damage
+    End Sub
+
+    Public Sub Kill() Implements ICharacter.Kill
+        If IsAvatar Then
+            Return
+        End If
+        'TODO: loot drops
+        Location.RemoveCharacter(Me)
+        WorldData.Characters(Id) = Nothing
+    End Sub
+    Private ReadOnly Property IsAvatar As Boolean
+        Get
+            Return If(WorldData.CharacterIndex = Id, False)
+        End Get
+    End Property
+
 End Class

@@ -13,7 +13,11 @@ Friend Module Descriptors
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
                         {StatisticType.MaximumHealth, 3},
-                        {StatisticType.Wounds, 0}
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 1},
+                        {StatisticType.Attack, 3},
+                        {StatisticType.MaximumDefend, 2},
+                        {StatisticType.Defend, 4}
                     }
                 }
             },
@@ -27,7 +31,11 @@ Friend Module Descriptors
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},
-                        {StatisticType.Wounds, 0}
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 1},
+                        {StatisticType.Attack, 2},
+                        {StatisticType.MaximumDefend, 1},
+                        {StatisticType.Defend, 1}
                     }
                 }
             }

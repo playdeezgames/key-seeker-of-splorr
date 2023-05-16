@@ -6,12 +6,15 @@
         AnsiConsole.MarkupLine($"{avatar.Name} is in {location.LocationType.Name}")
         Dim enemies = location.Enemies(avatar)
         If enemies.Any Then
-            AnsiConsole.MarkupLine($"Enemies: {String.Join(", ", enemies.Select(Function(x) x.Name))}")
+            AnsiConsole.MarkupLine($"Enemies: {String.Join(", ", enemies.Select(Function(x) $"{x.Name}({x.Health}/{x.MaximumHealth})"))}")
         End If
         AnsiConsole.MarkupLine($"Exits: {String.Join(", ", location.Routes.Select(Function(x) $"{x.RouteType.Name} going {x.Direction.Name}"))}")
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Now What?[/]"}
         If avatar.CanMove Then
             prompt.AddChoice(MoveText)
+        End If
+        If avatar.CanFight Then
+            prompt.AddChoice(FightText)
         End If
         If avatar.CanRun Then
             prompt.AddChoice(RunText)
@@ -27,6 +30,8 @@
                 Return Movement.Run()
             Case RunText
                 Return CombatRun.Run()
+            Case FightText
+                Return Fight.Run()
             Case Else
                 Throw New NotImplementedException
         End Select
