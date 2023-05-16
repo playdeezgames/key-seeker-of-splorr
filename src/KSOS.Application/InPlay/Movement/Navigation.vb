@@ -19,6 +19,9 @@
         If avatar.CanRun Then
             prompt.AddChoice(RunText)
         End If
+        If avatar.CanPickUpItems Then
+            prompt.AddChoice(PickUpText)
+        End If
         prompt.AddChoice(StatusText)
         prompt.AddChoice(GameMenuText)
         Select Case AnsiConsole.Prompt(prompt)
@@ -32,6 +35,8 @@
                 Return CombatRun.Run()
             Case FightText
                 Return Fight.Run()
+            Case PickUpText
+                Return PickUp.Run()
             Case Else
                 Throw New NotImplementedException
         End Select

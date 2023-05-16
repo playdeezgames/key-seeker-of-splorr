@@ -11,4 +11,6 @@
     Function Enemies(character As ICharacter) As IEnumerable(Of ICharacter)
     Sub AddItem(item As IItem)
     Sub RemoveItem(item As IItem)
+    ReadOnly Property HasItems As Boolean
+    ReadOnly Property Items As IEnumerable(Of IItem)
 End Interface

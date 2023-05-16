@@ -227,4 +227,10 @@
             Return New World(WorldData)
         End Get
     End Property
+
+    Public ReadOnly Property CanPickUpItems As Boolean Implements ICharacter.CanPickUpItems
+        Get
+            Return Not CanFight AndAlso Location.HasItems
+        End Get
+    End Property
 End Class

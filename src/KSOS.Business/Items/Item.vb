@@ -29,4 +29,10 @@
             Return ItemType.Descriptor.Stacks
         End Get
     End Property
+
+    Public ReadOnly Property Name As String Implements IItem.Name
+        Get
+            Return ItemType.Descriptor.Name
+        End Get
+    End Property
 End Class

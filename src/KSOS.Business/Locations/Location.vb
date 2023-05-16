@@ -35,9 +35,15 @@
     Public Sub RemoveCharacter(character As ICharacter) Implements ILocation.RemoveCharacter
         LocationData.CharacterIds.Remove(character.Id)
     End Sub
-    Private ReadOnly Property Items As IEnumerable(Of IItem)
+    Public ReadOnly Property Items As IEnumerable(Of IItem) Implements ILocation.Items
         Get
             Return LocationData.ItemIds.Select(Function(x) New Item(WorldData, x))
+        End Get
+    End Property
+
+    Public ReadOnly Property HasItems As Boolean Implements ILocation.HasItems
+        Get
+            Return LocationData.ItemIds.Any
         End Get
     End Property
 
