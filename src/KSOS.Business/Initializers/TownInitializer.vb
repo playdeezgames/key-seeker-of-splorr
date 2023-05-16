@@ -1,7 +1,7 @@
 ﻿Friend Module TownInitializer
     Const Columns = 5
     Const Rows = 5
-    Friend Sub Initialize(world As IWorld, forestCenter As ILocation)
+    Friend Sub Initialize(world As IWorld)
         Dim maze As New Maze(Of Direction)(Columns, Rows, mazeDirections)
         maze.Generate()
         Dim mazeLocations(Columns - 1, Rows - 1) As ILocation
@@ -26,6 +26,7 @@
                 Next
             Next
         Next
+        Dim forestCenter = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.ForestCenter))
         mazeLocations(Columns \ 2, 0).CreateRoute(Direction.North, RouteType.TownGate, forestCenter)
         mazeLocations(Columns \ 2, Rows - 1).CreateRoute(Direction.South, RouteType.TownGate, forestCenter)
         mazeLocations(0, Rows \ 2).CreateRoute(Direction.West, RouteType.TownGate, forestCenter)

@@ -5,4 +5,5 @@
     Forest
     ForestCorner
     Graveyard
+    Ruins
 End Enum

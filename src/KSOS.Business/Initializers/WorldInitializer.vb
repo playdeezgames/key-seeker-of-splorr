@@ -8,9 +8,10 @@
             {Direction.West, New MazeDirection(Of Direction)(Direction.East, -1, 0)}
         }
     Friend Sub Initialize(world As IWorld)
-        Dim forestCenter = ForestInitializer.Initialize(world)
-        TownInitializer.Initialize(world, forestCenter)
+        ForestInitializer.Initialize(world)
+        TownInitializer.Initialize(world)
         GraveyardInitializer.Initialize(world)
+        RuinsInitializer.Initialize(world)
         CharacterInitializer.Initialize(world)
         AvatarInitializer.Initialize(world)
     End Sub

@@ -4,4 +4,6 @@
     ForestPath
     GraveyardPath
     GraveyardGate
+    RuinsEntrance
+    RuinsPath
 End Enum
