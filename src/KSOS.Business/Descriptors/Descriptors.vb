@@ -17,7 +17,8 @@ Friend Module Descriptors
                         {StatisticType.MaximumAttack, 1},
                         {StatisticType.Attack, 3},
                         {StatisticType.MaximumDefend, 2},
-                        {StatisticType.Defend, 4}
+                        {StatisticType.Defend, 4},
+                        {StatisticType.XP, 0}
                     }
                 }
             },
@@ -35,7 +36,8 @@ Friend Module Descriptors
                         {StatisticType.MaximumAttack, 1},
                         {StatisticType.Attack, 2},
                         {StatisticType.MaximumDefend, 1},
-                        {StatisticType.Defend, 1}
+                        {StatisticType.Defend, 1},
+                        {StatisticType.XP, 1}
                     }
                 }
             }

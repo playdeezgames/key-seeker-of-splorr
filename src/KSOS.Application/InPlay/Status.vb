@@ -4,6 +4,7 @@
         AnsiConsole.Clear()
         AnsiConsole.MarkupLine($"[blue]{character.Name}'s Status:[/]")
         AnsiConsole.MarkupLine($"Health : {character.Health}/{character.MaximumHealth}")
+        AnsiConsole.MarkupLine($"XP : {character.XP}")
         OkPrompt()
         Return True
     End Function

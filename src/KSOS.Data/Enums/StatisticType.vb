@@ -5,4 +5,5 @@
     MaximumAttack
     Defend
     MaximumDefend
+    XP
 End Enum

@@ -16,4 +16,5 @@
     ReadOnly Property CanRun As Boolean
     ReadOnly Property CanFight As Boolean
     ReadOnly Property IsDead As Boolean
+    Property XP As Integer
 End Interface

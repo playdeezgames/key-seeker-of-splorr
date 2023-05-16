@@ -126,6 +126,11 @@
             defender.TakeDamage(damage)
             If defender.IsDead Then
                 lines.Add($"{Name} kills {defender.Name}!")
+                Dim xp As Integer = defender.XP
+                If xp > 0 Then
+                    Me.XP += xp
+                    lines.Add($"{Name} gains {xp} XP and now has {Me.XP} XP!")
+                End If
                 defender.Kill()
             Else
                 lines.Add($"{defender.Name} has {defender.Health} health left.")
@@ -175,4 +180,12 @@
         End Get
     End Property
 
+    Public Property XP As Integer Implements ICharacter.XP
+        Get
+            Return GetStatistic(StatisticType.XP)
+        End Get
+        Set(value As Integer)
+            SetStatistic(StatisticType.XP, value)
+        End Set
+    End Property
 End Class
