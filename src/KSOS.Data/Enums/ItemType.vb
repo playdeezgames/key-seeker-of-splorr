@@ -4,4 +4,5 @@
     TowerKey
     UfoKey
     MachineKey
+    Jools
 End Enum

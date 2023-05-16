@@ -49,8 +49,9 @@ Public Class World
                                  .LocationId = location.Id,
                                  .CharacterType = characterType
                                  })
-        Dim character = New Character(WorldData, characterId)
+        Dim character As ICharacter = New Character(WorldData, characterId)
         location.AddCharacter(character)
+        characterType.Descriptor.Provision.Invoke(character)
         Return character
     End Function
 
@@ -69,5 +70,16 @@ Public Class World
         Catch ex As Exception
             Return Nothing
         End Try
+    End Function
+
+    Public Function CreateItem(itemType As ItemType, quantity As Integer) As IItem Implements IWorld.CreateItem
+        Dim itemId = WorldData.Items.Count
+        WorldData.Items.Add(New ItemData With
+                                 {
+                                 .ItemType = itemType,
+                                 .Quantity = quantity
+                                 })
+        Dim item As IItem = New Item(WorldData, itemId)
+        Return item
     End Function
 End Class

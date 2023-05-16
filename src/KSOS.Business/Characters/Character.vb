@@ -174,6 +174,26 @@
         Location.RemoveCharacter(Me)
         WorldData.Characters(Id) = Nothing
     End Sub
+    Private ReadOnly Property Items As IEnumerable(Of IItem)
+        Get
+            Return CharacterData.ItemIds.Select(Function(x) New Item(WorldData, x))
+        End Get
+    End Property
+
+    Public Sub AddItem(item As IItem) Implements ICharacter.AddItem
+        If item.Stacks Then
+            Dim existingItem = Items.FirstOrDefault(Function(x) x.ItemType = item.ItemType)
+            If existingItem IsNot Nothing Then
+                existingItem.Quantity += item.Quantity
+                item.Quantity = 0
+            Else
+                CharacterData.ItemIds.Add(item.Id)
+            End If
+        Else
+            CharacterData.ItemIds.Add(item.Id)
+        End If
+    End Sub
+
     Private ReadOnly Property IsAvatar As Boolean
         Get
             Return If(WorldData.CharacterIndex = Id, False)
@@ -192,6 +212,12 @@
     Public ReadOnly Property KillVerb As String Implements ICharacter.KillVerb
         Get
             Return CharacterType.Descriptor.KillVerb
+        End Get
+    End Property
+
+    Public ReadOnly Property World As IWorld Implements ICharacter.World
+        Get
+            Return New World(WorldData)
         End Get
     End Property
 End Class

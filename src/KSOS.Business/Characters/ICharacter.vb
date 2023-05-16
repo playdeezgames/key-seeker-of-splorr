@@ -9,6 +9,7 @@
     Function RollAttack() As Integer
     Sub TakeDamage(damage As Integer)
     Sub Kill()
+    Sub AddItem(item As IItem)
     ReadOnly Property Health As Integer
     ReadOnly Property MaximumHealth As Integer
     ReadOnly Property CharacterType As CharacterType
@@ -18,4 +19,5 @@
     ReadOnly Property IsDead As Boolean
     Property XP As Integer
     ReadOnly Property KillVerb As String
+    ReadOnly Property World As IWorld
 End Interface

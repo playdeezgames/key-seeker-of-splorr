@@ -11,6 +11,7 @@ Friend Module Descriptors
                     .Name = "N00b",
                     .SpawnCount = 0,
                     .KillVerb = "kills",
+                    .Provision = AddressOf ProvisionN00b,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
                         {StatisticType.MaximumHealth, 3},
@@ -31,6 +32,7 @@ Friend Module Descriptors
                     .SpawnCount = 100,
                     .KillVerb = "slimes",
                     .SpawnLocations = New List(Of LocationType) From {LocationType.Forest},
+                    .Provision = AddressOf ProvisionBlob,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},
@@ -44,6 +46,8 @@ Friend Module Descriptors
                 }
             }
         }
+
+
     <Extension>
     Friend Function Descriptor(characterType As CharacterType) As CharacterTypeDescriptor
         Return characterTypeDescriptors(characterType)
@@ -55,35 +59,48 @@ Friend Module Descriptors
                 ItemType.GraveyardKey,
                 New ItemTypeDescriptor With
                 {
-                    .Name = "Graveyard Key"
+                    .Name = "Graveyard Key",
+                    .Stacks = False
                 }
             },
             {
                 ItemType.MachineKey,
                 New ItemTypeDescriptor With
                 {
-                    .Name = "Machine Key"
+                    .Name = "Machine Key",
+                    .Stacks = False
                 }
             },
             {
                 ItemType.SewerKey,
                 New ItemTypeDescriptor With
                 {
-                    .Name = "Sewer Key"
+                    .Name = "Sewer Key",
+                    .Stacks = False
                 }
             },
             {
                 ItemType.TowerKey,
                 New ItemTypeDescriptor With
                 {
-                    .Name = "Tower Key"
+                    .Name = "Tower Key",
+                    .Stacks = False
                 }
             },
             {
                 ItemType.UfoKey,
                 New ItemTypeDescriptor With
                 {
-                    .Name = "UFO Key"
+                    .Name = "UFO Key",
+                    .Stacks = False
+                }
+            },
+            {
+                ItemType.Jools,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Jools",
+                    .Stacks = True
                 }
             }
         }
