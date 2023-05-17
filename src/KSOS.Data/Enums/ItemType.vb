@@ -5,4 +5,6 @@
     UfoKey
     MachineKey
     Jools
+    Chikkin
+    RatTail
 End Enum

@@ -196,6 +196,40 @@
         CharacterData.ItemIds.Remove(item.Id)
     End Sub
 
+    Public Function HasItemQuantity(itemType As ItemType, quantity As Integer) As Boolean Implements ICharacter.HasItemQuantity
+        Return ItemQuantity(itemType) >= quantity
+    End Function
+
+    Private Function ItemQuantity(itemType As ItemType) As Integer
+        Return Items.Where(Function(x) x.ItemType = itemType).Sum(Function(x) x.Quantity)
+    End Function
+
+    Public Sub RemoveItemQuantity(itemType As ItemType, quantity As Integer) Implements ICharacter.RemoveItemQuantity
+        quantity = Math.Min(quantity, ItemQuantity(itemType))
+        For Each item In Items.Where(Function(x) x.ItemType = itemType)
+            If item.Quantity >= quantity Then
+                item.Quantity -= quantity
+                quantity = 0
+                Exit For
+            Else
+                quantity -= item.Quantity
+                item.Quantity = 0
+            End If
+        Next
+        CleanUpItems()
+    End Sub
+
+    Private Sub CleanUpItems()
+        Dim itemsToRemove = Items.Where(Function(x) x.Quantity <= 0).ToList
+        For Each item In itemsToRemove
+            RemoveItem(item)
+        Next
+    End Sub
+
+    Public Sub AddItemQuantity(itemType As ItemType, quantity As Integer) Implements ICharacter.AddItemQuantity
+        AddItem(World.CreateItem(itemType, quantity))
+    End Sub
+
     Private ReadOnly Property IsAvatar As Boolean
         Get
             Return If(WorldData.CharacterIndex = Id, False)

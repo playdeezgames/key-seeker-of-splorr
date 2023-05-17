@@ -1,4 +1,4 @@
-﻿Friend Class FeatureDataClient
+﻿Friend MustInherit Class FeatureDataClient
     Inherits WorldDataClient
     Private ReadOnly _featureId As Integer
     Protected ReadOnly Property FeatureData As FeatureData

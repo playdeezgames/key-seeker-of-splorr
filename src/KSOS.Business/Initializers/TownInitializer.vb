@@ -43,7 +43,10 @@
         Dim cellar = world.CreateLocation(LocationType.Cellar)
         inn.CreateRoute(Direction.Down, RouteType.Stairs, cellar)
         cellar.CreateRoute(Direction.Up, RouteType.Stairs, inn)
-        Dim gurachan = world.CreateFeature("Gurachan")
+        Dim gurachan = world.CreateFeature("Gurachan", FeatureType.Shoppe)
+        gurachan.Shoppe.Name = "Resting Dog's Face Inn"
+        gurachan.Shoppe.AddTrade((ItemType.Jools, 2), (ItemType.Chikkin, 1))
+        gurachan.Shoppe.AddTrade((ItemType.RatTail, 10), (ItemType.SewerKey, 1), 1)
         inn.AddFeature(gurachan)
     End Sub
 End Module

@@ -12,4 +12,16 @@
             Return FeatureData.Name
         End Get
     End Property
+
+    Public ReadOnly Property FeatureType As FeatureType Implements IFeature.FeatureType
+        Get
+            Return FeatureData.FeatureType
+        End Get
+    End Property
+
+    Public ReadOnly Property Shoppe As IShoppe Implements IFeature.Shoppe
+        Get
+            Return New Shoppe(WorldData, Id)
+        End Get
+    End Property
 End Class
