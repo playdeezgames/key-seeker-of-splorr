@@ -1,8 +1,4 @@
 ﻿Friend Module CharacterInitializer
-    Private ReadOnly AllCharacterTypes As IReadOnlyList(Of CharacterType) = New List(Of CharacterType) From
-        {
-            CharacterType.Blob
-        }
     Friend Sub Initialize(world As IWorld)
         For Each characterType In AllCharacterTypes
             Dim descriptor = characterType.Descriptor

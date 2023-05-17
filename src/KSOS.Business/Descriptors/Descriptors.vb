@@ -1,6 +1,11 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Friend Module Descriptors
+    Friend ReadOnly Property AllCharacterTypes As IReadOnlyList(Of CharacterType)
+        Get
+            Return characterTypeDescriptors.Keys.ToList
+        End Get
+    End Property
     Private ReadOnly characterTypeDescriptors As IReadOnlyDictionary(Of CharacterType, CharacterTypeDescriptor) =
         New Dictionary(Of CharacterType, CharacterTypeDescriptor) From
         {
@@ -33,6 +38,27 @@ Friend Module Descriptors
                     .KillVerb = "slimes",
                     .SpawnLocations = New List(Of LocationType) From {LocationType.Forest},
                     .Provision = AddressOf ProvisionBlob,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 1},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 1},
+                        {StatisticType.Attack, 2},
+                        {StatisticType.MaximumDefend, 1},
+                        {StatisticType.Defend, 1},
+                        {StatisticType.XP, 1}
+                    }
+                }
+            },
+            {
+                CharacterType.Rat,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Rat",
+                    .SpawnCount = 10,
+                    .KillVerb = "gnaws",
+                    .SpawnLocations = New List(Of LocationType) From {LocationType.Cellar},
+                    .Provision = AddressOf ProvisionRat,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},

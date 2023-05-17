@@ -112,14 +112,16 @@
         Return False
     End Function
 
-    Public Function MakeAttack(defender As ICharacter) As IEnumerable(Of String) Implements ICharacter.MakeAttack
+    Public Function MakeAttack(defender As ICharacter, index As Integer) As IEnumerable(Of String) Implements ICharacter.MakeAttack
         Dim attackRoll As Integer = RollAttack()
         Dim defendRoll As Integer = defender.RollDefend()
-        Dim lines As New List(Of String) From {
-            $"{Name} attacks {defender.Name}!",
-            $"{Name} rolls an attack of {attackRoll}.",
-            $"{defender.Name} rolls a defend of {defendRoll}."
-        }
+        Dim lines As New List(Of String)
+        If index > 0 Then
+            lines.Add($"Enemy #{index}:")
+        End If
+        lines.Add($"{Name} attacks {defender.Name}!")
+        lines.Add($"{Name} rolls an attack of {attackRoll}.")
+        lines.Add($"{defender.Name} rolls a defend of {defendRoll}.")
         If attackRoll > defendRoll Then
             Dim damage = attackRoll - defendRoll
             lines.Add($"{Name} hits {defender.Name} for {damage} damage.")

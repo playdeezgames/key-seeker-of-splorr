@@ -4,7 +4,7 @@
     Property Name As String
     Sub Move(direction As Direction)
     Function Run() As Boolean
-    Function MakeAttack(defender As ICharacter) As IEnumerable(Of String)
+    Function MakeAttack(defender As ICharacter, index As Integer) As IEnumerable(Of String)
     Function RollDefend() As Integer
     Function RollAttack() As Integer
     Sub TakeDamage(damage As Integer)
