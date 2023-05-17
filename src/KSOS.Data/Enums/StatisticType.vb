@@ -6,4 +6,5 @@
     Defend
     MaximumDefend
     XP
+    Healing
 End Enum

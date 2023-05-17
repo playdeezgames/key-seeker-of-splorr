@@ -35,4 +35,10 @@
             Return ItemType.Descriptor.Name
         End Get
     End Property
+
+    Public ReadOnly Property CanHeal As Boolean Implements IItem.CanHeal
+        Get
+            Return ItemType.Descriptor.Statistics.ContainsKey(StatisticType.Healing)
+        End Get
+    End Property
 End Class

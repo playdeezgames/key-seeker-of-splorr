@@ -232,6 +232,18 @@
         AddItem(World.CreateItem(itemType, quantity))
     End Sub
 
+    Public Sub Consume(item As IItem) Implements ICharacter.Consume
+        If HasItem(item) And item.CanHeal Then
+            Wounds -= item.ItemType.Descriptor.Statistics(StatisticType.Healing)
+            item.Quantity -= 1
+            CleanUpItems()
+        End If
+    End Sub
+
+    Private Function HasItem(item As IItem) As Boolean
+        Return CharacterData.ItemIds.Contains(item.Id)
+    End Function
+
     Private ReadOnly Property IsAvatar As Boolean
         Get
             Return If(WorldData.CharacterIndex = Id, False)

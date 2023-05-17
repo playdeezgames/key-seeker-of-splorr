@@ -4,4 +4,5 @@
     Property Quantity As Integer
     ReadOnly Property Stacks As Boolean
     ReadOnly Property Name As String
+    ReadOnly Property CanHeal As Boolean
 End Interface

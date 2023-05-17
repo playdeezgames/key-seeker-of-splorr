@@ -86,7 +86,11 @@ Friend Module Descriptors
                 New ItemTypeDescriptor With
                 {
                     .Name = "Chikkin",
-                    .Stacks = True
+                    .Stacks = True,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Healing, 1}
+                    }
                 }
             },
             {
@@ -94,7 +98,8 @@ Friend Module Descriptors
                 New ItemTypeDescriptor With
                 {
                     .Name = "Rat Tail",
-                    .Stacks = True
+                    .Stacks = True,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
                 }
             },
             {
@@ -102,7 +107,8 @@ Friend Module Descriptors
                 New ItemTypeDescriptor With
                 {
                     .Name = "Graveyard Key",
-                    .Stacks = False
+                    .Stacks = False,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
                 }
             },
             {
@@ -110,7 +116,8 @@ Friend Module Descriptors
                 New ItemTypeDescriptor With
                 {
                     .Name = "Machine Key",
-                    .Stacks = False
+                    .Stacks = False,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
                 }
             },
             {
@@ -118,7 +125,8 @@ Friend Module Descriptors
                 New ItemTypeDescriptor With
                 {
                     .Name = "Sewer Key",
-                    .Stacks = False
+                    .Stacks = False,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
                 }
             },
             {
@@ -126,7 +134,8 @@ Friend Module Descriptors
                 New ItemTypeDescriptor With
                 {
                     .Name = "Tower Key",
-                    .Stacks = False
+                    .Stacks = False,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
                 }
             },
             {
@@ -134,7 +143,8 @@ Friend Module Descriptors
                 New ItemTypeDescriptor With
                 {
                     .Name = "UFO Key",
-                    .Stacks = False
+                    .Stacks = False,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
                 }
             },
             {
@@ -142,7 +152,8 @@ Friend Module Descriptors
                 New ItemTypeDescriptor With
                 {
                     .Name = "Jools",
-                    .Stacks = True
+                    .Stacks = True,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
                 }
             }
         }

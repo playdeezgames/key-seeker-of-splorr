@@ -28,4 +28,5 @@
     ReadOnly Property CanInteract As Boolean
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of IItem)
+    Sub Consume(item As IItem)
 End Interface
