@@ -34,7 +34,7 @@ Friend Module Descriptors
                 New CharacterTypeDescriptor With
                 {
                     .Name = "Blob",
-                    .SpawnCount = 100,
+                    .SpawnCount = 200,
                     .KillVerb = "slimes",
                     .SpawnLocations = New List(Of LocationType) From {LocationType.Forest},
                     .Provision = AddressOf ProvisionBlob,
