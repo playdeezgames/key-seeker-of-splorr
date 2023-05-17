@@ -30,8 +30,8 @@
     End Property
 
     Public Sub Complete() Implements ITrade.Complete
-        If TradeData.Available.HasValue AndAlso TradeData.Available.Value > 0 Then
-            TradeData.Available = TradeData.Available.Value - 1
+        If TradeData.Available < Integer.MaxValue AndAlso TradeData.Available > 0 Then
+            TradeData.Available -= 1
         End If
     End Sub
 End Class

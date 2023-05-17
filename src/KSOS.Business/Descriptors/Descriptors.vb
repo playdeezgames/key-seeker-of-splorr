@@ -56,6 +56,22 @@ Friend Module Descriptors
         New Dictionary(Of ItemType, ItemTypeDescriptor) From
         {
             {
+                ItemType.Chikkin,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Chikkin",
+                    .Stacks = True
+                }
+            },
+            {
+                ItemType.RatTail,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Rat Tail",
+                    .Stacks = True
+                }
+            },
+            {
                 ItemType.GraveyardKey,
                 New ItemTypeDescriptor With
                 {

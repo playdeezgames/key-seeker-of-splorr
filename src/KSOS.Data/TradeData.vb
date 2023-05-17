@@ -3,5 +3,5 @@
     Property ToItemType As ItemType
     Property FromQuantity As Integer
     Property ToQuantity As Integer
-    Property Available As Integer?
+    Property Available As Integer
 End Class

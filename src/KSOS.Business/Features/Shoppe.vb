@@ -30,7 +30,7 @@
         End Get
     End Property
 
-    Public Sub AddTrade(tradeFrom As (ItemType, Integer), tradeTo As (ItemType, Integer), Optional available As Integer? = Nothing) Implements IShoppe.AddTrade
+    Public Sub AddTrade(tradeFrom As (ItemType, Integer), tradeTo As (ItemType, Integer), Optional available As Integer = Integer.MaxValue) Implements IShoppe.AddTrade
         ShoppeData.Trades.Add(New TradeData With {
             .Available = available,
             .FromItemType = tradeFrom.Item1,

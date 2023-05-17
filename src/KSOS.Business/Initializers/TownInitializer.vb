@@ -1,6 +1,6 @@
 ﻿Friend Module TownInitializer
-    Const Columns = 5
-    Const Rows = 5
+    Const Columns = 3
+    Const Rows = 3
     Friend Sub Initialize(world As IWorld)
         Dim maze As New Maze(Of Direction)(Columns, Rows, mazeDirections)
         maze.Generate()
