@@ -26,6 +26,9 @@
         If avatar.CanPickUpItems Then
             prompt.AddChoice(PickUpText)
         End If
+        If avatar.HasItems Then
+            prompt.AddChoice(InventoryText)
+        End If
         If avatar.CanInteract Then
             prompt.AddChoice(InteractText)
         End If
@@ -44,6 +47,10 @@
                 Return Fight.Run()
             Case PickUpText
                 Return PickUp.Run()
+            Case InteractText
+                Return Interact.Run()
+            Case InventoryText
+                Return Inventory.Run()
             Case Else
                 Throw New NotImplementedException
         End Select

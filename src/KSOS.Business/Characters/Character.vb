@@ -177,11 +177,6 @@
         Location.RemoveCharacter(Me)
         WorldData.Characters(Id) = Nothing
     End Sub
-    Private ReadOnly Property Items As IEnumerable(Of IItem)
-        Get
-            Return CharacterData.ItemIds.Select(Function(x) New Item(WorldData, x))
-        End Get
-    End Property
 
     Public Sub AddItem(item As IItem) Implements ICharacter.AddItem
         If item.Stacks Then
@@ -237,6 +232,18 @@
     Public ReadOnly Property CanInteract As Boolean Implements ICharacter.CanInteract
         Get
             Return Location.HasFeatures
+        End Get
+    End Property
+
+    Public ReadOnly Property HasItems As Boolean Implements ICharacter.HasItems
+        Get
+            Return CharacterData.ItemIds.Any
+        End Get
+    End Property
+
+    Private ReadOnly Property Items As IEnumerable(Of IItem) Implements ICharacter.Items
+        Get
+            Return CharacterData.ItemIds.Select(Function(x) New Item(WorldData, x))
         End Get
     End Property
 End Class

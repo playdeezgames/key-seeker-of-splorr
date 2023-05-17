@@ -23,4 +23,6 @@
     ReadOnly Property World As IWorld
     ReadOnly Property CanPickUpItems As Boolean
     ReadOnly Property CanInteract As Boolean
+    ReadOnly Property HasItems As Boolean
+    ReadOnly Property Items As IEnumerable(Of IItem)
 End Interface

@@ -6,13 +6,10 @@
         Dim avatar = World.Avatar
         Dim location = avatar.Location
         Dim items = location.Items.ToList()
+        Dim postFix = ""
         For index = 0 To items.Count - 1
-            Dim idText = $"{items(index).Id}"
-            Dim bsText = ""
-            While bsText.Length < idText.Length
-                bsText += ChrW(8)
-            End While
-            Dim text = $"{items(index).Name}(x{items(index).Quantity}){idText}{bsText}"
+            Dim text = $"{items(index).Name}(x{items(index).Quantity}){postFix}"
+            postFix += " " + ChrW(8)
             table.Add(text, items(index))
             prompt.AddChoice(text)
         Next
