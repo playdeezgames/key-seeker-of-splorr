@@ -22,4 +22,5 @@
     ReadOnly Property KillVerb As String
     ReadOnly Property World As IWorld
     ReadOnly Property CanPickUpItems As Boolean
+    ReadOnly Property CanInteract As Boolean
 End Interface

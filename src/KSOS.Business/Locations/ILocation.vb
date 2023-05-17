@@ -15,4 +15,5 @@
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of IItem)
     ReadOnly Property Features As IEnumerable(Of IFeature)
+    ReadOnly Property HasFeatures As Boolean
 End Interface

@@ -26,6 +26,9 @@
         If avatar.CanPickUpItems Then
             prompt.AddChoice(PickUpText)
         End If
+        If avatar.CanInteract Then
+            prompt.AddChoice(InteractText)
+        End If
         prompt.AddChoice(StatusText)
         prompt.AddChoice(GameMenuText)
         Select Case AnsiConsole.Prompt(prompt)

@@ -6,6 +6,7 @@ Friend Module Constants
     Friend Const ContinueText = "Continue"
     Friend Const FightText = "Fight"
     Friend Const GameMenuText = "Game Menu"
+    Friend Const InteractText = "Interact..."
     Friend Const LoadGameText = "Load Game..."
     Friend Const MainMenuText = "Main Menu"
     Friend Const MoveText = "Move..."

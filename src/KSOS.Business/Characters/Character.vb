@@ -233,4 +233,10 @@
             Return Not CanFight AndAlso Location.HasItems
         End Get
     End Property
+
+    Public ReadOnly Property CanInteract As Boolean Implements ICharacter.CanInteract
+        Get
+            Return Location.HasFeatures
+        End Get
+    End Property
 End Class

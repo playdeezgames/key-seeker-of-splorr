@@ -49,6 +49,13 @@
             Return LocationData.FeatureIds.Select(Function(x) New Feature(WorldData, x))
         End Get
     End Property
+
+    Public ReadOnly Property HasFeatures As Boolean Implements ILocation.HasFeatures
+        Get
+            Return LocationData.FeatureIds.Any
+        End Get
+    End Property
+
     Public Sub AddItem(item As IItem) Implements ILocation.AddItem
         If item.Stacks Then
             Dim existingItem = Items.FirstOrDefault(Function(x) x.ItemType = item.ItemType)
