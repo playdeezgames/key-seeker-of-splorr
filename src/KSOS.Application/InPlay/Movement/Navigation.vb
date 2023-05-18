@@ -12,7 +12,9 @@
         End If
         Dim features = location.Features
         If features.Any Then
-            AnsiConsole.MarkupLine($"Features: {String.Join(", ", features.Select(Function(x) $"{x.Name}"))}")
+            AnsiConsole.MarkupLine($"Features:
+    {String.Join("
+    ", features.Select(Function(x) $"{x.Name}"))}")
         End If
         AnsiConsole.MarkupLine($"Exits: 
     {String.Join("

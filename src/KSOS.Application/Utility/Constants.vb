@@ -22,15 +22,6 @@ Friend Module Constants
     Friend Const StartText = "Start"
     Friend Const StatusText = "Status"
     Friend Const YesText = "Yes"
-    Private ReadOnly statisticNames As IReadOnlyDictionary(Of StatisticType, String) =
-        New Dictionary(Of StatisticType, String) From
-        {
-            {StatisticType.MaximumHealth, "Maximum Health"}
-        }
-    <Extension>
-    Friend Function Name(statisticType As StatisticType) As String
-        Return statisticNames(statisticType)
-    End Function
     Private ReadOnly directionNames As IReadOnlyDictionary(Of Direction, String) =
         New Dictionary(Of Direction, String) From
         {

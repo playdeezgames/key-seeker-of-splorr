@@ -14,7 +14,7 @@
         End Get
     End Property
 
-    Public Function CalculateCost(character As ICharacter) As Object Implements ITrainingStatistic.CalculateCost
+    Public Function CalculateCost(character As ICharacter) As Integer Implements ITrainingStatistic.CalculateCost
         Return Multiplier * character.GetStatistic(StatisticType)
     End Function
 End Class

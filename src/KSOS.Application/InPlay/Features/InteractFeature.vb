@@ -34,16 +34,12 @@ Friend Module InteractFeature
                 Case NeverMindText
                     Exit Do
                 Case Else
-                    RunTraining(table(answer))
+                    World.Avatar.Train(table(answer))
+                    Message.Run()
             End Select
         Loop
         Return True
     End Function
-
-    Private Sub RunTraining(trainingStatistic As ITrainingStatistic)
-        AnsiConsole.MarkupLine("Coming soon!")
-        OkPrompt()
-    End Sub
 
     Private Function RunShoppe(shoppe As IShoppe) As Boolean
         Do

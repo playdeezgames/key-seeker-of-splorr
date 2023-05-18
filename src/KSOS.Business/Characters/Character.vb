@@ -265,6 +265,19 @@
         End If
     End Sub
 
+    Public Sub Train(trainingStatistic As ITrainingStatistic) Implements ICharacter.Train
+        Dim cost = trainingStatistic.CalculateCost(Me)
+        If XP < cost Then
+            AddMessage($"{Name} does not have {cost} XP!")
+            Return
+        End If
+        XP -= cost
+        SetStatistic(trainingStatistic.StatisticType, GetStatistic(trainingStatistic.StatisticType) + 1)
+        AddMessage(
+            $"{Name} spends {cost} XP, and now has {XP} XP.",
+            $"{Name} now has a {trainingStatistic.StatisticType.Name} of {GetStatistic(trainingStatistic.StatisticType)}.")
+    End Sub
+
     Private ReadOnly Property IsAvatar As Boolean
         Get
             Return If(WorldData.CharacterIndex = Id, False)

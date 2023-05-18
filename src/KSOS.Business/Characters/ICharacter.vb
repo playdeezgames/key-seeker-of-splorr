@@ -34,4 +34,5 @@
     Sub AddMessage(ParamArray lines As String())
     Sub DismissMessage()
     Function GetStatistic(statisticType As StatisticType) As Integer
+    Sub Train(trainingStatistic As ITrainingStatistic)
 End Interface
