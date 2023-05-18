@@ -52,7 +52,7 @@
             Case PickUpText
                 Return PickUp.Run()
             Case InteractText
-                Return Application.InteractFeatures.Run()
+                Return InteractFeatures.Run()
             Case InventoryText
                 Return Inventory.Run()
             Case Else

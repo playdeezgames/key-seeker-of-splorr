@@ -24,4 +24,10 @@
             Return New Shoppe(WorldData, Id)
         End Get
     End Property
+
+    Public ReadOnly Property Training As ITraining Implements IFeature.Training
+        Get
+            Return New Training(WorldData, Id)
+        End Get
+    End Property
 End Class

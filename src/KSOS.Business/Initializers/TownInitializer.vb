@@ -34,6 +34,15 @@
         forestCenter.CreateRoute(Direction.Inside, RouteType.TownGate, mazeLocations(Columns \ 2, Rows - 1))
         InitializeInn(world)
         InitializeKnacker(world)
+        InitializeYogi(world)
+    End Sub
+
+    Private Sub InitializeYogi(world As IWorld)
+        Dim location = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge))
+        Dim yogi = world.CreateFeature("Yogi the Bare Bear Yoga Instructor", FeatureType.Trainer)
+        yogi.Training.Name = "Yogi The Bare Bear's Personal Training"
+        yogi.Training.Add(StatisticType.MaximumHealth, 10)
+        location.AddFeature(yogi)
     End Sub
 
     Private Sub InitializeKnacker(world As IWorld)

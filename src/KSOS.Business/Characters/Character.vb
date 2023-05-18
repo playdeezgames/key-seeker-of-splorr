@@ -40,7 +40,7 @@
         CharacterData.Statistics(statisticType) = value
     End Sub
 
-    Private Function GetStatistic(statisticType As StatisticType) As Integer
+    Public Function GetStatistic(statisticType As StatisticType) As Integer Implements ICharacter.GetStatistic
         If CharacterData.Statistics.ContainsKey(statisticType) Then
             Return CharacterData.Statistics(statisticType)
         End If

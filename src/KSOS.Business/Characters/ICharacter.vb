@@ -33,4 +33,5 @@
     ReadOnly Property NextMessage As IMessage
     Sub AddMessage(ParamArray lines As String())
     Sub DismissMessage()
+    Function GetStatistic(statisticType As StatisticType) As Integer
 End Interface
