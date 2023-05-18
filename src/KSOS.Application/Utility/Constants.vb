@@ -68,7 +68,8 @@ Friend Module Constants
             {LocationType.Ruins, "a ruins"},
             {LocationType.Inn, "an inn"},
             {LocationType.Cellar, "a cellar"},
-            {LocationType.Sewer, "a sewer"}
+            {LocationType.Sewer, "a sewer"},
+            {LocationType.Knackery, "a knackery"}
         }
     <Extension>
     Friend Function Name(locationType As LocationType) As String

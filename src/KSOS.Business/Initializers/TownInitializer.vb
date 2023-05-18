@@ -33,6 +33,19 @@
         mazeLocations(Columns - 1, Rows \ 2).CreateRoute(Direction.East, RouteType.TownGate, forestCenter)
         forestCenter.CreateRoute(Direction.Inside, RouteType.TownGate, mazeLocations(Columns \ 2, Rows - 1))
         InitializeInn(world)
+        InitializeKnacker(world)
+    End Sub
+
+    Private Sub InitializeKnacker(world As IWorld)
+        Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
+        Dim knackery = world.CreateLocation(LocationType.Knackery)
+        entrance.CreateRoute(Direction.Inside, RouteType.Door, knackery)
+        knackery.CreateRoute(Direction.Outside, RouteType.Door, entrance)
+        Dim dan = world.CreateFeature("""Honest"" Dan the Knacker", FeatureType.Shoppe)
+        dan.Shoppe.Name = """Honest"" Dan's Knackery"
+        dan.Shoppe.AddTrade((ItemType.SewerRatTail, 3), (ItemType.Jools, 1))
+        dan.Shoppe.AddTrade((ItemType.SewerRatTail, 7), (ItemType.Jools, 2))
+        knackery.AddFeature(dan)
     End Sub
 
     Private Sub InitializeInn(world As IWorld)
@@ -46,7 +59,7 @@
         Dim gurachan = world.CreateFeature("Gurachan The Innkeeper", FeatureType.Shoppe)
         gurachan.Shoppe.Name = "Resting Dog's Face Inn"
         gurachan.Shoppe.AddTrade((ItemType.Jools, 2), (ItemType.Chikkin, 1))
-        gurachan.Shoppe.AddTrade((ItemType.RatTail, 10), (ItemType.SewerKey, 1), 1)
+        gurachan.Shoppe.AddTrade((ItemType.CellarRatTail, 10), (ItemType.SewerKey, 1), 1)
         inn.AddFeature(gurachan)
     End Sub
 End Module

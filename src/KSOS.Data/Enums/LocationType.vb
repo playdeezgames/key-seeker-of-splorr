@@ -9,4 +9,5 @@
     Inn
     Cellar
     Sewer
+    Knackery
 End Enum

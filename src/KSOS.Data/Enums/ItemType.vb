@@ -6,5 +6,6 @@
     MachineKey
     Jools
     Chikkin
-    RatTail
+    CellarRatTail
+    SewerRatTail
 End Enum

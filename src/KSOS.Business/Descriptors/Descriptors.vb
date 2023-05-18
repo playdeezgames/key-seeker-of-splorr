@@ -136,10 +136,19 @@ Friend Module Descriptors
                 }
             },
             {
-                ItemType.RatTail,
+                ItemType.CellarRatTail,
                 New ItemTypeDescriptor With
                 {
-                    .Name = "Rat Tail",
+                    .Name = "Cellar Rat Tail",
+                    .Stacks = True,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                }
+            },
+            {
+                ItemType.SewerRatTail,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Sewer Rat Tail",
                     .Stacks = True,
                     .Statistics = New Dictionary(Of StatisticType, Integer)
                 }
