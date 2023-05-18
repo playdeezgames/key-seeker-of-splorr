@@ -41,7 +41,8 @@ Friend Module InteractFeature
     End Function
 
     Private Sub RunTraining(trainingStatistic As ITrainingStatistic)
-        Throw New NotImplementedException()
+        AnsiConsole.MarkupLine("Coming soon!")
+        OkPrompt()
     End Sub
 
     Private Function RunShoppe(shoppe As IShoppe) As Boolean
