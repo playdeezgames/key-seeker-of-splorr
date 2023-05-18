@@ -14,11 +14,6 @@
         If attacker.IsDead OrElse defender.IsDead Then
             Return
         End If
-        AnsiConsole.Clear()
-        Dim lines As IEnumerable(Of String) = attacker.MakeAttack(defender, counter)
-        For Each line In lines
-            AnsiConsole.MarkupLine(line)
-        Next
-        OkPrompt()
+        attacker.MakeAttack(defender, counter)
     End Sub
 End Module

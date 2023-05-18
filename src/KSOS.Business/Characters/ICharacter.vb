@@ -4,7 +4,7 @@
     Property Name As String
     Sub Move(direction As Direction)
     Function Run() As Boolean
-    Function MakeAttack(defender As ICharacter, index As Integer) As IEnumerable(Of String)
+    Sub MakeAttack(defender As ICharacter, index As Integer)
     Function RollDefend() As Integer
     Function RollAttack() As Integer
     Sub TakeDamage(damage As Integer)
@@ -29,4 +29,8 @@
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of IItem)
     Sub Consume(item As IItem)
+    ReadOnly Property HasMessages As Boolean
+    ReadOnly Property NextMessage As IMessage
+    Sub AddMessage(ParamArray lines As String())
+    Sub DismissMessage()
 End Interface

@@ -92,9 +92,11 @@
     Public Sub Move(direction As Direction) Implements ICharacter.Move
         Dim route As IRoute = Location.GetRoute(direction)
         If route Is Nothing Then
+            AddMessage($"{Name} cannot go that way!")
             Return
         End If
         If route.RequiredItemType.HasValue AndAlso Not HasItemQuantity(route.RequiredItemType.Value, 1) Then
+            AddMessage($"{Name} needs a {route.RequiredItemType.Value.Descriptor.Name} to go that way!")
             Return
         End If
         Location = route.Destination
@@ -115,7 +117,7 @@
         Return False
     End Function
 
-    Public Function MakeAttack(defender As ICharacter, index As Integer) As IEnumerable(Of String) Implements ICharacter.MakeAttack
+    Public Sub MakeAttack(defender As ICharacter, index As Integer) Implements ICharacter.MakeAttack
         Dim attackRoll As Integer = RollAttack()
         Dim defendRoll As Integer = defender.RollDefend()
         Dim lines As New List(Of String)
@@ -143,8 +145,9 @@
         Else
             lines.Add($"{Name} misses.")
         End If
-        Return lines
-    End Function
+        AddMessage(lines.ToArray)
+        defender.AddMessage(lines.ToArray)
+    End Sub
 
     Public Function RollDefend() As Integer Implements ICharacter.RollDefend
         Dim dice = GetStatistic(StatisticType.Defend)
@@ -247,6 +250,21 @@
         Return CharacterData.ItemIds.Contains(item.Id)
     End Function
 
+    Public Sub AddMessage(ParamArray lines() As String) Implements ICharacter.AddMessage
+        If WorldData.CharacterIndex.HasValue AndAlso Id = WorldData.CharacterIndex.Value Then
+            WorldData.Messages.Add(New MessageData With
+                                   {
+                                    .Lines = lines.ToList
+                                   })
+        End If
+    End Sub
+
+    Public Sub DismissMessage() Implements ICharacter.DismissMessage
+        If HasMessages Then
+            WorldData.Messages.RemoveAt(0)
+        End If
+    End Sub
+
     Private ReadOnly Property IsAvatar As Boolean
         Get
             Return If(WorldData.CharacterIndex = Id, False)
@@ -295,6 +313,21 @@
     Private ReadOnly Property Items As IEnumerable(Of IItem) Implements ICharacter.Items
         Get
             Return CharacterData.ItemIds.Select(Function(x) New Item(WorldData, x))
+        End Get
+    End Property
+
+    Public ReadOnly Property HasMessages As Boolean Implements ICharacter.HasMessages
+        Get
+            Return WorldData.CharacterIndex.HasValue AndAlso Id = WorldData.CharacterIndex.Value AndAlso WorldData.Messages.Any
+        End Get
+    End Property
+
+    Public ReadOnly Property NextMessage As IMessage Implements ICharacter.NextMessage
+        Get
+            If Not HasMessages Then
+                Return Nothing
+            End If
+            Return New NextMessage(WorldData)
         End Get
     End Property
 End Class
