@@ -94,6 +94,9 @@
         If route Is Nothing Then
             Return
         End If
+        If route.RequiredItemType.HasValue AndAlso Not HasItemQuantity(route.RequiredItemType.Value, 1) Then
+            Return
+        End If
         Location = route.Destination
     End Sub
 

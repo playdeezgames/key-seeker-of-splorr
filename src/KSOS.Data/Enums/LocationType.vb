@@ -8,4 +8,5 @@
     Ruins
     Inn
     Cellar
+    Sewer
 End Enum

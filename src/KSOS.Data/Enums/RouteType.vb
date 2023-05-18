@@ -8,4 +8,5 @@
     RuinsPath
     Door
     Stairs
+    Tunnel
 End Enum

@@ -76,7 +76,8 @@
         LocationData.Routes(direction) = New RouteData With
             {
                 .ToLocationId = destination.Id,
-                .RouteType = routeType
+                .RouteType = routeType,
+                .RequiredItemType = Nothing
             }
         Return New Route(WorldData, Id, direction)
     End Function

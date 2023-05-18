@@ -17,4 +17,13 @@
             Return RouteData.RouteType
         End Get
     End Property
+
+    Public Property RequiredItemType As ItemType? Implements IRoute.RequiredItemType
+        Get
+            Return RouteData.RequiredItemType
+        End Get
+        Set(value As ItemType?)
+            RouteData.RequiredItemType = value
+        End Set
+    End Property
 End Class
