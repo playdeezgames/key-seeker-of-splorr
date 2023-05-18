@@ -51,14 +51,14 @@ Friend Module Descriptors
                 }
             },
             {
-                CharacterType.Rat,
+                CharacterType.CellarRat,
                 New CharacterTypeDescriptor With
                 {
-                    .Name = "Rat",
+                    .Name = "Cellar Rat",
                     .SpawnCount = 10,
-                    .KillVerb = "gnaws",
+                    .KillVerb = "gnaws the flesh of",
                     .SpawnLocations = New List(Of LocationType) From {LocationType.Cellar},
-                    .Provision = AddressOf ProvisionRat,
+                    .Provision = AddressOf ProvisionCellarRat,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},
@@ -68,6 +68,48 @@ Friend Module Descriptors
                         {StatisticType.MaximumDefend, 1},
                         {StatisticType.Defend, 1},
                         {StatisticType.XP, 1}
+                    }
+                }
+            },
+            {
+                CharacterType.SewerRat,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Sewer Rat",
+                    .SpawnCount = 75,
+                    .KillVerb = "feasts on the innard of",
+                    .SpawnLocations = New List(Of LocationType) From {LocationType.Sewer},
+                    .Provision = AddressOf ProvisionSewerRat,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 1},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 1},
+                        {StatisticType.Attack, 4},
+                        {StatisticType.MaximumDefend, 1},
+                        {StatisticType.Defend, 1},
+                        {StatisticType.XP, 1}
+                    }
+                }
+            },
+            {
+                CharacterType.KingRat,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "King Rat",
+                    .SpawnCount = 1,
+                    .KillVerb = "cavorts in the intestines of",
+                    .SpawnLocations = New List(Of LocationType) From {LocationType.Sewer},
+                    .Provision = AddressOf ProvisionKingRat,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 2},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 2},
+                        {StatisticType.Attack, 4},
+                        {StatisticType.MaximumDefend, 2},
+                        {StatisticType.Defend, 2},
+                        {StatisticType.XP, 2}
                     }
                 }
             }

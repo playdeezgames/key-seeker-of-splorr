@@ -25,7 +25,8 @@
             Next
         Next
         Dim forestLocation = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.ForestCorner AndAlso Not x.HasRoute(Direction.Inside)))
-        forestLocation.CreateRoute(Direction.Inside, RouteType.GraveyardGate, locations(Columns \ 2, Rows - 1))
+        Dim graveyardEntrance = forestLocation.CreateRoute(Direction.Inside, RouteType.GraveyardGate, locations(Columns \ 2, Rows - 1))
+        graveyardEntrance.RequiredItemType = ItemType.GraveyardKey
         locations(Columns \ 2, Rows - 1).CreateRoute(Direction.South, RouteType.GraveyardGate, forestLocation)
     End Sub
 End Module

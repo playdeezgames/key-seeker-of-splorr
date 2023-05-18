@@ -12,8 +12,9 @@
         TownInitializer.Initialize(world)
         GraveyardInitializer.Initialize(world)
         RuinsInitializer.Initialize(world)
-        CharacterInitializer.Initialize(world)
         SewersInitializer.Initialize(world)
+
+        CharacterInitializer.Initialize(world)
         AvatarInitializer.Initialize(world)
     End Sub
 End Module

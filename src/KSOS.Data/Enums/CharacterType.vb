@@ -1,5 +1,7 @@
 ﻿Public Enum CharacterType
     N00b
     Blob
-    Rat
+    CellarRat
+    SewerRat
+    KingRat
 End Enum
