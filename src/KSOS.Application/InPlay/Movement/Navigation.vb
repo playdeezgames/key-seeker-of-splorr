@@ -35,6 +35,9 @@
         If avatar.HasItems Then
             prompt.AddChoice(InventoryText)
         End If
+        If avatar.HasAnyEquipment Then
+            prompt.AddChoice(EquipmentText)
+        End If
         If avatar.CanInteract Then
             prompt.AddChoice(InteractText)
         End If
@@ -57,6 +60,8 @@
                 Return InteractFeatures.Run()
             Case InventoryText
                 Return Inventory.Run()
+            Case EquipmentText
+                Return Equipment.Run()
             Case Else
                 Throw New NotImplementedException
         End Select

@@ -5,6 +5,7 @@ Friend Module Constants
     Friend Const AbandonGameText = "Abandon Game"
     Friend Const ConsumeText = "Consume"
     Friend Const ContinueText = "Continue"
+    Friend Const EquipmentText = "Equipment"
     Friend Const EquipText = "Equip"
     Friend Const FightText = "Fight"
     Friend Const GameMenuText = "Game Menu"
@@ -22,6 +23,7 @@ Friend Module Constants
     Friend Const SaveGameText = "Save Game..."
     Friend Const StartText = "Start"
     Friend Const StatusText = "Status"
+    Friend Const UnequipText = "Unequip"
     Friend Const YesText = "Yes"
     Private ReadOnly directionNames As IReadOnlyDictionary(Of Direction, String) =
         New Dictionary(Of Direction, String) From

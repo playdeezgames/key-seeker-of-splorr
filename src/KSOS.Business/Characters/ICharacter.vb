@@ -31,6 +31,7 @@
     Sub Consume(item As IItem)
     ReadOnly Property HasMessages As Boolean
     ReadOnly Property NextMessage As IMessage
+    ReadOnly Property HasAnyEquipment As Boolean
     Sub AddMessage(ParamArray lines As String())
     Sub DismissMessage()
     Function GetStatistic(statisticType As StatisticType) As Integer
@@ -39,4 +40,5 @@
     Function HasEquipment(equipSlot As EquipSlot) As Boolean
     Sub Unequip(equipSlot As EquipSlot)
     Function Equipment(equipSlot As EquipSlot) As IItem
+    ReadOnly Property EquippedSlots As IEnumerable(Of EquipSlot)
 End Interface

@@ -379,4 +379,16 @@
             Return New NextMessage(WorldData)
         End Get
     End Property
+
+    Public ReadOnly Property HasAnyEquipment As Boolean Implements ICharacter.HasAnyEquipment
+        Get
+            Return CharacterData.Equipment.Any
+        End Get
+    End Property
+
+    Public ReadOnly Property EquippedSlots As IEnumerable(Of EquipSlot) Implements ICharacter.EquippedSlots
+        Get
+            Return CharacterData.Equipment.Keys
+        End Get
+    End Property
 End Class
