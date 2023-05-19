@@ -7,4 +7,6 @@
     MaximumDefend
     XP
     Healing
+    Durability
+    Wear
 End Enum

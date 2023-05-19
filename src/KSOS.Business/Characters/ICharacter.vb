@@ -35,4 +35,8 @@
     Sub DismissMessage()
     Function GetStatistic(statisticType As StatisticType) As Integer
     Sub Train(trainingStatistic As ITrainingStatistic)
+    Sub Equip(item As IItem)
+    Function HasEquipment(equipSlot As EquipSlot) As Boolean
+    Sub Unequip(equipSlot As EquipSlot)
+    Function Equipment(equipSlot As EquipSlot) As IItem
 End Interface

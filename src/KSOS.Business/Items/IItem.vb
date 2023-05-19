@@ -5,4 +5,5 @@
     ReadOnly Property Stacks As Boolean
     ReadOnly Property Name As String
     ReadOnly Property CanHeal As Boolean
+    ReadOnly Property CanEquip As Boolean
 End Interface

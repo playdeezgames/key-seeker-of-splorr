@@ -10,4 +10,13 @@ Public Module Constants
     Public Function Name(statisticType As StatisticType) As String
         Return statisticNames(statisticType)
     End Function
+    Private ReadOnly equipSlotNames As IReadOnlyDictionary(Of EquipSlot, String) =
+        New Dictionary(Of EquipSlot, String) From
+        {
+            {EquipSlot.Weapon, "Weapon"}
+        }
+    <Extension>
+    Public Function Name(equipSlot As EquipSlot) As String
+        Return equipSlotNames(equipSlot)
+    End Function
 End Module

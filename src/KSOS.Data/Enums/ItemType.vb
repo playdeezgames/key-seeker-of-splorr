@@ -8,4 +8,5 @@
     Chikkin
     CellarRatTail
     SewerRatTail
+    Dagger
 End Enum

@@ -8,15 +8,25 @@ Friend Module InventoryDetail
         If item.CanHeal Then
             prompt.AddChoice(ConsumeText)
         End If
+        If item.CanEquip Then
+            prompt.AddChoice(EquipText)
+        End If
         Dim answer = AnsiConsole.Prompt(prompt)
         Select Case answer
             Case NeverMindText
                 Return
             Case ConsumeText
                 RunConsume(item)
+            Case EquipText
+                RunEquip(item)
             Case Else
                 Throw New NotImplementedException
         End Select
+    End Sub
+
+    Private Sub RunEquip(item As IItem)
+        World.Avatar.Equip(item)
+        Message.Run()
     End Sub
 
     Private Sub RunConsume(item As IItem)

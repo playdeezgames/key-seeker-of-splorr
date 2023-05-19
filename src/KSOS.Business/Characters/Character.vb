@@ -278,6 +278,42 @@
             $"{Name} now has a {trainingStatistic.StatisticType.Name} of {GetStatistic(trainingStatistic.StatisticType)}.")
     End Sub
 
+    Public Sub Equip(item As IItem) Implements ICharacter.Equip
+        If Not HasItem(item) OrElse Not item.CanEquip Then
+            AddMessage($"{Name} cannot equip that {item.Name}.")
+            Return
+        End If
+        Dim equipSlot = item.ItemType.Descriptor.EquipSlot.Value
+        If HasEquipment(equipSlot) Then
+            Unequip(equipSlot)
+        End If
+        RemoveItem(item)
+        CharacterData.Equipment(equipSlot) = item.Id
+        AddMessage($"{Name} equips {item.Name} to {equipSlot.Name}.")
+    End Sub
+
+    Public Function HasEquipment(equipSlot As EquipSlot) As Boolean Implements ICharacter.HasEquipment
+        Return CharacterData.Equipment.ContainsKey(equipSlot)
+    End Function
+
+    Public Sub Unequip(equipSlot As EquipSlot) Implements ICharacter.Unequip
+        If Not HasEquipment(equipSlot) Then
+            AddMessage($"{Name} has nothing equipped for {equipSlot.Name}.")
+            Return
+        End If
+        Dim item = Equipment(equipSlot)
+        AddMessage($"{Name} unequips {item.Name} from {equipSlot.Name}.")
+        CharacterData.Equipment.Remove(equipSlot)
+        AddItem(item)
+    End Sub
+
+    Public Function Equipment(equipSlot As EquipSlot) As IItem Implements ICharacter.Equipment
+        If Not HasEquipment(equipSlot) Then
+            Return Nothing
+        End If
+        Return New Item(WorldData, CharacterData.Equipment(equipSlot))
+    End Function
+
     Private ReadOnly Property IsAvatar As Boolean
         Get
             Return If(WorldData.CharacterIndex = Id, False)
