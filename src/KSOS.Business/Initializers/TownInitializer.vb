@@ -35,8 +35,22 @@
         InitializeInn(world)
         InitializeKnacker(world)
         InitializeYogi(world)
+        InitializeBlacksmith(world)
     End Sub
-
+    Private Sub InitializeBlacksmith(world As IWorld)
+        Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
+        Dim blacksmithShoppe = world.CreateLocation(LocationType.Inn)
+        entrance.CreateRoute(Direction.Inside, RouteType.Door, blacksmithShoppe)
+        blacksmithShoppe.CreateRoute(Direction.Outside, RouteType.Door, entrance)
+        Dim samuli = world.CreateFeature("Samuli's Blacksmithery", FeatureType.Shoppe)
+        samuli.Shoppe.Name = "Samuli's Wares"
+        samuli.Shoppe.AddTrade((ItemType.Jools, 25), (ItemType.Dagger, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 50), (ItemType.Shortsword, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 75), (ItemType.Broadsword, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 100), (ItemType.Longsword, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 125), (ItemType.Axe, 1))
+        blacksmithShoppe.AddFeature(samuli)
+    End Sub
     Private Sub InitializeYogi(world As IWorld)
         Dim location = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge))
         Dim yogi = world.CreateFeature("Yogi the Bare Bear Yoga Instructor", FeatureType.Trainer)
@@ -44,7 +58,6 @@
         yogi.Training.Add(StatisticType.MaximumHealth, 10)
         location.AddFeature(yogi)
     End Sub
-
     Private Sub InitializeKnacker(world As IWorld)
         Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
         Dim knackery = world.CreateLocation(LocationType.Knackery)
@@ -56,7 +69,6 @@
         dan.Shoppe.AddTrade((ItemType.SewerRatTail, 7), (ItemType.Jools, 2))
         knackery.AddFeature(dan)
     End Sub
-
     Private Sub InitializeInn(world As IWorld)
         Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
         Dim inn = world.CreateLocation(LocationType.Inn)

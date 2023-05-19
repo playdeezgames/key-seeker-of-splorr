@@ -34,6 +34,70 @@ Friend Module ItemTypeDescriptors
                 }
             },
             {
+                ItemType.Shortsword,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Shortsword",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Weapon,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Attack, 4},
+                        {StatisticType.MaximumAttack, 1},
+                        {StatisticType.Durability, 40},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
+                ItemType.Broadsword,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Broadsword",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Weapon,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Attack, 7},
+                        {StatisticType.MaximumAttack, 2},
+                        {StatisticType.Durability, 60},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
+                ItemType.Longsword,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Longsword",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Weapon,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Attack, 10},
+                        {StatisticType.MaximumAttack, 3},
+                        {StatisticType.Durability, 80},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
+                ItemType.Axe,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Axe",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Weapon,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Attack, 13},
+                        {StatisticType.MaximumAttack, 4},
+                        {StatisticType.Durability, 100},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
                 ItemType.CellarRatTail,
                 New ItemTypeDescriptor With
                 {

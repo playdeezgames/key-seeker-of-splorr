@@ -9,4 +9,8 @@
     CellarRatTail
     SewerRatTail
     Dagger
+    Shortsword
+    Broadsword
+    Longsword
+    Axe
 End Enum
