@@ -120,6 +120,8 @@
     Public Sub MakeAttack(defender As ICharacter, index As Integer) Implements ICharacter.MakeAttack
         Dim attackRoll As Integer = RollAttack()
         Dim defendRoll As Integer = defender.RollDefend()
+        WearWeapon(attackRoll)
+        defender.WearArmor(defendRoll)
         Dim lines As New List(Of String)
         If index > 0 Then
             lines.Add($"Enemy #{index}:")
@@ -152,6 +154,10 @@
     Public Function RollDefend() As Integer Implements ICharacter.RollDefend
         Dim dice = GetStatistic(StatisticType.Defend)
         Dim maximumRoll = GetStatistic(StatisticType.MaximumDefend)
+        For Each armor In EquippedItems.Where(Function(x) x.IsArmor)
+            dice += armor.Defend
+            maximumRoll += armor.MaximumDefend
+        Next
         Return DoDiceRoll(dice, maximumRoll)
     End Function
 
@@ -167,6 +173,10 @@
     Public Function RollAttack() As Integer Implements ICharacter.RollAttack
         Dim dice = GetStatistic(StatisticType.Attack)
         Dim maximumRoll = GetStatistic(StatisticType.MaximumAttack)
+        For Each weapon In EquippedItems.Where(Function(x) x.IsWeapon)
+            dice += weapon.Attack
+            maximumRoll += weapon.MaximumAttack
+        Next
         Return DoDiceRoll(dice, maximumRoll)
     End Function
 
@@ -314,6 +324,41 @@
         Return New Item(WorldData, CharacterData.Equipment(equipSlot))
     End Function
 
+    Public Sub WearWeapon(wear As Integer) Implements ICharacter.WearWeapon
+        Dim weapons = EquippedItems.Where(Function(x) x.IsWeapon AndAlso Not x.IsBroken)
+        While weapons.Any AndAlso wear > 0
+            Dim weapon = RNG.FromEnumerable(weapons)
+            weapon.DoWear(1)
+            wear -= 1
+            If weapon.IsBroken Then
+                AddMessage($"{Name}'s {weapon.Name} broke!")
+                weapons = EquippedItems.Where(Function(x) x.IsWeapon AndAlso Not x.IsBroken)
+            End If
+        End While
+        CleanUpEquipment()
+    End Sub
+
+    Private Sub CleanUpEquipment()
+        Dim equipSlots = EquippedSlots.Where(Function(x) Equipment(x).IsBroken)
+        For Each equipSlot In equipSlots
+            CharacterData.Equipment.Remove(equipSlot)
+        Next
+    End Sub
+
+    Public Sub WearArmor(wear As Integer) Implements ICharacter.WearArmor
+        Dim armors = EquippedItems.Where(Function(x) x.IsArmor AndAlso Not x.IsBroken)
+        While armors.Any AndAlso wear > 0
+            Dim weapon = RNG.FromEnumerable(armors)
+            weapon.DoWear(1)
+            wear -= 1
+            If weapon.IsBroken Then
+                AddMessage($"{Name}'s {weapon.Name} broke!")
+                armors = EquippedItems.Where(Function(x) x.IsArmor AndAlso Not x.IsBroken)
+            End If
+        End While
+        CleanUpEquipment()
+    End Sub
+
     Private ReadOnly Property IsAvatar As Boolean
         Get
             Return If(WorldData.CharacterIndex = Id, False)
@@ -389,6 +434,12 @@
     Public ReadOnly Property EquippedSlots As IEnumerable(Of EquipSlot) Implements ICharacter.EquippedSlots
         Get
             Return CharacterData.Equipment.Keys
+        End Get
+    End Property
+
+    Public ReadOnly Property EquippedItems As IEnumerable(Of IItem) Implements ICharacter.EquippedItems
+        Get
+            Return EquippedSlots.Select(Function(x) Equipment(x))
         End Get
     End Property
 End Class

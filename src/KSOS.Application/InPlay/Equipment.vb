@@ -28,6 +28,13 @@ Friend Module Equipment
         Dim item = avatar.Equipment(equipSlot)
         AnsiConsole.MarkupLine($"Equip Slot: {equipSlot.Name}")
         AnsiConsole.MarkupLine($"Item: {item.Name}")
+        If item.IsWeapon Then
+            AnsiConsole.MarkupLine($"Attack: +{item.Attack}/+{item.MaximumAttack}")
+        End If
+        If item.IsArmor Then
+            AnsiConsole.MarkupLine($"Defend: +{item.Defend}/+{item.MaximumDefend}")
+        End If
+        AnsiConsole.MarkupLine($"Durability: {item.Durability}/{item.MaximumDurability}")
         Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]Now What?[/]"}
         prompt.AddChoice(NeverMindText)
         prompt.AddChoice(UnequipText)

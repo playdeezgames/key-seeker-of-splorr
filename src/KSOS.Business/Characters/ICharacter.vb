@@ -41,4 +41,7 @@
     Sub Unequip(equipSlot As EquipSlot)
     Function Equipment(equipSlot As EquipSlot) As IItem
     ReadOnly Property EquippedSlots As IEnumerable(Of EquipSlot)
+    ReadOnly Property EquippedItems As IEnumerable(Of IItem)
+    Sub WearWeapon(wear As Integer)
+    Sub WearArmor(wear As Integer)
 End Interface

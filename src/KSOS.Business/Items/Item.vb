@@ -39,4 +39,82 @@
             Return ItemType.Descriptor.EquipSlot.HasValue
         End Get
     End Property
+
+    Public ReadOnly Property IsWeapon As Boolean Implements IItem.IsWeapon
+        Get
+            Return ItemType.Descriptor.Statistics.ContainsKey(StatisticType.Attack)
+        End Get
+    End Property
+
+    Public ReadOnly Property IsArmor As Boolean Implements IItem.IsArmor
+        Get
+            Return ItemType.Descriptor.Statistics.ContainsKey(StatisticType.Defend)
+        End Get
+    End Property
+
+    Public ReadOnly Property IsBroken As Boolean Implements IItem.IsBroken
+        Get
+            Return Durability = 0
+        End Get
+    End Property
+
+    Public ReadOnly Property Durability As Integer Implements IItem.Durability
+        Get
+            Return Math.Clamp(MaximumDurability - Wear, 0, MaximumDurability)
+        End Get
+    End Property
+
+    Public Property Wear As Integer
+        Get
+            Return Math.Clamp(GetStatistic(StatisticType.Wear), 0, MaximumDurability)
+        End Get
+        Set(value As Integer)
+            SetStatistic(StatisticType.Wear, Math.Clamp(value, 0, MaximumDurability))
+        End Set
+    End Property
+
+    Private Sub SetStatistic(statisticType As StatisticType, value As Integer)
+        ItemData.Statistics(statisticType) = value
+    End Sub
+
+    Private Function GetStatistic(statisticType As StatisticType) As Integer
+        If ItemData.Statistics.ContainsKey(statisticType) Then
+            Return ItemData.Statistics(statisticType)
+        End If
+        Return ItemType.Descriptor.Statistics(statisticType)
+    End Function
+
+    Public ReadOnly Property MaximumDurability As Integer Implements IItem.MaximumDurability
+        Get
+            Return GetStatistic(StatisticType.Durability)
+        End Get
+    End Property
+
+    Public ReadOnly Property MaximumAttack As Integer Implements IItem.MaximumAttack
+        Get
+            Return GetStatistic(StatisticType.MaximumAttack)
+        End Get
+    End Property
+
+    Public ReadOnly Property MaximumDefend As Integer Implements IItem.MaximumDefend
+        Get
+            Return GetStatistic(StatisticType.MaximumDefend)
+        End Get
+    End Property
+
+    Public ReadOnly Property Attack As Integer Implements IItem.Attack
+        Get
+            Return GetStatistic(StatisticType.Attack)
+        End Get
+    End Property
+
+    Public ReadOnly Property Defend As Integer Implements IItem.Defend
+        Get
+            Return GetStatistic(StatisticType.Defend)
+        End Get
+    End Property
+
+    Public Sub DoWear(wear As Integer) Implements IItem.DoWear
+        Me.Wear += wear
+    End Sub
 End Class
