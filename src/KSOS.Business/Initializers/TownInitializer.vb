@@ -80,7 +80,7 @@
         Dim gurachan = world.CreateFeature("Gurachan The Innkeeper", FeatureType.Shoppe)
         gurachan.Shoppe.Name = "Resting Dog's Face Inn"
         gurachan.Shoppe.AddTrade((ItemType.Jools, 2), (ItemType.Chikkin, 1))
-        gurachan.Shoppe.AddTrade((ItemType.CellarRatTail, 10), (ItemType.SewerKey, 1), 1)
+        gurachan.Shoppe.AddTrade((ItemType.CellarRatTail, 5), (ItemType.SewerKey, 1), 1)
         inn.AddFeature(gurachan)
     End Sub
 End Module

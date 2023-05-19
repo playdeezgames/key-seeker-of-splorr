@@ -55,7 +55,7 @@ Friend Module CharacterTypeDescriptors
                 New CharacterTypeDescriptor With
                 {
                     .Name = "Cellar Rat",
-                    .SpawnCount = 10,
+                    .SpawnCount = 5,
                     .KillVerb = "gnaws the flesh of",
                     .SpawnLocations = New List(Of LocationType) From {LocationType.Cellar},
                     .Provision = AddressOf ProvisionCellarRat,

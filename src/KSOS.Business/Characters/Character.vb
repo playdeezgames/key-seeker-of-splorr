@@ -152,13 +152,7 @@
     End Sub
 
     Public Function RollDefend() As Integer Implements ICharacter.RollDefend
-        Dim dice = GetStatistic(StatisticType.Defend)
-        Dim maximumRoll = GetStatistic(StatisticType.MaximumDefend)
-        For Each armor In EquippedItems.Where(Function(x) x.IsArmor)
-            dice += armor.Defend
-            maximumRoll += armor.MaximumDefend
-        Next
-        Return DoDiceRoll(dice, maximumRoll)
+        Return DoDiceRoll(Defend, MaximumDefend)
     End Function
 
     Private Shared Function DoDiceRoll(dice As Integer, maximumRoll As Integer) As Integer
@@ -171,13 +165,7 @@
     End Function
 
     Public Function RollAttack() As Integer Implements ICharacter.RollAttack
-        Dim dice = GetStatistic(StatisticType.Attack)
-        Dim maximumRoll = GetStatistic(StatisticType.MaximumAttack)
-        For Each weapon In EquippedItems.Where(Function(x) x.IsWeapon)
-            dice += weapon.Attack
-            maximumRoll += weapon.MaximumAttack
-        Next
-        Return DoDiceRoll(dice, maximumRoll)
+        Return DoDiceRoll(Attack, MaximumAttack)
     End Function
 
     Public Sub TakeDamage(damage As Integer) Implements ICharacter.TakeDamage
@@ -440,6 +428,30 @@
     Public ReadOnly Property EquippedItems As IEnumerable(Of IItem) Implements ICharacter.EquippedItems
         Get
             Return EquippedSlots.Select(Function(x) Equipment(x))
+        End Get
+    End Property
+
+    Public ReadOnly Property Attack As Integer Implements ICharacter.Attack
+        Get
+            Return GetStatistic(StatisticType.Attack) + EquippedItems.Where(Function(x) x.IsWeapon).Sum(Function(x) x.Attack)
+        End Get
+    End Property
+
+    Public ReadOnly Property MaximumAttack As Integer Implements ICharacter.MaximumAttack
+        Get
+            Return GetStatistic(StatisticType.MaximumAttack) + EquippedItems.Where(Function(x) x.IsWeapon).Sum(Function(x) x.MaximumAttack)
+        End Get
+    End Property
+
+    Public ReadOnly Property Defend As Integer Implements ICharacter.Defend
+        Get
+            Return GetStatistic(StatisticType.Defend) + EquippedItems.Where(Function(x) x.IsArmor).Sum(Function(x) x.Defend)
+        End Get
+    End Property
+
+    Public ReadOnly Property MaximumDefend As Integer Implements ICharacter.MaximumDefend
+        Get
+            Return GetStatistic(StatisticType.MaximumDefend) + EquippedItems.Where(Function(x) x.IsArmor).Sum(Function(x) x.MaximumDefend)
         End Get
     End Property
 End Class

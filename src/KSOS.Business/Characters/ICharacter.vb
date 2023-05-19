@@ -44,4 +44,8 @@
     ReadOnly Property EquippedItems As IEnumerable(Of IItem)
     Sub WearWeapon(wear As Integer)
     Sub WearArmor(wear As Integer)
+    ReadOnly Property Attack As Integer
+    ReadOnly Property MaximumAttack As Integer
+    ReadOnly Property Defend As Integer
+    ReadOnly Property MaximumDefend As Integer
 End Interface
