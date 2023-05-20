@@ -32,7 +32,8 @@
             End If
         Next
         Dim forestLocation = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.ForestCorner AndAlso Not x.HasRoute(Direction.Inside)))
-        forestLocation.CreateRoute(Direction.Inside, RouteType.TowerEntrance, locations(0, Columns \ 2, Rows - 1))
+        Dim entrance = forestLocation.CreateRoute(Direction.Inside, RouteType.TowerEntrance, locations(0, Columns \ 2, Rows - 1))
+        entrance.RequiredItemType = ItemType.TowerKey
         locations(0, Columns \ 2, Rows - 1).CreateRoute(Direction.Outside, RouteType.TowerEntrance, forestLocation)
     End Sub
 End Module
