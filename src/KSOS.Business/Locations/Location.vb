@@ -93,4 +93,8 @@
     Public Sub AddFeature(feature As IFeature) Implements ILocation.AddFeature
         LocationData.FeatureIds.Add(feature.Id)
     End Sub
+
+    Public Sub RemoveFeature(feature As IFeature) Implements ILocation.RemoveFeature
+        LocationData.FeatureIds.Remove(feature.Id)
+    End Sub
 End Class

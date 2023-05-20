@@ -1,6 +1,4 @@
-﻿Imports System.ComponentModel
-Imports System.Security.Cryptography
-Imports KSOS.Data
+﻿Imports KSOS.Data
 
 Friend Module InteractFeature
     Friend Function Run(feature As IFeature) As Boolean
@@ -9,9 +7,25 @@ Friend Module InteractFeature
                 Return RunShoppe(feature.Shoppe)
             Case FeatureType.Trainer
                 Return RunTrainer(feature.Training)
+            Case FeatureType.Loot
+                Return RunLoot(feature.Loot)
+            Case FeatureType.Spawner
+                Return RunSpawner(feature.Spawner)
             Case Else
                 Throw New NotImplementedException
         End Select
+    End Function
+
+    Private Function RunSpawner(spawner As ISpawner) As Boolean
+        spawner.DoSpawn(World.Avatar)
+        Message.Run()
+        Return True
+    End Function
+
+    Private Function RunLoot(loot As ILoot) As Boolean
+        loot.DoLoot(World.Avatar)
+        Message.Run()
+        Return True
     End Function
 
     Private Function RunTrainer(training As ITraining) As Boolean

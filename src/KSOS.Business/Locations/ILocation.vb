@@ -12,6 +12,7 @@
     Sub AddItem(item As IItem)
     Sub RemoveItem(item As IItem)
     Sub AddFeature(feature As IFeature)
+    Sub RemoveFeature(feature As IFeature)
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of IItem)
     ReadOnly Property Features As IEnumerable(Of IFeature)

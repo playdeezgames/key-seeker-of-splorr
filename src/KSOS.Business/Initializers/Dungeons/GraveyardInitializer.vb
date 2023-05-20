@@ -28,5 +28,36 @@
         Dim graveyardEntrance = forestLocation.CreateRoute(Direction.Inside, RouteType.GraveyardGate, locations(Columns \ 2, Rows - 1))
         graveyardEntrance.RequiredItemType = ItemType.GraveyardKey
         locations(Columns \ 2, Rows - 1).CreateRoute(Direction.South, RouteType.GraveyardGate, forestLocation)
+        InitializeGraves(world)
+    End Sub
+    ReadOnly graveTypeGenerator As IReadOnlyDictionary(Of FeatureType, Integer) =
+        New Dictionary(Of FeatureType, Integer) From
+        {
+            {FeatureType.Spawner, 1},
+            {FeatureType.Loot, 1}
+        }
+    Private Sub InitializeGraves(world As IWorld)
+        Dim graveLocations = world.Locations.Where(Function(x) x.LocationType = LocationType.Graveyard)
+        Dim keyLocation = RNG.FromEnumerable(graveLocations)
+        For Each location In graveLocations
+            Dim grave As IFeature
+            If location Is keyLocation Then
+                grave = world.CreateFeature("grave", FeatureType.Loot)
+                grave.Loot.SetLoot(ItemType.TowerKey, 1)
+            Else
+                Select Case RNG.FromGenerator(graveTypeGenerator)
+                    Case FeatureType.Spawner
+                        grave = world.CreateFeature("grave", FeatureType.Spawner)
+                        grave.Spawner.SetSpawnWeight(CharacterType.Skeleton, 2)
+                        grave.Spawner.SetSpawnWeight(CharacterType.Zombie, 1)
+                    Case FeatureType.Loot
+                        grave = world.CreateFeature("grave", FeatureType.Loot)
+                        grave.Loot.SetLoot(ItemType.Jools, RNG.RollDice("2d6"))
+                    Case Else
+                        Throw New NotImplementedException
+                End Select
+            End If
+            location.AddFeature(grave)
+        Next
     End Sub
 End Module

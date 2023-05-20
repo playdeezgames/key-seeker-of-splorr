@@ -382,7 +382,7 @@
 
     Public ReadOnly Property CanInteract As Boolean Implements ICharacter.CanInteract
         Get
-            Return Location.HasFeatures
+            Return Location.HasFeatures AndAlso Not CanFight
         End Get
     End Property
 

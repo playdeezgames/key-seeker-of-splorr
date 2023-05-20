@@ -30,4 +30,16 @@
             Return New Training(WorldData, Id)
         End Get
     End Property
+
+    Public ReadOnly Property Spawner As ISpawner Implements IFeature.Spawner
+        Get
+            Return New Spawner(WorldData, Id)
+        End Get
+    End Property
+
+    Public ReadOnly Property Loot As ILoot Implements IFeature.Loot
+        Get
+            Return New Loot(WorldData, Id)
+        End Get
+    End Property
 End Class
