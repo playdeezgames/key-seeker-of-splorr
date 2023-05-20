@@ -36,7 +36,7 @@ Friend Module CharacterTypeDescriptors
                 {
                     .Name = "N00b",
                     .SpawnCount = 1,
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Graveyard},
+                    .SpawnLocations = New List(Of LocationType) From {LocationType.Town},
                     .KillVerb = "kills",
                     .Provision = AddressOf ProvisionN00b,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
