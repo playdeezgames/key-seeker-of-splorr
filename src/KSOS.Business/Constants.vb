@@ -19,7 +19,7 @@ Public Module Constants
             {EquipSlot.Head, "Head"}
         }
     <Extension>
-    Public Function Name(equipSlot As EquipSlot) As String
+    Public Function EquipSlotName(equipSlot As EquipSlot) As String
         Return equipSlotNames(equipSlot)
     End Function
 End Module

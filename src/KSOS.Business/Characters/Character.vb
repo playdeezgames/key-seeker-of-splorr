@@ -287,7 +287,7 @@
         End If
         RemoveItem(item)
         CharacterData.Equipment(equipSlot) = item.Id
-        AddMessage($"{Name} equips {item.Name} to {equipSlot.Name}.")
+        AddMessage($"{Name} equips {item.Name} to {equipSlot.EquipSlotName}.")
     End Sub
 
     Public Function HasEquipment(equipSlot As EquipSlot) As Boolean Implements ICharacter.HasEquipment
@@ -296,11 +296,11 @@
 
     Public Sub Unequip(equipSlot As EquipSlot) Implements ICharacter.Unequip
         If Not HasEquipment(equipSlot) Then
-            AddMessage($"{Name} has nothing equipped for {equipSlot.Name}.")
+            AddMessage($"{Name} has nothing equipped for {equipSlot.EquipSlotName}.")
             Return
         End If
         Dim item = Equipment(equipSlot)
-        AddMessage($"{Name} unequips {item.Name} from {equipSlot.Name}.")
+        AddMessage($"{Name} unequips {item.Name} from {equipSlot.EquipSlotName}.")
         CharacterData.Equipment.Remove(equipSlot)
         AddItem(item)
     End Sub

@@ -8,7 +8,7 @@ Friend Module Equipment
             prompt.AddChoice(NeverMindText)
             Dim table As New Dictionary(Of String, EquipSlot)
             For Each equipSlot In avatar.EquippedSlots
-                Dim text = $"{equipSlot.Name}: {avatar.Equipment(equipSlot).Name}"
+                Dim text = $"{equipSlot.EquipSlotName}: {avatar.Equipment(equipSlot).Name}"
                 table.Add(text, equipSlot)
             Next
             prompt.AddChoices(table.Keys)
@@ -26,7 +26,7 @@ Friend Module Equipment
     Private Sub RunEquipSlot(equipSlot As EquipSlot)
         Dim avatar = World.Avatar
         Dim item = avatar.Equipment(equipSlot)
-        AnsiConsole.MarkupLine($"Equip Slot: {equipSlot.Name}")
+        AnsiConsole.MarkupLine($"Equip Slot: {equipSlot.EquipSlotName}")
         AnsiConsole.MarkupLine($"Item: {item.Name}")
         If item.IsWeapon Then
             AnsiConsole.MarkupLine($"Attack: +{item.Attack}/+{item.MaximumAttack}")
