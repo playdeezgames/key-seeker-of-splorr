@@ -281,7 +281,7 @@
             AddMessage($"{Name} cannot equip that {item.Name}.")
             Return
         End If
-        Dim equipSlot = item.ItemType.ItemTypeDescriptor.EquipSlot.Value
+        Dim equipSlot = item.ItemType.ItemTypeDescriptor.EquipSlot
         If HasEquipment(equipSlot) Then
             Unequip(equipSlot)
         End If
@@ -290,11 +290,11 @@
         AddMessage($"{Name} equips {item.Name} to {equipSlot.EquipSlotName}.")
     End Sub
 
-    Public Function HasEquipment(equipSlot As EquipSlot) As Boolean Implements ICharacter.HasEquipment
+    Public Function HasEquipment(equipSlot As String) As Boolean Implements ICharacter.HasEquipment
         Return CharacterData.Equipment.ContainsKey(equipSlot)
     End Function
 
-    Public Sub Unequip(equipSlot As EquipSlot) Implements ICharacter.Unequip
+    Public Sub Unequip(equipSlot As String) Implements ICharacter.Unequip
         If Not HasEquipment(equipSlot) Then
             AddMessage($"{Name} has nothing equipped for {equipSlot.EquipSlotName}.")
             Return
@@ -305,7 +305,7 @@
         AddItem(item)
     End Sub
 
-    Public Function Equipment(equipSlot As EquipSlot) As IItem Implements ICharacter.Equipment
+    Public Function Equipment(equipSlot As String) As IItem Implements ICharacter.Equipment
         If Not HasEquipment(equipSlot) Then
             Return Nothing
         End If
@@ -419,7 +419,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property EquippedSlots As IEnumerable(Of EquipSlot) Implements ICharacter.EquippedSlots
+    Public ReadOnly Property EquippedSlots As IEnumerable(Of String) Implements ICharacter.EquippedSlots
         Get
             Return CharacterData.Equipment.Keys
         End Get

@@ -6,7 +6,7 @@ Friend Module Equipment
         Do
             Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]{avatar.Name}'s Equipment:[/]"}
             prompt.AddChoice(NeverMindText)
-            Dim table As New Dictionary(Of String, EquipSlot)
+            Dim table As New Dictionary(Of String, String)
             For Each equipSlot In avatar.EquippedSlots
                 Dim text = $"{equipSlot.EquipSlotName}: {avatar.Equipment(equipSlot).Name}"
                 table.Add(text, equipSlot)
@@ -23,7 +23,7 @@ Friend Module Equipment
         Return True
     End Function
 
-    Private Sub RunEquipSlot(equipSlot As EquipSlot)
+    Private Sub RunEquipSlot(equipSlot As String)
         Dim avatar = World.Avatar
         Dim item = avatar.Equipment(equipSlot)
         AnsiConsole.MarkupLine($"Equip Slot: {equipSlot.EquipSlotName}")

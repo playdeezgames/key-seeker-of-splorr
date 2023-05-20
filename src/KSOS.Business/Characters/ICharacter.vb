@@ -37,10 +37,10 @@
     Function GetStatistic(statisticType As StatisticType) As Integer
     Sub Train(trainingStatistic As ITrainingStatistic)
     Sub Equip(item As IItem)
-    Function HasEquipment(equipSlot As EquipSlot) As Boolean
-    Sub Unequip(equipSlot As EquipSlot)
-    Function Equipment(equipSlot As EquipSlot) As IItem
-    ReadOnly Property EquippedSlots As IEnumerable(Of EquipSlot)
+    Function HasEquipment(equipSlot As String) As Boolean
+    Sub Unequip(equipSlot As String)
+    Function Equipment(equipSlot As String) As IItem
+    ReadOnly Property EquippedSlots As IEnumerable(Of String)
     ReadOnly Property EquippedItems As IEnumerable(Of IItem)
     Sub WearWeapon(wear As Integer)
     Sub WearArmor(wear As Integer)

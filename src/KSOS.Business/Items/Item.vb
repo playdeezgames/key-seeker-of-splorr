@@ -36,7 +36,7 @@
     End Property
     Public ReadOnly Property CanEquip As Boolean Implements IItem.CanEquip
         Get
-            Return ItemType.ItemTypeDescriptor.EquipSlot.HasValue
+            Return Not String.IsNullOrEmpty(ItemType.ItemTypeDescriptor.EquipSlot)
         End Get
     End Property
 
