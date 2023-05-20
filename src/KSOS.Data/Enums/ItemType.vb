@@ -18,4 +18,7 @@
     LeatherArmor
     ChainMail
     PlateMail
+    SkullFragment
+    ZombieTaint
+    Feather
 End Enum

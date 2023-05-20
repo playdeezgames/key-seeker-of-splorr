@@ -15,4 +15,13 @@
     Friend Sub ProvisionN00b(character As ICharacter)
         'start with nothing!
     End Sub
+    Friend Sub ProvisionSkeleton(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.SkullFragment, 1))
+    End Sub
+    Friend Sub ProvisionZombie(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.ZombieTaint, 1))
+        If RNG.FromRange(1, 100) < 10 Then
+            character.AddItem(character.World.CreateItem(ItemType.Feather, 1))
+        End If
+    End Sub
 End Module

@@ -24,6 +24,19 @@ Public Class World
         End Get
     End Property
 
+    Public ReadOnly Property Characters As IEnumerable(Of ICharacter) Implements IWorld.Characters
+        Get
+            Dim result As New List(Of ICharacter)
+            For index = 0 To WorldData.Characters.Count - 1
+                Dim character = New Character(WorldData, index)
+                If Not character.IsDead Then
+                    result.Add(character)
+                End If
+            Next
+            Return result
+        End Get
+    End Property
+
     Public Sub New(data As WorldData)
         MyBase.New(data)
     End Sub

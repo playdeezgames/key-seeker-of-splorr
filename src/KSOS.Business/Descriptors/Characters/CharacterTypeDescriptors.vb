@@ -14,7 +14,8 @@ Friend Module CharacterTypeDescriptors
                 New CharacterTypeDescriptor With
                 {
                     .Name = "N00b",
-                    .SpawnCount = 0,
+                    .SpawnCount = 1,
+                    .SpawnLocations = New List(Of LocationType) From {LocationType.Town},
                     .KillVerb = "kills",
                     .Provision = AddressOf ProvisionN00b,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
@@ -26,6 +27,48 @@ Friend Module CharacterTypeDescriptors
                         {StatisticType.MaximumDefend, 2},
                         {StatisticType.Defend, 4},
                         {StatisticType.XP, 0}
+                    }
+                }
+            },
+            {
+                CharacterType.Skeleton,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Skeleton",
+                    .SpawnCount = 50,
+                    .KillVerb = "kills",
+                    .SpawnLocations = New List(Of LocationType) From {LocationType.Graveyard},
+                    .Provision = AddressOf ProvisionSkeleton,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 1},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 2},
+                        {StatisticType.Attack, 4},
+                        {StatisticType.MaximumDefend, 2},
+                        {StatisticType.Defend, 2},
+                        {StatisticType.XP, 1}
+                    }
+                }
+            },
+            {
+                CharacterType.Zombie,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Zombie",
+                    .SpawnCount = 25,
+                    .KillVerb = "consumes the brains of",
+                    .SpawnLocations = New List(Of LocationType) From {LocationType.Graveyard},
+                    .Provision = AddressOf ProvisionZombie,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 1},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 2},
+                        {StatisticType.Attack, 4},
+                        {StatisticType.MaximumDefend, 3},
+                        {StatisticType.Defend, 3},
+                        {StatisticType.XP, 1}
                     }
                 }
             },

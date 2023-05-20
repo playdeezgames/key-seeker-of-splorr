@@ -18,6 +18,36 @@ Friend Module ItemTypeDescriptors
                 }
             },
             {
+                ItemType.SkullFragment,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Skull Fragment",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                }
+            },
+            {
+                ItemType.ZombieTaint,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Zombie Taint",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                }
+            },
+            {
+                ItemType.Feather,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Feather",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                }
+            },
+            {
                 ItemType.Dagger,
                 New ItemTypeDescriptor With
                 {

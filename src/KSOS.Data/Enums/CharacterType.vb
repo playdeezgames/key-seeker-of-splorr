@@ -4,4 +4,6 @@
     CellarRat
     SewerRat
     KingRat
+    Skeleton
+    Zombie
 End Enum
