@@ -72,6 +72,9 @@
         dan.Shoppe.Name = """Honest"" Dan's Knackery"
         dan.Shoppe.AddTrade((ItemType.SewerRatTail, 3), (ItemType.Jools, 1))
         dan.Shoppe.AddTrade((ItemType.SewerRatTail, 7), (ItemType.Jools, 2))
+        dan.Shoppe.AddTrade((ItemType.SkullFragment, 4), (ItemType.Jools, 1))
+        dan.Shoppe.AddTrade((ItemType.ZombieTaint, 2), (ItemType.Jools, 1))
+        dan.Shoppe.AddTrade((ItemType.Feather, 1), (ItemType.Jools, 1))
         knackery.AddFeature(dan)
     End Sub
     Private Sub InitializeInn(world As IWorld)

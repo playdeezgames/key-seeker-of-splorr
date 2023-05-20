@@ -6,6 +6,27 @@ Friend Module CharacterTypeDescriptors
             Return characterTypeDescriptors.Keys.ToList
         End Get
     End Property
+    '{
+    '    CharacterType.N00b,
+    '    New CharacterTypeDescriptor With
+    '    {
+    '        .Name = "N00b",
+    '        .SpawnCount = 1,
+    '        .SpawnLocations = New List(Of LocationType) From {LocationType.Town},
+    '        .KillVerb = "kills",
+    '        .Provision = AddressOf ProvisionN00b,
+    '        .Statistics = New Dictionary(Of StatisticType, Integer) From
+    '        {
+    '            {StatisticType.MaximumHealth, 3},
+    '            {StatisticType.Wounds, 0},
+    '            {StatisticType.MaximumAttack, 1},
+    '            {StatisticType.Attack, 3},
+    '            {StatisticType.MaximumDefend, 2},
+    '            {StatisticType.Defend, 4},
+    '            {StatisticType.XP, 0}
+    '        }
+    '    }
+    '},
     Private ReadOnly characterTypeDescriptors As IReadOnlyDictionary(Of CharacterType, CharacterTypeDescriptor) =
         New Dictionary(Of CharacterType, CharacterTypeDescriptor) From
         {
@@ -15,7 +36,7 @@ Friend Module CharacterTypeDescriptors
                 {
                     .Name = "N00b",
                     .SpawnCount = 1,
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Town},
+                    .SpawnLocations = New List(Of LocationType) From {LocationType.Graveyard},
                     .KillVerb = "kills",
                     .Provision = AddressOf ProvisionN00b,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
@@ -77,7 +98,7 @@ Friend Module CharacterTypeDescriptors
                 New CharacterTypeDescriptor With
                 {
                     .Name = "Blob",
-                    .SpawnCount = 200,
+                    .SpawnCount = 300,
                     .KillVerb = "slimes",
                     .SpawnLocations = New List(Of LocationType) From {LocationType.Forest},
                     .Provision = AddressOf ProvisionBlob,
