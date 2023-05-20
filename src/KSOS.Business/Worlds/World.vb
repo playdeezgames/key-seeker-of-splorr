@@ -83,7 +83,7 @@ Public Class World
             Return Nothing
         End Try
     End Function
-    Public Function CreateItem(itemType As ItemType, quantity As Integer) As IItem Implements IWorld.CreateItem
+    Public Function CreateItem(itemType As String, quantity As Integer) As IItem Implements IWorld.CreateItem
         Dim itemId = WorldData.Items.Count
         WorldData.Items.Add(New ItemData With
                                  {

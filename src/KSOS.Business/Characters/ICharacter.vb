@@ -11,9 +11,9 @@
     Sub Kill()
     Sub AddItem(item As IItem)
     Sub RemoveItem(item As IItem)
-    Function HasItemQuantity(itemType As ItemType, quantity As Integer) As Boolean
-    Sub RemoveItemQuantity(itemType As ItemType, quantity As Integer)
-    Sub AddItemQuantity(itemType As ItemType, quantity As Integer)
+    Function HasItemQuantity(itemType As String, quantity As Integer) As Boolean
+    Sub RemoveItemQuantity(itemType As String, quantity As Integer)
+    Sub AddItemQuantity(itemType As String, quantity As Integer)
     ReadOnly Property Health As Integer
     ReadOnly Property MaximumHealth As Integer
     ReadOnly Property CharacterType As CharacterType

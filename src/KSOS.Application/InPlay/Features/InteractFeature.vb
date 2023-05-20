@@ -63,7 +63,7 @@ Friend Module InteractFeature
             Dim table As New Dictionary(Of String, ITrade)
             Dim postFix = ""
             For Each trade In shoppe.Trades
-                Dim text = $"{trade.FromItemType.Name}(x{trade.FromQuantity}) -> {trade.ToItemType.Name}(x{trade.ToQuantity}){postFix}"
+                Dim text = $"{trade.FromItemType.ItemTypeName}(x{trade.FromQuantity}) -> {trade.ToItemType.ItemTypeName}(x{trade.ToQuantity}){postFix}"
                 postFix += " " + ChrW(8)
                 table(text) = trade
                 prompt.AddChoice(text)
@@ -82,7 +82,7 @@ Friend Module InteractFeature
     Private Sub RunTrade(trade As ITrade)
         Dim avatar = World.Avatar
         If Not avatar.HasItemQuantity(trade.FromItemType, trade.FromQuantity) Then
-            AnsiConsole.MarkupLine($"{avatar.Name} does not have {trade.FromQuantity} {trade.FromItemType.Name}!")
+            AnsiConsole.MarkupLine($"{avatar.Name} does not have {trade.FromQuantity} {trade.FromItemType.ItemTypeName}!")
             OkPrompt()
             Return
         End If

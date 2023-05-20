@@ -1,8 +1,8 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Friend Module ItemTypeDescriptors
-    Private ReadOnly itemTypeDescriptors As IReadOnlyDictionary(Of ItemType, ItemTypeDescriptor) =
-        New Dictionary(Of ItemType, ItemTypeDescriptor) From
+    Private ReadOnly itemTypeDescriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor) =
+        New Dictionary(Of String, ItemTypeDescriptor) From
         {
             {
                 ItemType.Chikkin,
@@ -289,7 +289,7 @@ Friend Module ItemTypeDescriptors
             }
         }
     <Extension>
-    Friend Function Descriptor(ItemType As ItemType) As ItemTypeDescriptor
+    Friend Function ItemTypeDescriptor(ItemType As String) As ItemTypeDescriptor
         Return itemTypeDescriptors(ItemType)
     End Function
 End Module

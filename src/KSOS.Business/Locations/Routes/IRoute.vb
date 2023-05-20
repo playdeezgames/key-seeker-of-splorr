@@ -2,5 +2,5 @@
     ReadOnly Property Direction As Direction
     ReadOnly Property Destination As ILocation
     ReadOnly Property RouteType As RouteType
-    Property RequiredItemType As ItemType?
+    Property RequiredItemType As String
 End Interface

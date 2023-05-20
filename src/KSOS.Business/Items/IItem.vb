@@ -1,6 +1,6 @@
 ﻿Public Interface IItem
     Inherits IThingie
-    ReadOnly Property ItemType As ItemType
+    ReadOnly Property ItemType As String
     Property Quantity As Integer
     ReadOnly Property Stacks As Boolean
     ReadOnly Property Name As String

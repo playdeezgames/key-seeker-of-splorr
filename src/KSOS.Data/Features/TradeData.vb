@@ -1,6 +1,6 @@
 ﻿Public Class TradeData
-    Property FromItemType As ItemType
-    Property ToItemType As ItemType
+    Property FromItemType As String
+    Property ToItemType As String
     Property FromQuantity As Integer
     Property ToQuantity As Integer
     Property Available As Integer

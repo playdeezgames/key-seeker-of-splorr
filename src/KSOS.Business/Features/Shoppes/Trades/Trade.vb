@@ -5,7 +5,7 @@
         MyBase.New(data, featureId, tradeIndex)
     End Sub
 
-    Public ReadOnly Property FromItemType As ItemType Implements ITrade.FromItemType
+    Public ReadOnly Property FromItemType As String Implements ITrade.FromItemType
         Get
             Return TradeData.FromItemType
         End Get
@@ -17,7 +17,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property ToItemType As ItemType Implements ITrade.ToItemType
+    Public ReadOnly Property ToItemType As String Implements ITrade.ToItemType
         Get
             Return TradeData.ToItemType
         End Get

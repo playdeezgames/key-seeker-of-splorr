@@ -2,7 +2,7 @@
 
 Public Module Extensions
     <Extension>
-    Public Function Name(itemType As ItemType) As String
-        Return itemType.Descriptor.Name
+    Public Function ItemTypeName(itemType As String) As String
+        Return itemType.ItemTypeDescriptor.Name
     End Function
 End Module

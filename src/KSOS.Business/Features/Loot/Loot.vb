@@ -6,7 +6,7 @@
         MyBase.New(data, featureId)
         Me.FeatureId = featureId
     End Sub
-    Public Sub SetLoot(itemType As ItemType, quantity As Integer) Implements ILoot.SetLoot
+    Public Sub SetLoot(itemType As String, quantity As Integer) Implements ILoot.SetLoot
         LootData.ItemType = itemType
         LootData.Quantity = quantity
     End Sub

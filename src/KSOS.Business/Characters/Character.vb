@@ -95,8 +95,8 @@
             AddMessage($"{Name} cannot go that way!")
             Return
         End If
-        If route.RequiredItemType.HasValue AndAlso Not HasItemQuantity(route.RequiredItemType.Value, 1) Then
-            AddMessage($"{Name} needs a {route.RequiredItemType.Value.Descriptor.Name} to go that way!")
+        If Not String.IsNullOrEmpty(route.RequiredItemType) AndAlso Not HasItemQuantity(route.RequiredItemType, 1) Then
+            AddMessage($"{Name} needs a {route.RequiredItemType.ItemTypeDescriptor.Name} to go that way!")
             Return
         End If
         Location = route.Destination
@@ -202,15 +202,15 @@
         CharacterData.ItemIds.Remove(item.Id)
     End Sub
 
-    Public Function HasItemQuantity(itemType As ItemType, quantity As Integer) As Boolean Implements ICharacter.HasItemQuantity
+    Public Function HasItemQuantity(itemType As String, quantity As Integer) As Boolean Implements ICharacter.HasItemQuantity
         Return ItemQuantity(itemType) >= quantity
     End Function
 
-    Private Function ItemQuantity(itemType As ItemType) As Integer
+    Private Function ItemQuantity(itemType As String) As Integer
         Return Items.Where(Function(x) x.ItemType = itemType).Sum(Function(x) x.Quantity)
     End Function
 
-    Public Sub RemoveItemQuantity(itemType As ItemType, quantity As Integer) Implements ICharacter.RemoveItemQuantity
+    Public Sub RemoveItemQuantity(itemType As String, quantity As Integer) Implements ICharacter.RemoveItemQuantity
         quantity = Math.Min(quantity, ItemQuantity(itemType))
         For Each item In Items.Where(Function(x) x.ItemType = itemType)
             If item.Quantity >= quantity Then
@@ -232,13 +232,13 @@
         Next
     End Sub
 
-    Public Sub AddItemQuantity(itemType As ItemType, quantity As Integer) Implements ICharacter.AddItemQuantity
+    Public Sub AddItemQuantity(itemType As String, quantity As Integer) Implements ICharacter.AddItemQuantity
         AddItem(World.CreateItem(itemType, quantity))
     End Sub
 
     Public Sub Consume(item As IItem) Implements ICharacter.Consume
         If HasItem(item) And item.CanHeal Then
-            Wounds -= item.ItemType.Descriptor.Statistics(StatisticType.Healing)
+            Wounds -= item.ItemType.ItemTypeDescriptor.Statistics(StatisticType.Healing)
             item.Quantity -= 1
             CleanUpItems()
         End If
@@ -281,7 +281,7 @@
             AddMessage($"{Name} cannot equip that {item.Name}.")
             Return
         End If
-        Dim equipSlot = item.ItemType.Descriptor.EquipSlot.Value
+        Dim equipSlot = item.ItemType.ItemTypeDescriptor.EquipSlot.Value
         If HasEquipment(equipSlot) Then
             Unequip(equipSlot)
         End If

@@ -5,7 +5,7 @@
         MyBase.New(data, itemId)
         Id = itemId
     End Sub
-    Public ReadOnly Property ItemType As ItemType Implements IItem.ItemType
+    Public ReadOnly Property ItemType As String Implements IItem.ItemType
         Get
             Return ItemData.ItemType
         End Get
@@ -21,34 +21,34 @@
     End Property
     Public ReadOnly Property Stacks As Boolean Implements IItem.Stacks
         Get
-            Return ItemType.Descriptor.Stacks
+            Return ItemType.ItemTypeDescriptor.Stacks
         End Get
     End Property
     Public ReadOnly Property Name As String Implements IItem.Name
         Get
-            Return ItemType.Descriptor.Name
+            Return ItemType.ItemTypeDescriptor.Name
         End Get
     End Property
     Public ReadOnly Property CanHeal As Boolean Implements IItem.CanHeal
         Get
-            Return ItemType.Descriptor.Statistics.ContainsKey(StatisticType.Healing)
+            Return ItemType.ItemTypeDescriptor.Statistics.ContainsKey(StatisticType.Healing)
         End Get
     End Property
     Public ReadOnly Property CanEquip As Boolean Implements IItem.CanEquip
         Get
-            Return ItemType.Descriptor.EquipSlot.HasValue
+            Return ItemType.ItemTypeDescriptor.EquipSlot.HasValue
         End Get
     End Property
 
     Public ReadOnly Property IsWeapon As Boolean Implements IItem.IsWeapon
         Get
-            Return ItemType.Descriptor.Statistics.ContainsKey(StatisticType.Attack)
+            Return ItemType.ItemTypeDescriptor.Statistics.ContainsKey(StatisticType.Attack)
         End Get
     End Property
 
     Public ReadOnly Property IsArmor As Boolean Implements IItem.IsArmor
         Get
-            Return ItemType.Descriptor.Statistics.ContainsKey(StatisticType.Defend)
+            Return ItemType.ItemTypeDescriptor.Statistics.ContainsKey(StatisticType.Defend)
         End Get
     End Property
 
@@ -81,7 +81,7 @@
         If ItemData.Statistics.ContainsKey(statisticType) Then
             Return ItemData.Statistics(statisticType)
         End If
-        Return ItemType.Descriptor.Statistics(statisticType)
+        Return ItemType.ItemTypeDescriptor.Statistics(statisticType)
     End Function
 
     Public ReadOnly Property MaximumDurability As Integer Implements IItem.MaximumDurability
