@@ -53,7 +53,8 @@ Friend Module Constants
             {RouteType.RuinsPath, "Ruins Path"},
             {RouteType.Door, "Door"},
             {RouteType.Stairs, "Stairs"},
-            {RouteType.Tunnel, "Tunnel"}
+            {RouteType.Tunnel, "Tunnel"},
+            {RouteType.TowerEntrance, "Tower Entrance"}
         }
     <Extension>
     Friend Function Name(routeType As RouteType) As String
@@ -73,7 +74,8 @@ Friend Module Constants
             {LocationType.Cellar, "a cellar"},
             {LocationType.Sewer, "a sewer"},
             {LocationType.Knackery, "a knackery"},
-            {LocationType.Blacksmith, "a forge"}
+            {LocationType.Blacksmith, "a forge"},
+            {LocationType.Tower, "a tower"}
         }
     <Extension>
     Friend Function Name(locationType As LocationType) As String

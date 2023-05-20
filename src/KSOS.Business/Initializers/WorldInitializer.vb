@@ -13,6 +13,7 @@
         GraveyardInitializer.Initialize(world)
         RuinsInitializer.Initialize(world)
         SewersInitializer.Initialize(world)
+        TowerInitializer.Initialize(world)
 
         CharacterInitializer.Initialize(world)
         AvatarInitializer.Initialize(world)

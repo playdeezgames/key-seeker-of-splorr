@@ -9,4 +9,5 @@
     Door
     Stairs
     Tunnel
+    TowerEntrance
 End Enum

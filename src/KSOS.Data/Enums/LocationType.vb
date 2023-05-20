@@ -11,4 +11,5 @@
     Sewer
     Knackery
     Blacksmith
+    Tower
 End Enum
