@@ -10,4 +10,5 @@
     Cellar
     Sewer
     Knackery
+    Blacksmith
 End Enum

@@ -39,7 +39,7 @@
     End Sub
     Private Sub InitializeBlacksmith(world As IWorld)
         Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
-        Dim blacksmithShoppe = world.CreateLocation(LocationType.Inn)
+        Dim blacksmithShoppe = world.CreateLocation(LocationType.Blacksmith)
         entrance.CreateRoute(Direction.Inside, RouteType.Door, blacksmithShoppe)
         blacksmithShoppe.CreateRoute(Direction.Outside, RouteType.Door, entrance)
         Dim samuli = world.CreateFeature("Samuli's Blacksmithery", FeatureType.Shoppe)
@@ -49,6 +49,11 @@
         samuli.Shoppe.AddTrade((ItemType.Jools, 75), (ItemType.Broadsword, 1))
         samuli.Shoppe.AddTrade((ItemType.Jools, 100), (ItemType.Longsword, 1))
         samuli.Shoppe.AddTrade((ItemType.Jools, 125), (ItemType.Axe, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 50), (ItemType.Shield, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 25), (ItemType.Helmet, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 50), (ItemType.LeatherArmor, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 100), (ItemType.ChainMail, 1))
+        samuli.Shoppe.AddTrade((ItemType.Jools, 150), (ItemType.PlateMail, 1))
         blacksmithShoppe.AddFeature(samuli)
     End Sub
     Private Sub InitializeYogi(world As IWorld)

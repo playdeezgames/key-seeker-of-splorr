@@ -98,6 +98,86 @@ Friend Module ItemTypeDescriptors
                 }
             },
             {
+                ItemType.Shield,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Shield",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Shield,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Defend, 2},
+                        {StatisticType.MaximumDefend, 1},
+                        {StatisticType.Durability, 50},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
+                ItemType.Helmet,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Helmet",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Head,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Defend, 1},
+                        {StatisticType.MaximumDefend, 0},
+                        {StatisticType.Durability, 25},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
+                ItemType.LeatherArmor,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Leather Armor",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Torso,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Defend, 2},
+                        {StatisticType.MaximumDefend, 1},
+                        {StatisticType.Durability, 25},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
+                ItemType.ChainMail,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Chain Mail",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Torso,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Defend, 2},
+                        {StatisticType.MaximumDefend, 1},
+                        {StatisticType.Durability, 100},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
+                ItemType.PlateMail,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Plate Mail",
+                    .Stacks = False,
+                    .EquipSlot = EquipSlot.Torso,
+                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    {
+                        {StatisticType.Defend, 4},
+                        {StatisticType.MaximumDefend, 2},
+                        {StatisticType.Durability, 150},
+                        {StatisticType.Wear, 0}
+                    }
+                }
+            },
+            {
                 ItemType.CellarRatTail,
                 New ItemTypeDescriptor With
                 {

@@ -13,7 +13,10 @@ Public Module Constants
     Private ReadOnly equipSlotNames As IReadOnlyDictionary(Of EquipSlot, String) =
         New Dictionary(Of EquipSlot, String) From
         {
-            {EquipSlot.Weapon, "Weapon"}
+            {EquipSlot.Weapon, "Weapon"},
+            {EquipSlot.Shield, "Shield"},
+            {EquipSlot.Torso, "Torso"},
+            {EquipSlot.Head, "Head"}
         }
     <Extension>
     Public Function Name(equipSlot As EquipSlot) As String

@@ -13,4 +13,9 @@
     Broadsword
     Longsword
     Axe
+    Shield
+    Helmet
+    LeatherArmor
+    ChainMail
+    PlateMail
 End Enum
