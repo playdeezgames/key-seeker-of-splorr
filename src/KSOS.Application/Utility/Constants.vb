@@ -60,25 +60,4 @@ Friend Module Constants
     Friend Function RouteTypeName(routeType As RouteType) As String
         Return routeTypeNames(routeType)
     End Function
-    Private ReadOnly locationTypeNames As IReadOnlyDictionary(Of LocationType, String) =
-        New Dictionary(Of LocationType, String) From
-        {
-            {LocationType.ForestCorner, "a forest"},
-            {LocationType.Forest, "a forest"},
-            {LocationType.ForestCenter, "a forest"},
-            {LocationType.Town, "town"},
-            {LocationType.TownEdge, "town"},
-            {LocationType.Graveyard, "a graveyard"},
-            {LocationType.Ruins, "a ruins"},
-            {LocationType.Inn, "an inn"},
-            {LocationType.Cellar, "a cellar"},
-            {LocationType.Sewer, "a sewer"},
-            {LocationType.Knackery, "a knackery"},
-            {LocationType.Blacksmith, "a forge"},
-            {LocationType.Tower, "a tower"}
-        }
-    <Extension>
-    Friend Function LocationTypeName(locationType As LocationType) As String
-        Return locationTypeNames(locationType)
-    End Function
 End Module

@@ -273,7 +273,7 @@
         SetStatistic(trainingStatistic.StatisticType, GetStatistic(trainingStatistic.StatisticType) + 1)
         AddMessage(
             $"{Name} spends {cost} XP, and now has {XP} XP.",
-            $"{Name} now has a {trainingStatistic.StatisticType.Name} of {GetStatistic(trainingStatistic.StatisticType)}.")
+            $"{Name} now has a {trainingStatistic.StatisticType.StatisticTypeName} of {GetStatistic(trainingStatistic.StatisticType)}.")
     End Sub
 
     Public Sub Equip(item As IItem) Implements ICharacter.Equip

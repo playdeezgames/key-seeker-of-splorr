@@ -17,7 +17,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property LocationType As LocationType Implements ILocation.LocationType
+    Public ReadOnly Property LocationType As String Implements ILocation.LocationType
         Get
             Return LocationData.LocationType
         End Get

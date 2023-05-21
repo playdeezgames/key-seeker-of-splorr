@@ -38,7 +38,7 @@ Friend Module InteractFeature
             For Each statistic In training.Statistics
                 Dim statisticType = statistic.StatisticType
                 Dim cost = statistic.CalculateCost(World.Avatar)
-                Dim text = $"{statisticType.Name} ({cost} XP){postFix}"
+                Dim text = $"{statisticType.StatisticTypeName} ({cost} XP){postFix}"
                 postFix += " " + ChrW(8)
                 table(text) = statistic
                 prompt.AddChoice(text)

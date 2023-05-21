@@ -1,6 +1,6 @@
 ﻿Public Interface ILocation
     Inherits IThingie
-    ReadOnly Property LocationType As LocationType
+    ReadOnly Property LocationType As String
     ReadOnly Property HasRoutes As Boolean
     ReadOnly Property HasRoute(direction As Direction) As Boolean
     ReadOnly Property Routes As IEnumerable(Of IRoute)

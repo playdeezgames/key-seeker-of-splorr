@@ -36,7 +36,7 @@ Friend Module CharacterTypeDescriptors
                 {
                     .Name = "N00b",
                     .SpawnCount = 1,
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Town},
+                    .SpawnLocations = New List(Of String) From {LocationType.Town},
                     .KillVerb = "kills",
                     .Provision = AddressOf ProvisionN00b,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
@@ -58,7 +58,7 @@ Friend Module CharacterTypeDescriptors
                     .Name = "Skeleton",
                     .SpawnCount = 50,
                     .KillVerb = "kills",
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Graveyard},
+                    .SpawnLocations = New List(Of String) From {LocationType.Graveyard},
                     .Provision = AddressOf ProvisionSkeleton,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
@@ -79,7 +79,7 @@ Friend Module CharacterTypeDescriptors
                     .Name = "Zombie",
                     .SpawnCount = 25,
                     .KillVerb = "consumes the brains of",
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Graveyard},
+                    .SpawnLocations = New List(Of String) From {LocationType.Graveyard},
                     .Provision = AddressOf ProvisionZombie,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
@@ -100,7 +100,7 @@ Friend Module CharacterTypeDescriptors
                     .Name = "Blob",
                     .SpawnCount = 300,
                     .KillVerb = "slimes",
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Forest},
+                    .SpawnLocations = New List(Of String) From {LocationType.Forest},
                     .Provision = AddressOf ProvisionBlob,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
@@ -121,7 +121,7 @@ Friend Module CharacterTypeDescriptors
                     .Name = "Cellar Rat",
                     .SpawnCount = 5,
                     .KillVerb = "gnaws the flesh of",
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Cellar},
+                    .SpawnLocations = New List(Of String) From {LocationType.Cellar},
                     .Provision = AddressOf ProvisionCellarRat,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
@@ -142,7 +142,7 @@ Friend Module CharacterTypeDescriptors
                     .Name = "Sewer Rat",
                     .SpawnCount = 75,
                     .KillVerb = "feasts on the innard of",
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Sewer},
+                    .SpawnLocations = New List(Of String) From {LocationType.Sewer},
                     .Provision = AddressOf ProvisionSewerRat,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {
@@ -163,7 +163,7 @@ Friend Module CharacterTypeDescriptors
                     .Name = "King Rat",
                     .SpawnCount = 1,
                     .KillVerb = "cavorts in the intestines of",
-                    .SpawnLocations = New List(Of LocationType) From {LocationType.Sewer},
+                    .SpawnLocations = New List(Of String) From {LocationType.Sewer},
                     .Provision = AddressOf ProvisionKingRat,
                     .Statistics = New Dictionary(Of StatisticType, Integer) From
                     {

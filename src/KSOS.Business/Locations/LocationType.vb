@@ -1,0 +1,15 @@
+﻿Friend Module LocationType
+    Friend Const Town = "Town"
+    Friend Const TownEdge = "TownEdge"
+    Friend Const ForestCenter = "ForestCenter"
+    Friend Const Forest = "Forest"
+    Friend Const ForestCorner = "ForestCorner"
+    Friend Const Graveyard = "Graveyard"
+    Friend Const Ruins = "Ruins"
+    Friend Const Inn = "Inn"
+    Friend Const Cellar = "Cellar"
+    Friend Const Sewer = "Sewer"
+    Friend Const Knackery = "Knackery"
+    Friend Const Blacksmith = "Blacksmith"
+    Friend Const Tower = "Tower"
+End Module

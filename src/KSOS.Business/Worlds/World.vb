@@ -47,7 +47,7 @@ Public Class World
     Public Sub SetAvatar(character As ICharacter) Implements IWorld.SetAvatar
         WorldData.CharacterIndex = character?.Id
     End Sub
-    Public Function CreateLocation(locationType As LocationType) As ILocation Implements IWorld.CreateLocation
+    Public Function CreateLocation(locationType As String) As ILocation Implements IWorld.CreateLocation
         Dim locationId = WorldData.Locations.Count
         WorldData.Locations.Add(New LocationData With
                                 {

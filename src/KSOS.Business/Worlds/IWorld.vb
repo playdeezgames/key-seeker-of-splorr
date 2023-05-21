@@ -1,6 +1,6 @@
 ﻿Public Interface IWorld
     Sub SetAvatar(character As ICharacter)
-    Function CreateLocation(locationType As LocationType) As ILocation
+    Function CreateLocation(locationType As String) As ILocation
     Function CreateCharacter(characterType As String, location As ILocation) As ICharacter
     Function CreateItem(itemType As String, quantity As Integer) As IItem
     Function Save(fileName As String) As Boolean
