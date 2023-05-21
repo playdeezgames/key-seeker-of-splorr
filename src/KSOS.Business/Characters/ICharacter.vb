@@ -14,7 +14,7 @@
     Function HasItemQuantity(itemType As String, quantity As Integer) As Boolean
     Sub RemoveItemQuantity(itemType As String, quantity As Integer)
     Sub AddItemQuantity(itemType As String, quantity As Integer)
-    ReadOnly Property Health As Integer
+    Property Health As Integer
     ReadOnly Property MaximumHealth As Integer
     ReadOnly Property CharacterType As String
     ReadOnly Property CanMove As Boolean
@@ -44,6 +44,7 @@
     ReadOnly Property EquippedItems As IEnumerable(Of IItem)
     Sub WearWeapon(wear As Integer)
     Sub WearArmor(wear As Integer)
+    Function HasItem(item As IItem) As Boolean
     ReadOnly Property Attack As Integer
     ReadOnly Property MaximumAttack As Integer
     ReadOnly Property Defend As Integer

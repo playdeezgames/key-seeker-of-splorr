@@ -28,7 +28,8 @@
     End Sub
 
     Private Sub RunUse(item As IItem)
-        Throw New NotImplementedException()
+        item.Use(World.Avatar)
+        Message.Run()
     End Sub
 
     Private Sub RunEquip(item As IItem)

@@ -47,10 +47,13 @@
         Return CharacterType.CharacterTypeDescriptor.Statistics(statisticType)
     End Function
 
-    Public ReadOnly Property Health As Integer Implements ICharacter.Health
+    Public Property Health As Integer Implements ICharacter.Health
         Get
             Return Math.Clamp(MaximumHealth - Wounds, 0, MaximumHealth)
         End Get
+        Set(value As Integer)
+            Wounds = Math.Clamp(MaximumHealth - value, 0, MaximumHealth)
+        End Set
     End Property
 
     Public ReadOnly Property MaximumHealth As Integer Implements ICharacter.MaximumHealth
@@ -244,7 +247,7 @@
         End If
     End Sub
 
-    Private Function HasItem(item As IItem) As Boolean
+    Public Function HasItem(item As IItem) As Boolean Implements ICharacter.HasItem
         Return CharacterData.ItemIds.Contains(item.Id)
     End Function
 

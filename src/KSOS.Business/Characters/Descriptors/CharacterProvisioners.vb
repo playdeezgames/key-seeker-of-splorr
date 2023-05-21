@@ -13,6 +13,9 @@
         character.AddItem(character.World.CreateItem(ItemType.GraveyardKey, 1))
     End Sub
     Friend Sub ProvisionN00b(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.Chikkin, 10))
+        character.AddItem(character.World.CreateItem(ItemType.Potion, 1))
+        character.AddItem(character.World.CreateItem(ItemType.HolyWater, 1))
         'start with nothing!
     End Sub
     Friend Sub ProvisionSkeleton(character As ICharacter)

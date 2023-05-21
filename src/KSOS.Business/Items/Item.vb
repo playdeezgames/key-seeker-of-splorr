@@ -113,12 +113,17 @@
             Return GetStatistic(StatisticType.Defend)
         End Get
     End Property
-
     Public Sub DoWear(wear As Integer) Implements IItem.DoWear
         Me.Wear += wear
     End Sub
-
     Public Function CanUse(character As ICharacter) As Boolean Implements IItem.CanUse
-        Return If(ItemType.ItemTypeDescriptor?.CanUse(character), False)
+        Return character.HasItem(Me) AndAlso If(ItemType.ItemTypeDescriptor?.CanUse(character), False)
     End Function
+    Public Sub Use(character As ICharacter) Implements IItem.Use
+        If Not CanUse(character) Then
+            character.AddMessage($"{character.Name} cannot use {Name} at this time!")
+            Return
+        End If
+        ItemType.ItemTypeDescriptor.Use.Invoke(character)
+    End Sub
 End Class

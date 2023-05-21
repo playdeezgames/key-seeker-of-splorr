@@ -11,6 +11,7 @@
     ReadOnly Property IsBroken As Boolean
     Sub DoWear(wear As Integer)
     Function CanUse(character As ICharacter) As Boolean
+    Sub Use(character As ICharacter)
     ReadOnly Property Durability As Integer
     ReadOnly Property MaximumDurability As Integer
     ReadOnly Property MaximumAttack As Integer

@@ -17,7 +17,11 @@ Friend Module ItemTypeDescriptors
                     },
                     .CanUse = Function(character)
                                   Return character.Health < character.MaximumHealth
-                              End Function
+                              End Function,
+                    .Use = Sub(character)
+                               character.Health += 1
+                               character.AddMessage($"{character.Name} eats the chikkin, and now has {character.Health}/{character.MaximumHealth} health.")
+                           End Sub
                 }
             },
             {
@@ -33,7 +37,11 @@ Friend Module ItemTypeDescriptors
                     },
                     .CanUse = Function(character)
                                   Return character.Health < character.MaximumHealth
-                              End Function
+                              End Function,
+                    .Use = Sub(character)
+                               character.Health += 5
+                               character.AddMessage($"{character.Name} drinks the potion, and now has {character.Health}/{character.MaximumHealth} health.")
+                           End Sub
                 }
             },
             {
