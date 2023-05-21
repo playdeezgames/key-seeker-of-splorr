@@ -141,7 +141,7 @@ Friend Module CharacterTypeDescriptors
                 {
                     .Name = "Sewer Rat",
                     .SpawnCount = 75,
-                    .KillVerb = "feasts on the innard of",
+                    .KillVerb = "feasts on the innards of",
                     .SpawnLocations = New List(Of String) From {LocationType.Sewer},
                     .Provision = AddressOf ProvisionSewerRat,
                     .Statistics = New Dictionary(Of String, Integer) From
@@ -173,6 +173,69 @@ Friend Module CharacterTypeDescriptors
                         {StatisticType.Attack, 4},
                         {StatisticType.MaximumDefend, 2},
                         {StatisticType.Defend, 2},
+                        {StatisticType.XP, 2}
+                    }
+                }
+            },
+            {
+                CharacterType.Goblin,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Goblin",
+                    .SpawnCount = 75,
+                    .KillVerb = "dances on the corpse of",
+                    .SpawnLocations = New List(Of String) From {LocationType.Tower},
+                    .Provision = AddressOf ProvisionGoblin,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 1},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 2},
+                        {StatisticType.Attack, 4},
+                        {StatisticType.MaximumDefend, 1},
+                        {StatisticType.Defend, 1},
+                        {StatisticType.XP, 1}
+                    }
+                }
+            },
+            {
+                CharacterType.Orc,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Orc",
+                    .SpawnCount = 75,
+                    .KillVerb = "harvests the heart of",
+                    .SpawnLocations = New List(Of String) From {LocationType.Tower},
+                    .Provision = AddressOf ProvisionOrc,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 1},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 3},
+                        {StatisticType.Attack, 6},
+                        {StatisticType.MaximumDefend, 2},
+                        {StatisticType.Defend, 2},
+                        {StatisticType.XP, 1}
+                    }
+                }
+            },
+            {
+                CharacterType.Cyclops,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Cyclops",
+                    .SpawnCount = 75,
+                    .KillVerb = "plucks out one eye of",
+                    .SpawnLocations = New List(Of String) From {LocationType.Tower},
+                    .Provision = AddressOf ProvisionCyclops,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 2},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 3},
+                        {StatisticType.Attack, 6},
+                        {StatisticType.MaximumDefend, 3},
+                        {StatisticType.Defend, 3},
                         {StatisticType.XP, 2}
                     }
                 }

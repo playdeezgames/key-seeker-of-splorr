@@ -24,4 +24,10 @@
             character.AddItem(character.World.CreateItem(ItemType.Feather, 1))
         End If
     End Sub
+    Friend Sub ProvisionGoblin(character As ICharacter)
+    End Sub
+    Friend Sub ProvisionOrc(character As ICharacter)
+    End Sub
+    Friend Sub ProvisionCyclops(character As ICharacter)
+    End Sub
 End Module
