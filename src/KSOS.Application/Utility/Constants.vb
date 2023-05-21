@@ -25,39 +25,4 @@ Friend Module Constants
     Friend Const StatusText = "Status"
     Friend Const UnequipText = "Unequip"
     Friend Const YesText = "Yes"
-    Private ReadOnly directionNames As IReadOnlyDictionary(Of Direction, String) =
-        New Dictionary(Of Direction, String) From
-        {
-            {Direction.North, "North"},
-            {Direction.East, "East"},
-            {Direction.South, "South"},
-            {Direction.West, "West"},
-            {Direction.Inside, "In"},
-            {Direction.Outside, "Out"},
-            {Direction.Up, "Up"},
-            {Direction.Down, "Down"}
-        }
-    <Extension>
-    Friend Function DirectionName(direction As Direction) As String
-        Return directionNames(direction)
-    End Function
-    Private ReadOnly routeTypeNames As IReadOnlyDictionary(Of RouteType, String) =
-        New Dictionary(Of RouteType, String) From
-        {
-            {RouteType.ForestPath, "Forest Path"},
-            {RouteType.DirtRoad, "Dirt Road"},
-            {RouteType.TownGate, "Town Gate"},
-            {RouteType.GraveyardPath, "Graveyard Path"},
-            {RouteType.GraveyardGate, "Graveyard Gate"},
-            {RouteType.RuinsEntrance, "Ruins Entrance"},
-            {RouteType.RuinsPath, "Ruins Path"},
-            {RouteType.Door, "Door"},
-            {RouteType.Stairs, "Stairs"},
-            {RouteType.Tunnel, "Tunnel"},
-            {RouteType.TowerEntrance, "Tower Entrance"}
-        }
-    <Extension>
-    Friend Function RouteTypeName(routeType As RouteType) As String
-        Return routeTypeNames(routeType)
-    End Function
 End Module
