@@ -30,6 +30,13 @@
                 locations(level, column, row).CreateRoute(Direction.Down, RouteType.Stairs, locations(level - 1, column, row))
                 locations(level - 1, column, row).CreateRoute(Direction.Up, RouteType.Stairs, locations(level, column, row))
             End If
+            If level = Levels - 1 Then
+                Dim column = RNG.FromRange(0, Columns - 1)
+                Dim row = RNG.FromRange(0, Rows - 1)
+                Dim feature = world.CreateFeature("Wooden Chest", FeatureType.Loot)
+                feature.Loot.SetLoot(ItemType.UfoKey, 1)
+                locations(level, column, row).AddFeature(feature)
+            End If
         Next
         Dim forestLocation = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.ForestCorner AndAlso Not x.HasRoute(Direction.Inside)))
         Dim entrance = forestLocation.CreateRoute(Direction.Inside, RouteType.TowerEntrance, locations(0, Columns \ 2, Rows - 1))
