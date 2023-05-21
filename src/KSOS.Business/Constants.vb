@@ -37,7 +37,8 @@ Public Module Constants
             {LocationType.Sewer, "a sewer"},
             {LocationType.Knackery, "a knackery"},
             {LocationType.Blacksmith, "a forge"},
-            {LocationType.Tower, "a tower"}
+            {LocationType.Tower, "a tower"},
+            {LocationType.Hut, "a hut"}
         }
     <Extension>
     Public Function LocationTypeName(locationType As String) As String

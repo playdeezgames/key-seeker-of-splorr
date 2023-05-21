@@ -36,7 +36,20 @@
         InitializeKnacker(world)
         InitializeYogi(world)
         InitializeBlacksmith(world)
+        InitializeHealer(world)
     End Sub
+
+    Private Sub InitializeHealer(world As IWorld)
+        Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
+        Dim hut = world.CreateLocation(LocationType.Hut)
+        entrance.CreateRoute(Direction.Inside, RouteType.Door, hut)
+        hut.CreateRoute(Direction.Outside, RouteType.Door, entrance)
+        Dim märten = world.CreateFeature("Märten the Nihilist Healer", FeatureType.Shoppe)
+        märten.Shoppe.Name = "Märten's Apathetic Apothecary"
+        märten.Shoppe.AddTrade((ItemType.Jools, 9), (ItemType.Potion, 1))
+        hut.AddFeature(märten)
+    End Sub
+
     Private Sub InitializeBlacksmith(world As IWorld)
         Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
         Dim blacksmithShoppe = world.CreateLocation(LocationType.Blacksmith)

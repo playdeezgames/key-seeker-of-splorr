@@ -18,6 +18,19 @@ Friend Module ItemTypeDescriptors
                 }
             },
             {
+                ItemType.Potion,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Potion",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticType.Healing, 5}
+                    }
+                }
+            },
+            {
                 ItemType.GoblinEar,
                 New ItemTypeDescriptor With
                 {

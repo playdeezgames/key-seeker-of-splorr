@@ -12,4 +12,5 @@
     Friend Const Knackery = "Knackery"
     Friend Const Blacksmith = "Blacksmith"
     Friend Const Tower = "Tower"
+    Friend Const Hut = "Hut"
 End Module
