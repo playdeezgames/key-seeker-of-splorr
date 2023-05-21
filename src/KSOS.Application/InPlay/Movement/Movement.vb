@@ -2,7 +2,7 @@
     Friend Function Run() As Boolean
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Move Where?[/]"}
         prompt.AddChoice(NeverMindText)
-        Dim table = World.Avatar.Location.Routes.ToDictionary(Function(x) x.Direction.Name, Function(x) x.Direction)
+        Dim table = World.Avatar.Location.Routes.ToDictionary(Function(x) x.Direction.DirectionName, Function(x) x.Direction)
         prompt.AddChoices(table.Keys)
         Dim answer = AnsiConsole.Prompt(prompt)
         Select Case answer

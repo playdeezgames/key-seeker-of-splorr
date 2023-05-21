@@ -3,7 +3,7 @@
         AnsiConsole.Clear()
         Dim avatar = World.Avatar
         Dim location = avatar.Location
-        AnsiConsole.MarkupLine($"{avatar.Name} is in {location.LocationType.Name}")
+        AnsiConsole.MarkupLine($"{avatar.Name} is in {location.LocationType.LocationTypeName}")
         Dim enemies = location.Enemies(avatar)
         If enemies.Any Then
             AnsiConsole.MarkupLine($"Enemies: 
@@ -18,7 +18,7 @@
         End If
         AnsiConsole.MarkupLine($"Exits: 
     {String.Join("
-    ", location.Routes.Select(Function(x) $"{x.RouteType.Name} going {x.Direction.Name}"))}")
+    ", location.Routes.Select(Function(x) $"{x.RouteType.RouteTypeName} going {x.Direction.DirectionName}"))}")
         Dim prompt As New SelectionPrompt(Of String) With {.Title = "[olive]Now What?[/]"}
         If avatar.CanMove Then
             prompt.AddChoice(MoveText)

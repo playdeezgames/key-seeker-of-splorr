@@ -38,7 +38,7 @@ Friend Module Constants
             {Direction.Down, "Down"}
         }
     <Extension>
-    Friend Function Name(direction As Direction) As String
+    Friend Function DirectionName(direction As Direction) As String
         Return directionNames(direction)
     End Function
     Private ReadOnly routeTypeNames As IReadOnlyDictionary(Of RouteType, String) =
@@ -57,7 +57,7 @@ Friend Module Constants
             {RouteType.TowerEntrance, "Tower Entrance"}
         }
     <Extension>
-    Friend Function Name(routeType As RouteType) As String
+    Friend Function RouteTypeName(routeType As RouteType) As String
         Return routeTypeNames(routeType)
     End Function
     Private ReadOnly locationTypeNames As IReadOnlyDictionary(Of LocationType, String) =
@@ -78,7 +78,7 @@ Friend Module Constants
             {LocationType.Tower, "a tower"}
         }
     <Extension>
-    Friend Function Name(locationType As LocationType) As String
+    Friend Function LocationTypeName(locationType As LocationType) As String
         Return locationTypeNames(locationType)
     End Function
 End Module
