@@ -26,4 +26,5 @@
     Friend Const CyclopsEyeball = "CyclopsEyeball"
     Friend Const Potion = "Potion"
     Friend Const HolyWater = "HolyWater"
+    Friend Const TownPortal = "TownPortal"
 End Module

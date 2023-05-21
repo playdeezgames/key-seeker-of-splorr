@@ -4,4 +4,5 @@
     ReadOnly Property RouteType As String
     Property RequiredItemType As String
     Property SingleUse As Boolean
+    ReadOnly Property Location As ILocation
 End Interface

@@ -104,7 +104,7 @@
         End If
         Location = route.Destination
         If route.SingleUse Then
-            Location.RemoveRoute(route.Direction)
+            route.Location.RemoveRoute(route.Direction)
         End If
     End Sub
 

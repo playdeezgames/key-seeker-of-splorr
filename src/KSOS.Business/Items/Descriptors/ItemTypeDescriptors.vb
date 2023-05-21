@@ -41,6 +41,28 @@ Friend Module ItemTypeDescriptors
                 }
             },
             {
+                ItemType.TownPortal,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Scroll of Town Portal",
+                    .Stacks = False,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of String, Integer),
+                    .CanUse = Function(character)
+                                  Return character.Location.LocationType <> LocationType.Town
+                              End Function,
+                    .Use = Sub(character)
+                               Dim townLocation = character.World.Locations.First(Function(x) x.LocationType = LocationType.Town)
+                               Dim route = character.Location.CreateRoute(Direction.Portal, RouteType.Portal, townLocation)
+                               route.SingleUse = True
+                               route = townLocation.CreateRoute(Direction.Portal, RouteType.Portal, character.Location)
+                               route.SingleUse = True
+                               character.AddMessage($"{character.Name} reads the scroll, and a portal appears!")
+                           End Sub,
+                    .UseVerb = "Read"
+                }
+            },
+            {
                 ItemType.HolyWater,
                 New ItemTypeDescriptor With
                 {

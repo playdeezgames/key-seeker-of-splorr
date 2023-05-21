@@ -4,8 +4,10 @@
     Public Sub New(data As WorldData, locationId As Integer, direction As String)
         MyBase.New(data, locationId, direction)
         Me.Direction = direction
+        Me.LocationId = locationId
     End Sub
     Public ReadOnly Property Direction As String Implements IRoute.Direction
+    Private ReadOnly Property LocationId As Integer
 
     Public ReadOnly Property Destination As ILocation Implements IRoute.Destination
         Get
@@ -34,5 +36,11 @@
         Set(value As Boolean)
             RouteData.SingleUse = value
         End Set
+    End Property
+
+    Public ReadOnly Property Location As ILocation Implements IRoute.Location
+        Get
+            Return New Location(WorldData, LocationId)
+        End Get
     End Property
 End Class
