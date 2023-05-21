@@ -119,7 +119,7 @@
         Me.Wear += wear
     End Sub
     Public Function CanUse(character As ICharacter) As Boolean Implements IItem.CanUse
-        Return character.HasItem(Me) AndAlso If(ItemType.ItemTypeDescriptor?.CanUse(character), False)
+        Return character.HasItem(Me) AndAlso If(ItemType.ItemTypeDescriptor.CanUse IsNot Nothing, ItemType.ItemTypeDescriptor.CanUse(character), False)
     End Function
     Public Sub Use(character As ICharacter) Implements IItem.Use
         If Not CanUse(character) Then

@@ -3,7 +3,7 @@
         AnsiConsole.Clear()
         Dim avatar = World.Avatar
         Dim location = avatar.Location
-        AnsiConsole.MarkupLine($"{avatar.Name} is in {location.LocationType.LocationTypeName}")
+        AnsiConsole.MarkupLine($"{avatar.Name}({avatar.Health}/{avatar.MaximumHealth}) is in {location.LocationType.LocationTypeName}")
         Dim enemies = location.Enemies(avatar)
         If enemies.Any Then
             AnsiConsole.MarkupLine($"Enemies: 
