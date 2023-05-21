@@ -72,7 +72,7 @@
     Public Sub RemoveItem(item As IItem) Implements ILocation.RemoveItem
         LocationData.ItemIds.Remove(item.Id)
     End Sub
-    Public Function CreateRoute(direction As Direction, routeType As RouteType, destination As ILocation) As IRoute Implements ILocation.CreateRoute
+    Public Function CreateRoute(direction As Direction, routeType As String, destination As ILocation) As IRoute Implements ILocation.CreateRoute
         LocationData.Routes(direction) = New RouteData With
             {
                 .ToLocationId = destination.Id,

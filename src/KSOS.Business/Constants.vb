@@ -59,8 +59,8 @@ Public Module Constants
     Public Function DirectionName(direction As Direction) As String
         Return directionNames(direction)
     End Function
-    Private ReadOnly routeTypeNames As IReadOnlyDictionary(Of RouteType, String) =
-        New Dictionary(Of RouteType, String) From
+    Private ReadOnly routeTypeNames As IReadOnlyDictionary(Of String, String) =
+        New Dictionary(Of String, String) From
         {
             {RouteType.ForestPath, "Forest Path"},
             {RouteType.DirtRoad, "Dirt Road"},
@@ -75,7 +75,7 @@ Public Module Constants
             {RouteType.TowerEntrance, "Tower Entrance"}
         }
     <Extension>
-    Public Function RouteTypeName(routeType As RouteType) As String
+    Public Function RouteTypeName(routeType As String) As String
         Return routeTypeNames(routeType)
     End Function
 End Module

@@ -7,7 +7,7 @@
     Function GetRoute(direction As Direction) As IRoute
     Sub AddCharacter(character As ICharacter)
     Sub RemoveCharacter(character As ICharacter)
-    Function CreateRoute(direction As Direction, routeType As RouteType, destination As ILocation) As IRoute
+    Function CreateRoute(direction As Direction, routeType As String, destination As ILocation) As IRoute
     Function Enemies(character As ICharacter) As IEnumerable(Of ICharacter)
     Sub AddItem(item As IItem)
     Sub RemoveItem(item As IItem)
