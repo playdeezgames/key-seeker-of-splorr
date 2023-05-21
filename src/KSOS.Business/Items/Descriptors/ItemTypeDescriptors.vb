@@ -31,6 +31,18 @@ Friend Module ItemTypeDescriptors
                 }
             },
             {
+                ItemType.HolyWater,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Holy Water",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                    }
+                }
+            },
+            {
                 ItemType.GoblinEar,
                 New ItemTypeDescriptor With
                 {

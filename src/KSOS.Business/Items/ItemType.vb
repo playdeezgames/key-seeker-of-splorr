@@ -25,4 +25,5 @@
     Friend Const OrcTooth = "OrcTooth"
     Friend Const CyclopsEyeball = "CyclopsEyeball"
     Friend Const Potion = "Potion"
+    Friend Const HolyWater = "HolyWater"
 End Module

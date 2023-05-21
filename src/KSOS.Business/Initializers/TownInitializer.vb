@@ -47,6 +47,7 @@
         Dim märten = world.CreateFeature("Märten the Nihilist Healer", FeatureType.Shoppe)
         märten.Shoppe.Name = "Märten's Apathetic Apothecary"
         märten.Shoppe.AddTrade((ItemType.Jools, 9), (ItemType.Potion, 1))
+        märten.Shoppe.AddTrade((ItemType.Jools, 3), (ItemType.HolyWater, 1))
         hut.AddFeature(märten)
     End Sub
 
