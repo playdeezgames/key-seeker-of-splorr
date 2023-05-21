@@ -39,7 +39,7 @@ Friend Module CharacterTypeDescriptors
                     .SpawnLocations = New List(Of String) From {LocationType.Town},
                     .KillVerb = "kills",
                     .Provision = AddressOf ProvisionN00b,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.MaximumHealth, 3},
                         {StatisticType.Wounds, 0},
@@ -60,7 +60,7 @@ Friend Module CharacterTypeDescriptors
                     .KillVerb = "kills",
                     .SpawnLocations = New List(Of String) From {LocationType.Graveyard},
                     .Provision = AddressOf ProvisionSkeleton,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},
                         {StatisticType.Wounds, 0},
@@ -81,7 +81,7 @@ Friend Module CharacterTypeDescriptors
                     .KillVerb = "consumes the brains of",
                     .SpawnLocations = New List(Of String) From {LocationType.Graveyard},
                     .Provision = AddressOf ProvisionZombie,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},
                         {StatisticType.Wounds, 0},
@@ -102,7 +102,7 @@ Friend Module CharacterTypeDescriptors
                     .KillVerb = "slimes",
                     .SpawnLocations = New List(Of String) From {LocationType.Forest},
                     .Provision = AddressOf ProvisionBlob,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},
                         {StatisticType.Wounds, 0},
@@ -123,7 +123,7 @@ Friend Module CharacterTypeDescriptors
                     .KillVerb = "gnaws the flesh of",
                     .SpawnLocations = New List(Of String) From {LocationType.Cellar},
                     .Provision = AddressOf ProvisionCellarRat,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},
                         {StatisticType.Wounds, 0},
@@ -144,7 +144,7 @@ Friend Module CharacterTypeDescriptors
                     .KillVerb = "feasts on the innard of",
                     .SpawnLocations = New List(Of String) From {LocationType.Sewer},
                     .Provision = AddressOf ProvisionSewerRat,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.MaximumHealth, 1},
                         {StatisticType.Wounds, 0},
@@ -165,7 +165,7 @@ Friend Module CharacterTypeDescriptors
                     .KillVerb = "cavorts in the intestines of",
                     .SpawnLocations = New List(Of String) From {LocationType.Sewer},
                     .Provision = AddressOf ProvisionKingRat,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.MaximumHealth, 2},
                         {StatisticType.Wounds, 0},

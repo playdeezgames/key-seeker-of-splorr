@@ -1,12 +1,12 @@
 ﻿Friend Class TrainingStatistic
     Inherits TrainingDataClient
     Implements ITrainingStatistic
-    Public Sub New(worldData As WorldData, featureId As Integer, statisticType As StatisticType)
+    Public Sub New(worldData As WorldData, featureId As Integer, statisticType As String)
         MyBase.New(worldData, featureId)
         Me.StatisticType = statisticType
     End Sub
 
-    Public ReadOnly Property StatisticType As StatisticType Implements ITrainingStatistic.StatisticType
+    Public ReadOnly Property StatisticType As String Implements ITrainingStatistic.StatisticType
 
     Public ReadOnly Property Multiplier As Integer Implements ITrainingStatistic.Multiplier
         Get

@@ -36,11 +36,11 @@
         End Set
     End Property
 
-    Private Sub SetStatistic(statisticType As StatisticType, value As Integer)
+    Private Sub SetStatistic(statisticType As String, value As Integer)
         CharacterData.Statistics(statisticType) = value
     End Sub
 
-    Public Function GetStatistic(statisticType As StatisticType) As Integer Implements ICharacter.GetStatistic
+    Public Function GetStatistic(statisticType As String) As Integer Implements ICharacter.GetStatistic
         If CharacterData.Statistics.ContainsKey(statisticType) Then
             Return CharacterData.Statistics(statisticType)
         End If

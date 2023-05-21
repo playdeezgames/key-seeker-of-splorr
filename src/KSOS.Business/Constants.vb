@@ -1,13 +1,13 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Public Module Constants
-    Private ReadOnly statisticNames As IReadOnlyDictionary(Of StatisticType, String) =
-        New Dictionary(Of StatisticType, String) From
+    Private ReadOnly statisticNames As IReadOnlyDictionary(Of String, String) =
+        New Dictionary(Of String, String) From
         {
             {StatisticType.MaximumHealth, "Maximum Health"}
         }
     <Extension>
-    Public Function StatisticTypeName(statisticType As StatisticType) As String
+    Public Function StatisticTypeName(statisticType As String) As String
         Return statisticNames(statisticType)
     End Function
     Private ReadOnly equipSlotNames As IReadOnlyDictionary(Of String, String) =

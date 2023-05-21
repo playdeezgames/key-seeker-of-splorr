@@ -22,7 +22,7 @@
         End Get
     End Property
 
-    Public Sub Add(statisticType As StatisticType, multiplier As Integer) Implements ITraining.Add
+    Public Sub Add(statisticType As String, multiplier As Integer) Implements ITraining.Add
         TrainingData.Statistics(statisticType) = multiplier
     End Sub
 End Class

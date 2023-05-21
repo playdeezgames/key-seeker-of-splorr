@@ -73,11 +73,11 @@
         End Set
     End Property
 
-    Private Sub SetStatistic(statisticType As StatisticType, value As Integer)
+    Private Sub SetStatistic(statisticType As String, value As Integer)
         ItemData.Statistics(statisticType) = value
     End Sub
 
-    Private Function GetStatistic(statisticType As StatisticType) As Integer
+    Private Function GetStatistic(statisticType As String) As Integer
         If ItemData.Statistics.ContainsKey(statisticType) Then
             Return ItemData.Statistics(statisticType)
         End If

@@ -34,7 +34,7 @@
     ReadOnly Property HasAnyEquipment As Boolean
     Sub AddMessage(ParamArray lines As String())
     Sub DismissMessage()
-    Function GetStatistic(statisticType As StatisticType) As Integer
+    Function GetStatistic(statisticType As String) As Integer
     Sub Train(trainingStatistic As ITrainingStatistic)
     Sub Equip(item As IItem)
     Function HasEquipment(equipSlot As String) As Boolean

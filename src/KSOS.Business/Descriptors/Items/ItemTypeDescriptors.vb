@@ -11,7 +11,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Chikkin",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Healing, 1}
                     }
@@ -24,7 +24,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Skull Fragment",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -34,7 +34,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Zombie Taint",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -44,7 +44,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Feather",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -54,7 +54,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Dagger",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Weapon,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Attack, 1},
                         {StatisticType.MaximumAttack, 0},
@@ -70,7 +70,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Shortsword",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Weapon,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Attack, 4},
                         {StatisticType.MaximumAttack, 1},
@@ -86,7 +86,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Broadsword",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Weapon,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Attack, 7},
                         {StatisticType.MaximumAttack, 2},
@@ -102,7 +102,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Longsword",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Weapon,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Attack, 10},
                         {StatisticType.MaximumAttack, 3},
@@ -118,7 +118,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Axe",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Weapon,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Attack, 13},
                         {StatisticType.MaximumAttack, 4},
@@ -134,7 +134,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Shield",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Shield,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Defend, 2},
                         {StatisticType.MaximumDefend, 1},
@@ -150,7 +150,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Helmet",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Head,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Defend, 1},
                         {StatisticType.MaximumDefend, 0},
@@ -166,7 +166,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Leather Armor",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Torso,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Defend, 2},
                         {StatisticType.MaximumDefend, 1},
@@ -182,7 +182,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Chain Mail",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Torso,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Defend, 2},
                         {StatisticType.MaximumDefend, 1},
@@ -198,7 +198,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Plate Mail",
                     .Stacks = False,
                     .EquipSlot = EquipSlot.Torso,
-                    .Statistics = New Dictionary(Of StatisticType, Integer) From
+                    .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Defend, 4},
                         {StatisticType.MaximumDefend, 2},
@@ -214,7 +214,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Cellar Rat Tail",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -224,7 +224,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Sewer Rat Tail",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -234,7 +234,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Graveyard Key",
                     .Stacks = False,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -244,7 +244,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Machine Key",
                     .Stacks = False,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -254,7 +254,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Sewer Key",
                     .Stacks = False,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -264,7 +264,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Tower Key",
                     .Stacks = False,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -274,7 +274,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "UFO Key",
                     .Stacks = False,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             },
             {
@@ -284,7 +284,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Jools",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of StatisticType, Integer)
+                    .Statistics = New Dictionary(Of String, Integer)
                 }
             }
         }
