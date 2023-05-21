@@ -4,6 +4,9 @@
         Dim avatar = World.Avatar
         Dim location = avatar.Location
         AnsiConsole.MarkupLine($"{avatar.Name}({avatar.Health}/{avatar.MaximumHealth}) is in {location.LocationType.LocationTypeName}")
+        If avatar.CanPickUpItems Then
+            AnsiConsole.MarkupLine($"There is stuff on the ground.")
+        End If
         Dim enemies = location.Enemies(avatar)
         If enemies.Any Then
             AnsiConsole.MarkupLine($"Enemies: 
