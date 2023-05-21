@@ -6,6 +6,6 @@
     Function Save(fileName As String) As Boolean
     ReadOnly Property Avatar As ICharacter
     ReadOnly Property Locations As IEnumerable(Of ILocation)
-    Function CreateFeature(name As String, featureType As FeatureType) As IFeature
+    Function CreateFeature(name As String, featureType As String) As IFeature
     ReadOnly Property Characters As IEnumerable(Of ICharacter)
 End Interface

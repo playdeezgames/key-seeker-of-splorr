@@ -13,7 +13,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property FeatureType As FeatureType Implements IFeature.FeatureType
+    Public ReadOnly Property FeatureType As String Implements IFeature.FeatureType
         Get
             Return FeatureData.FeatureType
         End Get

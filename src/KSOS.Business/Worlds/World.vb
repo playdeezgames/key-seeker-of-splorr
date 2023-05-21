@@ -93,7 +93,7 @@ Public Class World
         Dim item As IItem = New Item(WorldData, itemId)
         Return item
     End Function
-    Public Function CreateFeature(name As String, featureType As FeatureType) As IFeature Implements IWorld.CreateFeature
+    Public Function CreateFeature(name As String, featureType As String) As IFeature Implements IWorld.CreateFeature
         Dim featureId = WorldData.Features.Count
         WorldData.Features.Add(New FeatureData With
                                {

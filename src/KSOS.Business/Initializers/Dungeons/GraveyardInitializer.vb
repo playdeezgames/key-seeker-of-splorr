@@ -30,8 +30,8 @@
         locations(Columns \ 2, Rows - 1).CreateRoute(Direction.South, RouteType.GraveyardGate, forestLocation)
         InitializeGraves(world)
     End Sub
-    ReadOnly graveTypeGenerator As IReadOnlyDictionary(Of FeatureType, Integer) =
-        New Dictionary(Of FeatureType, Integer) From
+    ReadOnly graveTypeGenerator As IReadOnlyDictionary(Of String, Integer) =
+        New Dictionary(Of String, Integer) From
         {
             {FeatureType.Spawner, 1},
             {FeatureType.Loot, 1}
