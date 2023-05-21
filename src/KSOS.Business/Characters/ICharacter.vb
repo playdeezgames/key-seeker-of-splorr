@@ -16,7 +16,7 @@
     Sub AddItemQuantity(itemType As String, quantity As Integer)
     ReadOnly Property Health As Integer
     ReadOnly Property MaximumHealth As Integer
-    ReadOnly Property CharacterType As CharacterType
+    ReadOnly Property CharacterType As String
     ReadOnly Property CanMove As Boolean
     ReadOnly Property CanRun As Boolean
     ReadOnly Property CanFight As Boolean

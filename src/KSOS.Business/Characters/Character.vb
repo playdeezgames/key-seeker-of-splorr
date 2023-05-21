@@ -21,7 +21,7 @@
 
     Public Property Name As String Implements ICharacter.Name
         Get
-            Return If(String.IsNullOrEmpty(CharacterData.Name), CharacterType.Descriptor.Name, CharacterData.Name)
+            Return If(String.IsNullOrEmpty(CharacterData.Name), CharacterType.CharacterTypeDescriptor.Name, CharacterData.Name)
         End Get
         Set(value As String)
             CharacterData.Name = value
@@ -44,7 +44,7 @@
         If CharacterData.Statistics.ContainsKey(statisticType) Then
             Return CharacterData.Statistics(statisticType)
         End If
-        Return CharacterType.Descriptor.Statistics(statisticType)
+        Return CharacterType.CharacterTypeDescriptor.Statistics(statisticType)
     End Function
 
     Public ReadOnly Property Health As Integer Implements ICharacter.Health
@@ -59,7 +59,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property CharacterType As CharacterType Implements ICharacter.CharacterType
+    Public ReadOnly Property CharacterType As String Implements ICharacter.CharacterType
         Get
             Return CharacterData.CharacterType
         End Get
@@ -364,7 +364,7 @@
 
     Public ReadOnly Property KillVerb As String Implements ICharacter.KillVerb
         Get
-            Return CharacterType.Descriptor.KillVerb
+            Return CharacterType.CharacterTypeDescriptor.KillVerb
         End Get
     End Property
 

@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Friend Module CharacterTypeDescriptors
-    Friend ReadOnly Property AllCharacterTypes As IReadOnlyList(Of CharacterType)
+    Friend ReadOnly Property AllCharacterTypes As IReadOnlyList(Of String)
         Get
             Return characterTypeDescriptors.Keys.ToList
         End Get
@@ -27,8 +27,8 @@ Friend Module CharacterTypeDescriptors
     '        }
     '    }
     '},
-    Private ReadOnly characterTypeDescriptors As IReadOnlyDictionary(Of CharacterType, CharacterTypeDescriptor) =
-        New Dictionary(Of CharacterType, CharacterTypeDescriptor) From
+    Private ReadOnly characterTypeDescriptors As IReadOnlyDictionary(Of String, CharacterTypeDescriptor) =
+        New Dictionary(Of String, CharacterTypeDescriptor) From
         {
             {
                 CharacterType.N00b,
@@ -179,7 +179,7 @@ Friend Module CharacterTypeDescriptors
             }
         }
     <Extension>
-    Friend Function Descriptor(characterType As CharacterType) As CharacterTypeDescriptor
+    Friend Function CharacterTypeDescriptor(characterType As String) As CharacterTypeDescriptor
         Return characterTypeDescriptors(characterType)
     End Function
 End Module

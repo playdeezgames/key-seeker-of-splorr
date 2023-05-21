@@ -1,5 +1,5 @@
 ﻿Public Class CharacterData
-    Public Property CharacterType As CharacterType
+    Public Property CharacterType As String
     Public Property LocationId As Integer
     Public Property Name As String
     Public Property Statistics As New Dictionary(Of StatisticType, Integer)

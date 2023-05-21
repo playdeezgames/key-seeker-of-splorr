@@ -6,7 +6,7 @@
         MyBase.New(data, featureId)
         Me.FeatureId = featureId
     End Sub
-    Public Sub SetSpawnWeight(characterType As CharacterType, weight As Integer) Implements ISpawner.SetSpawnWeight
+    Public Sub SetSpawnWeight(characterType As String, weight As Integer) Implements ISpawner.SetSpawnWeight
         SpawnerData.Generator(characterType) = weight
     End Sub
     Public Sub DoSpawn(character As ICharacter) Implements ISpawner.DoSpawn

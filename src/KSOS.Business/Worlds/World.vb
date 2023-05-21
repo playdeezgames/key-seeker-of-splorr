@@ -55,7 +55,7 @@ Public Class World
                                 })
         Return New Location(WorldData, locationId)
     End Function
-    Public Function CreateCharacter(characterType As CharacterType, location As ILocation) As ICharacter Implements IWorld.CreateCharacter
+    Public Function CreateCharacter(characterType As String, location As ILocation) As ICharacter Implements IWorld.CreateCharacter
         Dim characterId = WorldData.Characters.Count
         WorldData.Characters.Add(New CharacterData With
                                  {
@@ -64,7 +64,7 @@ Public Class World
                                  })
         Dim character As ICharacter = New Character(WorldData, characterId)
         location.AddCharacter(character)
-        characterType.Descriptor.Provision.Invoke(character)
+        characterType.CharacterTypeDescriptor.Provision.Invoke(character)
         Return character
     End Function
     Public Function Save(fileName As String) As Boolean Implements IWorld.Save
