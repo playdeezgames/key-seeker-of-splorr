@@ -1,6 +1,4 @@
-﻿Imports System.Threading
-
-Friend Module InventoryDetail
+﻿Friend Module InventoryDetail
     Friend Sub Run(item As IItem)
         AnsiConsole.Clear()
         Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]{item.Name}(x{item.Quantity})[/]"}
@@ -11,6 +9,9 @@ Friend Module InventoryDetail
         If item.CanEquip Then
             prompt.AddChoice(EquipText)
         End If
+        If item.CanUse(World.Avatar) Then
+            prompt.AddChoice(UseText)
+        End If
         Dim answer = AnsiConsole.Prompt(prompt)
         Select Case answer
             Case NeverMindText
@@ -19,9 +20,15 @@ Friend Module InventoryDetail
                 RunConsume(item)
             Case EquipText
                 RunEquip(item)
+            Case UseText
+                RunUse(item)
             Case Else
                 Throw New NotImplementedException
         End Select
+    End Sub
+
+    Private Sub RunUse(item As IItem)
+        Throw New NotImplementedException()
     End Sub
 
     Private Sub RunEquip(item As IItem)

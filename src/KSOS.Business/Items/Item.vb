@@ -117,4 +117,8 @@
     Public Sub DoWear(wear As Integer) Implements IItem.DoWear
         Me.Wear += wear
     End Sub
+
+    Public Function CanUse(character As ICharacter) As Boolean Implements IItem.CanUse
+        Return If(ItemType.ItemTypeDescriptor?.CanUse(character), False)
+    End Function
 End Class

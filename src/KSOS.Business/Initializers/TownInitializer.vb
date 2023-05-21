@@ -44,11 +44,11 @@
         Dim hut = world.CreateLocation(LocationType.Hut)
         entrance.CreateRoute(Direction.Inside, RouteType.Door, hut)
         hut.CreateRoute(Direction.Outside, RouteType.Door, entrance)
-        Dim märten = world.CreateFeature("Märten the Nihilist Healer", FeatureType.Shoppe)
-        märten.Shoppe.Name = "Märten's Apathetic Apothecary"
-        märten.Shoppe.AddTrade((ItemType.Jools, 9), (ItemType.Potion, 1))
-        märten.Shoppe.AddTrade((ItemType.Jools, 3), (ItemType.HolyWater, 1))
-        hut.AddFeature(märten)
+        Dim mårten = world.CreateFeature("Mårten the Nihilist Healer", FeatureType.Shoppe)
+        mårten.Shoppe.Name = "Mårten's Apathetic Apothecary"
+        mårten.Shoppe.AddTrade((ItemType.Jools, 9), (ItemType.Potion, 1))
+        mårten.Shoppe.AddTrade((ItemType.Jools, 3), (ItemType.HolyWater, 1))
+        hut.AddFeature(mårten)
     End Sub
 
     Private Sub InitializeBlacksmith(world As IWorld)

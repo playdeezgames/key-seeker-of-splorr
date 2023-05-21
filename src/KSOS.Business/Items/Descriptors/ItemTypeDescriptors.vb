@@ -14,7 +14,10 @@ Friend Module ItemTypeDescriptors
                     .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Healing, 1}
-                    }
+                    },
+                    .CanUse = Function(character)
+                                  Return character.Health < character.MaximumHealth
+                              End Function
                 }
             },
             {
@@ -27,7 +30,10 @@ Friend Module ItemTypeDescriptors
                     .Statistics = New Dictionary(Of String, Integer) From
                     {
                         {StatisticType.Healing, 5}
-                    }
+                    },
+                    .CanUse = Function(character)
+                                  Return character.Health < character.MaximumHealth
+                              End Function
                 }
             },
             {
