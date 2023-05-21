@@ -25,9 +25,15 @@
         End If
     End Sub
     Friend Sub ProvisionGoblin(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.GoblinEar, 1))
+        character.AddItem(character.World.CreateItem(ItemType.Jools, RNG.RollDice("1d4")))
     End Sub
     Friend Sub ProvisionOrc(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.OrcTooth, 1))
+        character.AddItem(character.World.CreateItem(ItemType.Jools, RNG.RollDice("2d4")))
     End Sub
     Friend Sub ProvisionCyclops(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.CyclopsEyeball, 1))
+        character.AddItem(character.World.CreateItem(ItemType.Jools, RNG.RollDice("3d4")))
     End Sub
 End Module

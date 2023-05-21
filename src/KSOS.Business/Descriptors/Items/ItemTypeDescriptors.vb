@@ -18,6 +18,36 @@ Friend Module ItemTypeDescriptors
                 }
             },
             {
+                ItemType.GoblinEar,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Goblin Ear",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of String, Integer)
+                }
+            },
+            {
+                ItemType.OrcTooth,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Orc Tooth",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of String, Integer)
+                }
+            },
+            {
+                ItemType.CyclopsEyeball,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Cyclops Eyeball",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of String, Integer)
+                }
+            },
+            {
                 ItemType.SkullFragment,
                 New ItemTypeDescriptor With
                 {
