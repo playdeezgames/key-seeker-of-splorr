@@ -1,7 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports KSOS.Data
-
-Friend Module Constants
+﻿Friend Module Constants
     Friend Const AbandonGameText = "Abandon Game"
     Friend Const ConsumeText = "Consume"
     Friend Const ContinueText = "Continue"
