@@ -11,10 +11,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Chikkin",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of String, Integer) From
-                    {
-                        {StatisticType.Healing, 1}
-                    },
+                    .Statistics = New Dictionary(Of String, Integer),
                     .CanUse = Function(character)
                                   Return character.Health < character.MaximumHealth
                               End Function,
@@ -31,10 +28,7 @@ Friend Module ItemTypeDescriptors
                     .Name = "Potion",
                     .Stacks = True,
                     .EquipSlot = Nothing,
-                    .Statistics = New Dictionary(Of String, Integer) From
-                    {
-                        {StatisticType.Healing, 5}
-                    },
+                    .Statistics = New Dictionary(Of String, Integer),
                     .CanUse = Function(character)
                                   Return character.Health < character.MaximumHealth
                               End Function,

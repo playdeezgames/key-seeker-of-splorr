@@ -1,6 +1,5 @@
 ﻿Friend Module Constants
     Friend Const AbandonGameText = "Abandon Game"
-    Friend Const ConsumeText = "Consume"
     Friend Const ContinueText = "Continue"
     Friend Const EquipmentText = "Equipment"
     Friend Const EquipText = "Equip"

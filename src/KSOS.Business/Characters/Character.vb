@@ -239,14 +239,6 @@
         AddItem(World.CreateItem(itemType, quantity))
     End Sub
 
-    Public Sub Consume(item As IItem) Implements ICharacter.Consume
-        If HasItem(item) And item.CanHeal Then
-            Wounds -= item.ItemType.ItemTypeDescriptor.Statistics(StatisticType.Healing)
-            item.Quantity -= 1
-            CleanUpItems()
-        End If
-    End Sub
-
     Public Function HasItem(item As IItem) As Boolean Implements ICharacter.HasItem
         Return CharacterData.ItemIds.Contains(item.Id)
     End Function

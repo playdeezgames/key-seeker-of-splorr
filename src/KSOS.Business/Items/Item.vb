@@ -29,11 +29,6 @@
             Return ItemType.ItemTypeDescriptor.Name
         End Get
     End Property
-    Public ReadOnly Property CanHeal As Boolean Implements IItem.CanHeal
-        Get
-            Return ItemType.ItemTypeDescriptor.Statistics.ContainsKey(StatisticType.Healing)
-        End Get
-    End Property
     Public ReadOnly Property CanEquip As Boolean Implements IItem.CanEquip
         Get
             Return Not String.IsNullOrEmpty(ItemType.ItemTypeDescriptor.EquipSlot)

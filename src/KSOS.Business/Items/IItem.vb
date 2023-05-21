@@ -4,7 +4,6 @@
     Property Quantity As Integer
     ReadOnly Property Stacks As Boolean
     ReadOnly Property Name As String
-    ReadOnly Property CanHeal As Boolean
     ReadOnly Property CanEquip As Boolean
     ReadOnly Property IsWeapon As Boolean
     ReadOnly Property IsArmor As Boolean

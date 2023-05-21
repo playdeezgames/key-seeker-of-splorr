@@ -3,9 +3,6 @@
         AnsiConsole.Clear()
         Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]{item.Name}(x{item.Quantity})[/]"}
         prompt.AddChoice(NeverMindText)
-        If item.CanHeal Then
-            prompt.AddChoice(ConsumeText)
-        End If
         If item.CanEquip Then
             prompt.AddChoice(EquipText)
         End If
@@ -16,8 +13,6 @@
         Select Case answer
             Case NeverMindText
                 Return
-            Case ConsumeText
-                RunConsume(item)
             Case EquipText
                 RunEquip(item)
             Case UseText
@@ -35,13 +30,5 @@
     Private Sub RunEquip(item As IItem)
         World.Avatar.Equip(item)
         Message.Run()
-    End Sub
-
-    Private Sub RunConsume(item As IItem)
-        Dim avatar = World.Avatar
-        AnsiConsole.MarkupLine($"{avatar.Name} consumes {item.Name}")
-        avatar.Consume(item)
-        AnsiConsole.MarkupLine($"{avatar.Name} has {avatar.Health} health")
-        OkPrompt()
     End Sub
 End Module

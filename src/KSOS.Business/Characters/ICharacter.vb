@@ -28,7 +28,6 @@
     ReadOnly Property CanInteract As Boolean
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of IItem)
-    Sub Consume(item As IItem)
     ReadOnly Property HasMessages As Boolean
     ReadOnly Property NextMessage As IMessage
     ReadOnly Property HasAnyEquipment As Boolean

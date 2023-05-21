@@ -6,7 +6,6 @@
     Friend Const Defend = "Defend"
     Friend Const MaximumDefend = "MaximumDefend"
     Friend Const XP = "XP"
-    Friend Const Healing = "Healing"
     Friend Const Durability = "Durability"
     Friend Const Wear = "Wear"
 End Module
