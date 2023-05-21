@@ -203,7 +203,7 @@ Friend Module CharacterTypeDescriptors
                 New CharacterTypeDescriptor With
                 {
                     .Name = "Orc",
-                    .SpawnCount = 75,
+                    .SpawnCount = 50,
                     .KillVerb = "harvests the heart of",
                     .SpawnLocations = New List(Of String) From {LocationType.Tower},
                     .Provision = AddressOf ProvisionOrc,
@@ -224,7 +224,7 @@ Friend Module CharacterTypeDescriptors
                 New CharacterTypeDescriptor With
                 {
                     .Name = "Cyclops",
-                    .SpawnCount = 75,
+                    .SpawnCount = 25,
                     .KillVerb = "plucks out one eye of",
                     .SpawnLocations = New List(Of String) From {LocationType.Tower},
                     .Provision = AddressOf ProvisionCyclops,
