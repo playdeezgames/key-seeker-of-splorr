@@ -7,7 +7,7 @@
             prompt.AddChoice(EquipText)
         End If
         If item.CanUse(World.Avatar) Then
-            prompt.AddChoice(UseText)
+            prompt.AddChoice(item.UseVerb)
         End If
         Dim answer = AnsiConsole.Prompt(prompt)
         Select Case answer
@@ -15,10 +15,12 @@
                 Return
             Case EquipText
                 RunEquip(item)
-            Case UseText
-                RunUse(item)
             Case Else
-                Throw New NotImplementedException
+                If answer = item.UseVerb Then
+                    RunUse(item)
+                Else
+                    Throw New NotImplementedException
+                End If
         End Select
     End Sub
 

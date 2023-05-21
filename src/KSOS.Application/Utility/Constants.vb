@@ -20,6 +20,5 @@
     Friend Const StartText = "Start"
     Friend Const StatusText = "Status"
     Friend Const UnequipText = "Unequip"
-    Friend Const UseText = "Use"
     Friend Const YesText = "Yes"
 End Module

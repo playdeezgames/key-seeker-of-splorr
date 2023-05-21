@@ -18,7 +18,8 @@ Friend Module ItemTypeDescriptors
                     .Use = Sub(character)
                                character.Health += 1
                                character.AddMessage($"{character.Name} eats the chikkin, and now has {character.Health}/{character.MaximumHealth} health.")
-                           End Sub
+                           End Sub,
+                    .UseVerb = "Nom"
                 }
             },
             {
@@ -35,7 +36,8 @@ Friend Module ItemTypeDescriptors
                     .Use = Sub(character)
                                character.Health += 5
                                character.AddMessage($"{character.Name} drinks the potion, and now has {character.Health}/{character.MaximumHealth} health.")
-                           End Sub
+                           End Sub,
+                    .UseVerb = "Drink"
                 }
             },
             {
@@ -47,7 +49,14 @@ Friend Module ItemTypeDescriptors
                     .EquipSlot = Nothing,
                     .Statistics = New Dictionary(Of String, Integer) From
                     {
-                    }
+                    },
+                    .CanUse = Function(character)
+                                  Return character.CanFight
+                              End Function,
+                    .Use = Sub(character)
+                               character.AddMessage($"{character.Name} moistens his enemy!")
+                           End Sub,
+                    .UseVerb = "Splash"
                 }
             },
             {

@@ -108,6 +108,13 @@
             Return GetStatistic(StatisticType.Defend)
         End Get
     End Property
+
+    Public ReadOnly Property UseVerb As String Implements IItem.UseVerb
+        Get
+            Return ItemType.ItemTypeDescriptor.UseVerb
+        End Get
+    End Property
+
     Public Sub DoWear(wear As Integer) Implements IItem.DoWear
         Me.Wear += wear
     End Sub
@@ -120,5 +127,9 @@
             Return
         End If
         ItemType.ItemTypeDescriptor.Use.Invoke(character)
+        Quantity -= 1
+        If Quantity = 0 Then
+            character.RemoveItem(Me)
+        End If
     End Sub
 End Class

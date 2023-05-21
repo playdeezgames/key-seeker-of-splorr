@@ -17,4 +17,5 @@
     ReadOnly Property MaximumDefend As Integer
     ReadOnly Property Attack As Integer
     ReadOnly Property Defend As Integer
+    ReadOnly Property UseVerb As String
 End Interface

@@ -5,4 +5,5 @@
     Public Property EquipSlot As String
     Public Property CanUse As Func(Of ICharacter, Boolean)
     Public Property Use As Action(Of ICharacter)
+    Public Property UseVerb As String
 End Class
