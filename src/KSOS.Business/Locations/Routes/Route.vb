@@ -26,4 +26,13 @@
             RouteData.RequiredItemType = value
         End Set
     End Property
+
+    Public Property SingleUse As Boolean Implements IRoute.SingleUse
+        Get
+            Return RouteData.SingleUse
+        End Get
+        Set(value As Boolean)
+            RouteData.SingleUse = value
+        End Set
+    End Property
 End Class

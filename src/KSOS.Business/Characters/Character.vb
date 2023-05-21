@@ -103,6 +103,9 @@
             Return
         End If
         Location = route.Destination
+        If route.SingleUse Then
+            Location.RemoveRoute(route.Direction)
+        End If
     End Sub
 
     Public Function Run() As Boolean Implements ICharacter.Run

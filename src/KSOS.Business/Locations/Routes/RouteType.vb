@@ -10,4 +10,5 @@
     Friend Const Stairs = "Stairs"
     Friend Const Tunnel = "Tunnel"
     Friend Const TowerEntrance = "TowerEntrance"
+    Friend Const Portal = "Portal"
 End Module

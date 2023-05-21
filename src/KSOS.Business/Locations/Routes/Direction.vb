@@ -7,4 +7,5 @@
     Friend Const Inside = "Inside"
     Friend Const Up = "Up"
     Friend Const Down = "Down"
+    Friend Const Portal = "Portal"
 End Module

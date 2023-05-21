@@ -54,7 +54,8 @@ Public Module Constants
             {Direction.Inside, "In"},
             {Direction.Outside, "Out"},
             {Direction.Up, "Up"},
-            {Direction.Down, "Down"}
+            {Direction.Down, "Down"},
+            {Direction.Portal, "into a Portal"}
         }
     <Extension>
     Public Function DirectionName(direction As String) As String
@@ -73,7 +74,8 @@ Public Module Constants
             {RouteType.Door, "Door"},
             {RouteType.Stairs, "Stairs"},
             {RouteType.Tunnel, "Tunnel"},
-            {RouteType.TowerEntrance, "Tower Entrance"}
+            {RouteType.TowerEntrance, "Tower Entrance"},
+            {RouteType.Portal, "Shimmering Oval"}
         }
     <Extension>
     Public Function RouteTypeName(routeType As String) As String

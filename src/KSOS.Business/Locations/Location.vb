@@ -97,4 +97,8 @@
     Public Sub RemoveFeature(feature As IFeature) Implements ILocation.RemoveFeature
         LocationData.FeatureIds.Remove(feature.Id)
     End Sub
+
+    Public Sub RemoveRoute(direction As String) Implements ILocation.RemoveRoute
+        LocationData.Routes.Remove(direction)
+    End Sub
 End Class
