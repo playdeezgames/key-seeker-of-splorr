@@ -2,7 +2,7 @@
     Inherits IThingie
     Property Location As ILocation
     Property Name As String
-    Sub Move(direction As Direction)
+    Sub Move(direction As String)
     Function Run() As Boolean
     Sub MakeAttack(defender As ICharacter, index As Integer)
     Function RollDefend() As Integer

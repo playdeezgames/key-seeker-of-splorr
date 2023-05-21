@@ -2,12 +2,12 @@
     Inherits IThingie
     ReadOnly Property LocationType As String
     ReadOnly Property HasRoutes As Boolean
-    ReadOnly Property HasRoute(direction As Direction) As Boolean
+    ReadOnly Property HasRoute(direction As String) As Boolean
     ReadOnly Property Routes As IEnumerable(Of IRoute)
-    Function GetRoute(direction As Direction) As IRoute
+    Function GetRoute(direction As String) As IRoute
     Sub AddCharacter(character As ICharacter)
     Sub RemoveCharacter(character As ICharacter)
-    Function CreateRoute(direction As Direction, routeType As String, destination As ILocation) As IRoute
+    Function CreateRoute(direction As String, routeType As String, destination As ILocation) As IRoute
     Function Enemies(character As ICharacter) As IEnumerable(Of ICharacter)
     Sub AddItem(item As IItem)
     Sub RemoveItem(item As IItem)

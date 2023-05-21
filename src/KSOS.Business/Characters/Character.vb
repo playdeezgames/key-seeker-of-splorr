@@ -89,7 +89,7 @@
         End Get
     End Property
 
-    Public Sub Move(direction As Direction) Implements ICharacter.Move
+    Public Sub Move(direction As String) Implements ICharacter.Move
         Dim route As IRoute = Location.GetRoute(direction)
         If route Is Nothing Then
             AddMessage($"{Name} cannot go that way!")
@@ -103,7 +103,7 @@
     End Sub
 
     Public Function Run() As Boolean Implements ICharacter.Run
-        Dim exits = New HashSet(Of Direction)(Location.Routes.Select(Function(x) x.Direction)) From {
+        Dim exits = New HashSet(Of String)(Location.Routes.Select(Function(x) x.Direction)) From {
             Direction.North,
             Direction.South,
             Direction.East,

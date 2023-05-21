@@ -23,7 +23,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property HasRoute(direction As Direction) As Boolean Implements ILocation.HasRoute
+    Public ReadOnly Property HasRoute(direction As String) As Boolean Implements ILocation.HasRoute
         Get
             Return LocationData.Routes.ContainsKey(direction)
         End Get
@@ -72,7 +72,7 @@
     Public Sub RemoveItem(item As IItem) Implements ILocation.RemoveItem
         LocationData.ItemIds.Remove(item.Id)
     End Sub
-    Public Function CreateRoute(direction As Direction, routeType As String, destination As ILocation) As IRoute Implements ILocation.CreateRoute
+    Public Function CreateRoute(direction As String, routeType As String, destination As ILocation) As IRoute Implements ILocation.CreateRoute
         LocationData.Routes(direction) = New RouteData With
             {
                 .ToLocationId = destination.Id,
@@ -81,7 +81,7 @@
             }
         Return New Route(WorldData, Id, direction)
     End Function
-    Public Function GetRoute(direction As Direction) As IRoute Implements ILocation.GetRoute
+    Public Function GetRoute(direction As String) As IRoute Implements ILocation.GetRoute
         If LocationData.Routes.ContainsKey(direction) Then
             Return New Route(WorldData, Id, direction)
         End If

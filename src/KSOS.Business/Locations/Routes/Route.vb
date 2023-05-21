@@ -1,11 +1,11 @@
 ﻿Friend Class Route
     Inherits RouteDataClient
     Implements IRoute
-    Public Sub New(data As WorldData, locationId As Integer, direction As Direction)
+    Public Sub New(data As WorldData, locationId As Integer, direction As String)
         MyBase.New(data, locationId, direction)
         Me.Direction = direction
     End Sub
-    Public ReadOnly Property Direction As Direction Implements IRoute.Direction
+    Public ReadOnly Property Direction As String Implements IRoute.Direction
 
     Public ReadOnly Property Destination As ILocation Implements IRoute.Destination
         Get

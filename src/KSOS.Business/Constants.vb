@@ -43,8 +43,8 @@ Public Module Constants
     Public Function LocationTypeName(locationType As String) As String
         Return locationTypeNames(locationType)
     End Function
-    Private ReadOnly directionNames As IReadOnlyDictionary(Of Direction, String) =
-        New Dictionary(Of Direction, String) From
+    Private ReadOnly directionNames As IReadOnlyDictionary(Of String, String) =
+        New Dictionary(Of String, String) From
         {
             {Direction.North, "North"},
             {Direction.East, "East"},
@@ -56,7 +56,7 @@ Public Module Constants
             {Direction.Down, "Down"}
         }
     <Extension>
-    Public Function DirectionName(direction As Direction) As String
+    Public Function DirectionName(direction As String) As String
         Return directionNames(direction)
     End Function
     Private ReadOnly routeTypeNames As IReadOnlyDictionary(Of String, String) =

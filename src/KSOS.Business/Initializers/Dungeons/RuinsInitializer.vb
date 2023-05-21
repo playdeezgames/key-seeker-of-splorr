@@ -8,7 +8,7 @@
                 locations(column, row) = world.CreateLocation(LocationType.Ruins)
             Next
         Next
-        Dim maze As New Maze(Of Direction)(Columns, Rows, mazeDirections)
+        Dim maze As New Maze(Of String)(Columns, Rows, mazeDirections)
         maze.Generate()
         For column = 0 To Columns - 1
             For row = 0 To Rows - 1

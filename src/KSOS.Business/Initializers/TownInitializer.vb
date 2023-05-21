@@ -2,7 +2,7 @@
     Const Columns = 3
     Const Rows = 3
     Friend Sub Initialize(world As IWorld)
-        Dim maze As New Maze(Of Direction)(Columns, Rows, mazeDirections)
+        Dim maze As New Maze(Of String)(Columns, Rows, mazeDirections)
         maze.Generate()
         Dim mazeLocations(Columns - 1, Rows - 1) As ILocation
         For column = 0 To Columns - 1
