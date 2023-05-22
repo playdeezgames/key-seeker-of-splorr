@@ -37,8 +37,15 @@
         InitializeYogi(world)
         InitializeBlacksmith(world)
         InitializeHealer(world)
+        InitializeElder(world)
     End Sub
-
+    Private Sub InitializeElder(world As IWorld)
+        Dim location = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge))
+        Dim zooperDan = world.CreateFeature("Zooperdan the Elder", FeatureType.Shoppe)
+        zooperDan.Shoppe.Name = "Zooperdan's Bargain Town Portal Scrolls"
+        zooperDan.Shoppe.AddTrade((ItemType.Jools, 25), (ItemType.TownPortal, 1))
+        location.AddFeature(zooperDan)
+    End Sub
     Private Sub InitializeHealer(world As IWorld)
         Dim entrance = RNG.FromEnumerable(world.Locations.Where(Function(x) x.LocationType = LocationType.TownEdge AndAlso Not x.HasRoute(Direction.Inside)))
         Dim hut = world.CreateLocation(LocationType.Hut)
