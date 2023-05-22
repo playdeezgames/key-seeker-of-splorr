@@ -39,7 +39,8 @@ Public Module Constants
             {LocationType.Blacksmith, "a forge"},
             {LocationType.Tower, "a tower"},
             {LocationType.Hut, "a hut"},
-            {LocationType.Ufo, "a UFO"}
+            {LocationType.Ufo, "a UFO"},
+            {LocationType.Machine, "a machine"}
         }
     <Extension>
     Public Function LocationTypeName(locationType As String) As String
@@ -78,7 +79,8 @@ Public Module Constants
             {RouteType.TowerEntrance, "Tower Entrance"},
             {RouteType.Portal, "Shimmering Oval"},
             {RouteType.Hallway, "Metallic Hallway"},
-            {RouteType.UfoRamp, "Otherworldly Ramp"}
+            {RouteType.UfoRamp, "Otherworldly Ramp"},
+            {RouteType.Hatch, "Circular Hatch"}
         }
     <Extension>
     Public Function RouteTypeName(routeType As String) As String

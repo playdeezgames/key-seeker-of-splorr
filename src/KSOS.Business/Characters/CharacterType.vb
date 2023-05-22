@@ -10,4 +10,7 @@
     Friend Const Orc = "Orc"
     Friend Const Cyclops = "Cyclops"
     Friend Const MoonPerson = "MoonPerson"
+    Friend Const Mummy = "Mummy"
+    Friend Const Gargoyle = "Gargoyle"
+    Friend Const Guardian = "Guardian"
 End Module

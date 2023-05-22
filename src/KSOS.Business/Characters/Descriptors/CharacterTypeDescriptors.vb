@@ -260,6 +260,69 @@ Friend Module CharacterTypeDescriptors
                         {StatisticType.XP, 3}
                     }
                 }
+            },
+            {
+                CharacterType.Mummy,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Mummy",
+                    .SpawnCount = 30,
+                    .KillVerb = "mummifies",
+                    .SpawnLocations = New List(Of String) From {LocationType.Ruins},
+                    .Provision = AddressOf ProvisionMummy,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 2},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 3},
+                        {StatisticType.Attack, 6},
+                        {StatisticType.MaximumDefend, 4},
+                        {StatisticType.Defend, 4},
+                        {StatisticType.XP, 2}
+                    }
+                }
+            },
+            {
+                CharacterType.Gargoyle,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Gargoyle",
+                    .SpawnCount = 15,
+                    .KillVerb = "paints itself in the blood of",
+                    .SpawnLocations = New List(Of String) From {LocationType.Ruins},
+                    .Provision = AddressOf ProvisionGargoyle,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 3},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 4},
+                        {StatisticType.Attack, 8},
+                        {StatisticType.MaximumDefend, 5},
+                        {StatisticType.Defend, 5},
+                        {StatisticType.XP, 3}
+                    }
+                }
+            },
+            {
+                CharacterType.Guardian,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Machine Guardian",
+                    .SpawnCount = 15,
+                    .KillVerb = "makes a greasy spot where once stood",
+                    .SpawnLocations = New List(Of String) From {LocationType.Ruins},
+                    .Provision = AddressOf ProvisionGuardian,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 10},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 10},
+                        {StatisticType.Attack, 20},
+                        {StatisticType.MaximumDefend, 10},
+                        {StatisticType.Defend, 10},
+                        {StatisticType.XP, 10}
+                    }
+                }
             }
         }
     <Extension>

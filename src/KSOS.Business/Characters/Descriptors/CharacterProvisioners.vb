@@ -15,6 +15,15 @@
     Friend Sub ProvisionN00b(character As ICharacter)
         'start with nothing!
     End Sub
+    Friend Sub ProvisionMummy(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.Jools, RNG.RollDice("4d6")))
+    End Sub
+    Friend Sub ProvisionGargoyle(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.MarbleChunk, RNG.RollDice("2d3")))
+    End Sub
+    Friend Sub ProvisionGuardian(character As ICharacter)
+        'NOTHING! the guardian has no need of items!
+    End Sub
     Friend Sub ProvisionMoonPerson(character As ICharacter)
         character.AddItem(character.World.CreateItem(ItemType.EmptyBottle, 1))
     End Sub

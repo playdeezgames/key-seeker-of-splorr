@@ -14,4 +14,5 @@
     Friend Const Tower = "Tower"
     Friend Const Hut = "Hut"
     Friend Const Ufo = "Ufo"
+    Friend Const Machine = "Machine"
 End Module

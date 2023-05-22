@@ -1,6 +1,4 @@
-﻿Imports System.Reflection.Emit
-
-Friend Module UfoInitializer
+﻿Friend Module UfoInitializer
     Const Columns = 5
     Const Rows = 5
     Friend Sub Initialize(world As IWorld)

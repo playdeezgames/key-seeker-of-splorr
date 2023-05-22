@@ -93,6 +93,7 @@
         dan.Shoppe.AddTrade((ItemType.OrcTooth, 1), (ItemType.Jools, 3))
         dan.Shoppe.AddTrade((ItemType.CyclopsEyeball, 1), (ItemType.Jools, 5))
         dan.Shoppe.AddTrade((ItemType.EmptyBottle, 2), (ItemType.Jools, 5))
+        dan.Shoppe.AddTrade((ItemType.MarbleChunk, 1), (ItemType.Jools, 10))
         knackery.AddFeature(dan)
     End Sub
     Private Sub InitializeInn(world As IWorld)

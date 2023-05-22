@@ -390,6 +390,16 @@ Friend Module ItemTypeDescriptors
                     .EquipSlot = Nothing,
                     .Statistics = New Dictionary(Of String, Integer)
                 }
+            },
+            {
+                ItemType.MarbleChunk,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Chunk of Marble",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of String, Integer)
+                }
             }
         }
     <Extension>

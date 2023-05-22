@@ -13,4 +13,5 @@
     Friend Const Portal = "Portal"
     Friend Const Hallway = "Hallway"
     Friend Const UfoRamp = "UfoRamp"
+    Friend Const Hatch = "Hatch"
 End Module
