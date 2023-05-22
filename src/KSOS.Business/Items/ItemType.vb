@@ -27,4 +27,5 @@
     Friend Const Potion = "Potion"
     Friend Const HolyWater = "HolyWater"
     Friend Const TownPortal = "TownPortal"
+    Friend Const EmptyBottle = "EmptyBottle"
 End Module

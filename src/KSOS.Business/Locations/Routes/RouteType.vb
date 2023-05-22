@@ -11,4 +11,6 @@
     Friend Const Tunnel = "Tunnel"
     Friend Const TowerEntrance = "TowerEntrance"
     Friend Const Portal = "Portal"
+    Friend Const Hallway = "Hallway"
+    Friend Const UfoRamp = "UfoRamp"
 End Module

@@ -15,6 +15,9 @@
     Friend Sub ProvisionN00b(character As ICharacter)
         'start with nothing!
     End Sub
+    Friend Sub ProvisionMoonPerson(character As ICharacter)
+        character.AddItem(character.World.CreateItem(ItemType.EmptyBottle, 1))
+    End Sub
     Friend Sub ProvisionSkeleton(character As ICharacter)
         character.AddItem(character.World.CreateItem(ItemType.SkullFragment, 1))
     End Sub

@@ -7,3 +7,5 @@
 - [x] To the Tower, found in the Graveyard.
 - [x] To the UFO, found in the Tower.
 - [ ] To the Machine in the Ruins, found in the UFO.
+
+ASCII Game Jam 2023, 6.25 Days remaining, Theme: Machine

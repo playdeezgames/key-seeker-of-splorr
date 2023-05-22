@@ -13,4 +13,5 @@
     Friend Const Blacksmith = "Blacksmith"
     Friend Const Tower = "Tower"
     Friend Const Hut = "Hut"
+    Friend Const Ufo = "Ufo"
 End Module

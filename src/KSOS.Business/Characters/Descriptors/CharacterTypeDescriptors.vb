@@ -239,6 +239,27 @@ Friend Module CharacterTypeDescriptors
                         {StatisticType.XP, 2}
                     }
                 }
+            },
+            {
+                CharacterType.MoonPerson,
+                New CharacterTypeDescriptor With
+                {
+                    .Name = "Moon Person",
+                    .SpawnCount = 20,
+                    .KillVerb = "does lewd experiments on",
+                    .SpawnLocations = New List(Of String) From {LocationType.Ufo},
+                    .Provision = AddressOf ProvisionMoonPerson,
+                    .Statistics = New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticType.MaximumHealth, 3},
+                        {StatisticType.Wounds, 0},
+                        {StatisticType.MaximumAttack, 4},
+                        {StatisticType.Attack, 8},
+                        {StatisticType.MaximumDefend, 4},
+                        {StatisticType.Defend, 4},
+                        {StatisticType.XP, 3}
+                    }
+                }
             }
         }
     <Extension>

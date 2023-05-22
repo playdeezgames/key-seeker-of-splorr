@@ -14,6 +14,7 @@
         RuinsInitializer.Initialize(world)
         SewersInitializer.Initialize(world)
         TowerInitializer.Initialize(world)
+        UfoInitializer.Initialize(world)
 
         CharacterInitializer.Initialize(world)
         AvatarInitializer.Initialize(world)

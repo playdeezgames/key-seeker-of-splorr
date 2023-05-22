@@ -380,6 +380,16 @@ Friend Module ItemTypeDescriptors
                     .EquipSlot = Nothing,
                     .Statistics = New Dictionary(Of String, Integer)
                 }
+            },
+            {
+                ItemType.EmptyBottle,
+                New ItemTypeDescriptor With
+                {
+                    .Name = "Empty Bottle",
+                    .Stacks = True,
+                    .EquipSlot = Nothing,
+                    .Statistics = New Dictionary(Of String, Integer)
+                }
             }
         }
     <Extension>
