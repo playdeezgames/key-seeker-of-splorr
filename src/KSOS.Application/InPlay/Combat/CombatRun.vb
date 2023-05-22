@@ -7,6 +7,7 @@
         Else
             AnsiConsole.MarkupLine($"{avatar.Name} fails to run away!")
             OkPrompt()
+            RunCounterAttacks(avatar)
         End If
         Return True
     End Function
