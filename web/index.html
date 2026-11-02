@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Key Seeker of SPLORR!!</title>
+<style>
+	html, body { height: 100%; margin: 0; background: #0c0c0c; color: #ccc; font-family: Consolas, "DejaVu Sans Mono", monospace; font-size: 16px; }
+	body { display: flex; flex-direction: column; }
+	main { flex: 1 1 auto; overflow-y: auto; padding: 0.75rem 1rem; max-width: 60rem; width: 100%; box-sizing: border-box; margin: 0 auto; }
+	h1 { color: #e050e0; font-size: clamp(1.4rem, 6vw, 2.6rem); margin: 3rem 0 2rem; text-align: center; line-height: 1.2; }
+	.line { white-space: pre-wrap; min-height: 1.25em; line-height: 1.3; overflow-wrap: anywhere; }
+	.title { color: #b5b53a; margin: 1rem 0 0.4rem; line-height: 1.3; }
+	.title.red { color: #e05050; }
+	ul { list-style: none; margin: 0; padding: 0; }
+	li button { display: block; width: 100%; text-align: left; font: inherit; color: #ccc; background: none; border: 0; padding: 0.3rem 0.5rem; cursor: pointer; line-height: 1.3; border-radius: 3px; }
+	li button::before { content: "  "; white-space: pre; }
+	li button:hover, li button:focus { color: #7ad0ff; background: #1a1a1a; outline: none; }
+	li button:focus::before { content: "> "; }
+	.n { color: #777; display: inline-block; min-width: 2ch; }
+	form { display: flex; gap: 0.5rem; margin: 0.4rem 0; }
+	#text { flex: 1; min-width: 0; font: inherit; color: #fff; background: #000; border: 1px solid #444; padding: 0.4rem; }
+	#text:focus { outline: none; border-color: #888; }
+	#go { font: inherit; color: #ccc; background: #222; border: 1px solid #555; padding: 0.4rem 0.8rem; cursor: pointer; }
+	#go:hover { background: #2a2a2a; border-color: #888; }
+	footer { flex: none; padding: 0.4rem 1rem 0.8rem; color: #777; font-size: 12px; line-height: 1.4; text-align: center; }
+	footer a { color: #aaa; }
+</style>
+</head>
+<body>
+<main id="screen" aria-live="polite"></main>
+<footer>
+	Key Seeker of SPLORR!! A production of TheGrumpyGameDev, made for the ASCII Game Jam, 2023, in VB.NET.
+	Rebuilt in Odin and WebAssembly in 2026 with AI assistance (Claude); the rules are the original's. Your game saves itself in this browser.
+	<a href="https://thegrumpygamedev.itch.io/">itch.io</a> · <a href="https://playdeezgames.github.io/oeuvre-of-splorr/">more games</a>
+</footer>
+<script type="text/javascript" src="odin.js"></script>
+<script type="text/javascript">
+	const memory = new odin.WasmMemoryInterface();
+	const screen = document.getElementById("screen");
+	let frag = null, list = null, textBox = null;
+	let choiceCount = 0, firstChoice = "";
+
+	function el(tag, cls, text) {
+		const e = document.createElement(tag);
+		if (cls) e.className = cls;
+		if (text !== undefined) e.textContent = text;
+		return e;
+	}
+	function send(index) { memory.exports.on_choice(index); }
+
+	const imports = {
+		env: {
+			dom_clear: () => { frag = document.createDocumentFragment(); list = null; textBox = null; choiceCount = 0; firstChoice = ""; },
+			dom_heading: (p, n) => frag.appendChild(el("h1", "", memory.loadString(p, n))),
+			dom_line: (p, n) => frag.appendChild(el("div", "line", memory.loadString(p, n))),
+			dom_title: (p, n) => {
+				const t = memory.loadString(p, n);
+				frag.appendChild(el("div", "title" + (t.startsWith("Are you sure") ? " red" : ""), t));
+			},
+			dom_choice: (p, n) => {
+				if (!list) { list = el("ul"); frag.appendChild(list); }
+				const text = memory.loadString(p, n);
+				if (choiceCount === 0) firstChoice = text;
+				const li = el("li");
+				const b = el("button");
+				b.type = "button";
+				b.dataset.index = String(choiceCount);
+				b.appendChild(el("span", "n", choiceCount < 9 ? String(choiceCount + 1) + "." : ""));
+				b.appendChild(document.createTextNode(" " + text));
+				li.appendChild(b);
+				list.appendChild(li);
+				choiceCount++;
+			},
+			dom_text_prompt: (p, n) => {
+				const form = el("form");
+				textBox = el("input");
+				textBox.id = "text";
+				textBox.type = "text";
+				textBox.maxLength = 24;
+				textBox.autocomplete = "off";
+				textBox.spellcheck = false;
+				textBox.setAttribute("aria-label", "Answer");
+				textBox.value = memory.loadString(p, n);
+				const go = el("button", "", "Enter");
+				go.id = "go";
+				go.type = "submit";
+				form.append(textBox, go);
+				form.addEventListener("submit", (e) => { e.preventDefault(); memory.exports.on_submit(); });
+				frag.appendChild(form);
+			},
+			dom_end: () => {
+				screen.replaceChildren(frag);
+				frag = null;
+				screen.scrollTop = 0;
+				if (textBox) { textBox.focus(); textBox.select(); }
+				else { const b = screen.querySelector("li button"); if (b) b.focus({ preventScroll: true }); }
+			},
+			read_text: (ptr, cap) => {
+				const bytes = new TextEncoder().encode(textBox ? textBox.value : "").slice(0, cap);
+				new Uint8Array(memory.memory.buffer, ptr, bytes.length).set(bytes);
+				return bytes.length;
+			},
+			// QA only: ?seed=N makes the game's randomness repeatable.
+			now_ms: () => { const s = new URLSearchParams(location.search).get("seed"); return s !== null ? Number(s) : Date.now(); },
+			// localStorage can be missing or throw (private windows, blocked site data): the game still plays.
+			storage_get: (kp, kl, bp, cap) => {
+				try {
+					const v = localStorage.getItem(memory.loadString(kp, kl));
+					if (v === null) return -1;
+					const bytes = new TextEncoder().encode(v);
+					if (bytes.length > cap) return -1;
+					new Uint8Array(memory.memory.buffer, bp, bytes.length).set(bytes);
+					return bytes.length;
+				} catch (e) { return -1; }
+			},
+			storage_set: (kp, kl, vp, vl) => {
+				try { localStorage.setItem(memory.loadString(kp, kl), memory.loadString(vp, vl)); return 1; } catch (e) { return 0; }
+			},
+			storage_remove: (kp, kl) => {
+				try { localStorage.removeItem(memory.loadString(kp, kl)); } catch (e) {}
+			},
+		},
+	};
+
+	screen.addEventListener("click", (e) => {
+		const b = e.target.closest("li button");
+		if (b) send(Number(b.dataset.index));
+	});
+	window.addEventListener("keydown", (e) => {
+		if (e.ctrlKey || e.metaKey || e.altKey) return;
+		if (document.activeElement === textBox) return;
+		const buttons = Array.from(screen.querySelectorAll("li button"));
+		const at = buttons.indexOf(document.activeElement);
+		if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+			if (!buttons.length) return;
+			const to = e.key === "ArrowDown" ? (at + 1) % buttons.length : (at <= 0 ? buttons.length - 1 : at - 1);
+			buttons[to].focus();
+			e.preventDefault();
+		} else if (e.key === "Enter" || e.key === " ") {
+			if (at >= 0) { e.preventDefault(); if (!e.repeat) send(at); }
+		} else if (e.key >= "1" && e.key <= "9") {
+			const n = Number(e.key) - 1;
+			if (n < buttons.length && !e.repeat) { e.preventDefault(); send(n); }
+		} else if (e.key === "Escape") {
+			if (firstChoice === "Never Mind" && !e.repeat) { e.preventDefault(); send(0); }
+		}
+	});
+
+	// QA only: #play=c:Move...|n:Jex|i:0 plays choices by label (c:), a typed name (n:) or a position (i:) on load,
+	// so screenshots can be made from a known seed (?seed=N) without a person at the keys.
+	function replay(tokens) {
+		for (const tok of tokens) {
+			const kind = tok.slice(0, 2), arg = tok.slice(2);
+			if (kind === "n:") {
+				if (textBox) { textBox.value = arg; memory.exports.on_submit(); }
+			} else if (kind === "i:") {
+				send(Number(arg));
+			} else if (kind === "c:") {
+				const buttons = Array.from(screen.querySelectorAll("li button"));
+				const at = buttons.findIndex((b) => b.textContent.replace(/^\s*\d*\.?\s*/, "") === arg);
+				if (at < 0) { console.warn("replay: no choice " + arg); return; }
+				send(at);
+			}
+		}
+	}
+	odin.runWasm("game.wasm", null, imports, memory).then(() => {
+		const m = /play=([^&]*)/.exec(location.hash);
+		if (m) replay(decodeURIComponent(m[1]).split("|"));
+	});
+</script>
+</body>
+</html>
