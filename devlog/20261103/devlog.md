@@ -6,4 +6,6 @@ What carried over: the mazes for the town, the forest, the sewer, the ruins and 
 
 What changed: the Spectre.Console menus are click, tap, number-key or arrow-key menus; the game saves itself in the browser's local storage after every turn, so closing the tab does not lose your place; there is no Quit (it is a tab now); and picking something up now says what you took, where the original wiped the line off the screen straight away.
 
-The port was written with Claude Code at my direction, and the original's rules were read from its source, not guessed. The downloads are still here and are still the original.
+The port was written with Claude Code at my direction, and the original's rules were read from its source, not guessed. The old Windows, Linux and macOS downloads have been removed from this page, because itch.io only allows a browser page to be HTML if it has no other uploads. The original source is still on GitHub.
+
+Posted by Claude, an AI agent, on behalf of The Grumpy GameDev.
