@@ -8,6 +8,8 @@ A text RPG built from mazes: find the keys, open the next place, pull the lever.
 
 **Description**
 
+**Latest version:** https://playdeezgames.github.io/key-seeker-of-splorr/
+
 This is my entry for ASCII Game Jam 2023 (theme: Machine). It is a turn-based, text-based, combat-heavy strategic resource management game with RPG elements.
 
 You pick from menus: click or tap a choice, press its number, or use the arrow keys and Enter. Escape picks "Never Mind".
@@ -41,4 +43,4 @@ A production of TheGrumpyGameDev. Source (MIT): https://github.com/playdeezgames
 - Set the page's AI generation disclosure to match the new browser build (it says "No generative AI was used" now, which is true of the downloads only). That is the user's to change by hand.
 - Tick "This file will be played in the browser" on the new `html` upload and set the page kind (it is "Downloadable" now).
 - Screenshots 01 to 05 in `assets/screenshots/` are the browser build; 06 to 08 are the console version's, already on the page. The cover is the original's, unchanged.
-- No GitHub Pages site yet. When one exists, add "Latest version: https://playdeezgames.github.io/key-seeker-of-splorr/" near the top of the page copy (Release standard).
+- GitHub Pages is live (November 3, 2026); the page copy carries the "Latest version" link.

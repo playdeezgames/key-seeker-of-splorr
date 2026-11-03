@@ -13,7 +13,7 @@ ASCII Game Jam 2023 (theme: Machine), by TheGrumpyGameDev. A turn-based text RPG
 ## Playing
 
 - Itch.io: https://thegrumpygamedev.itch.io/key-seeker-of-splorr (the browser build, plus the original Windows, Linux and macOS downloads).
-- GitHub Pages: not set up yet.
+- GitHub Pages: https://playdeezgames.github.io/key-seeker-of-splorr/ (`tools/pages.sh`, commit `docs/`, push).
 
 ## The Odin port (November 2026)
 
