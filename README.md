@@ -24,6 +24,6 @@ The game was rewritten from VB.NET and Spectre.Console to Odin, compiled to WebA
 - `tools/test.sh` runs the tests natively and type-checks for wasm; `tools/build.sh [--size]` builds into `build/web`; `tools/serve.sh` serves it; `tools/ship.sh` prepares the itch.io build (pushes only with `--push`); `tools/pages.sh` builds `docs/` for GitHub Pages.
 - Needs [Odin](https://odin-lang.org/) (developed on `dev-2026-07`).
 
-The original VB.NET source is still under `src/` and the old `pub-*` folders hold its published builds; they will be removed from the tree once the browser build is live (they stay in git history).
+The original VB.NET source and its published desktop builds were removed from the tree on November 3, 2026, once the browser build was live; they stay in git history (before the commit that removed `src/`).
 
 Licence: MIT.
